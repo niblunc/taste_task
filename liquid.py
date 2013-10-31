@@ -106,9 +106,14 @@ except:
 
 diameter=26.59
 mls_to_deliver=0.5
-delivery_time=5.0
-cue_time=3.0
-rate = 0.5*(3600.0/5.0)  # mls/hour
+delivery_time=2.0
+cue_time=2.0
+wait_time=2.0
+rinse_time=2.0
+swallow_time=2.0
+trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
+
+rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
 
 trialcond=N.zeros(24).astype('int')
 
@@ -127,7 +132,7 @@ N.random.shuffle(trialcond)
 pump[trialcond==1]=1
 pump[trialcond==2]=1
 
-trial_length=10.0
+
 
 onsets=N.arange(0,ntrials*trial_length,step=trial_length)
 
@@ -201,12 +206,33 @@ for trial in range(ntrials):
     else:
         print 'no pump: should be injecting via pump at address %d'%pump[trial]
 
-    message.draw()
     while clock.getTime()<(trialdata['onset']+cue_time+delivery_time):#wait until liquid is delivered
         pass
+    message.draw()
     win.flip()
     if hasPump:
         trialdata['dis']=[dev.sendCmd('0DIS'),dev.sendCmd('1DIS')]
+
+
+    while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time):
+        pass
+
+    if hasPump:
+        print 'injecting rinse via pump at address %d'%0
+        dev.sendCmd('%dRUN'%0)
+    else:
+        print 'no pump: should be injecting rinse via pump at address %d'%pump[trial]
+
+    while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
+        pass
+
+    message=visual.TextStim(win, text='swallow')
+    message.draw()
+    win.flip()
+    
+    while clock.getTime()<(trialdata['onset']+trial_length):
+        pass
+
     subdata['trialdata'][trial]=trialdata           
 
 win.close()
