@@ -5,7 +5,7 @@ deliver juice
 import numpy as N
 import syringe_pump
 from psychopy import visual, core, event, logging, data, misc, sound
-import sys,os
+import sys,os,pickle
 import socket
 from socket import gethostname
 import inspect
@@ -188,6 +188,7 @@ for trial in range(ntrials):
     print 'trial %d'%trial
     trialdata['onset']=onsets[trial]
     print 'condition %d'%trialcond[trial]
+    logging.log(logging.DATA,'Condition: %d'%trialcond[trial])
     print 'showing image: %s'%stim_images[trialcond[trial]]
     visual_stim.setImage(stim_images[trialcond[trial]])
     visual_stim.draw()
@@ -202,12 +203,15 @@ for trial in range(ntrials):
 
     if hasPump:
         print 'injecting via pump at address %d'%pump[trial]
+        logging.log(logging.DATA,'injecting via pump at address %d'%pump[trial])
+
         dev.sendCmd('%dRUN'%pump[trial])
     else:
         print 'no pump: should be injecting via pump at address %d'%pump[trial]
 
     while clock.getTime()<(trialdata['onset']+cue_time+delivery_time):#wait until liquid is delivered
         pass
+    message=visual.TextStim(win, text='')
     message.draw()
     win.flip()
     if hasPump:
@@ -229,7 +233,13 @@ for trial in range(ntrials):
     message=visual.TextStim(win, text='swallow')
     message.draw()
     win.flip()
-    
+
+    while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+swallow_time):
+        pass
+    message=visual.TextStim(win, text='')
+    message.draw()
+    win.flip()
+
     while clock.getTime()<(trialdata['onset']+trial_length):
         pass
 
@@ -238,3 +248,6 @@ for trial in range(ntrials):
 win.close()
 
 #print dev.sendCmd('VER')
+f=open('Output/liquid_subdata_%s.pkl'%datestamp,'wb')
+pickle.dump(subdata,f)
+f.close()
