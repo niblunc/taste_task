@@ -7,7 +7,7 @@ import sys,os,pickle
 ################################################
 sys.path.insert(0, '/Users/imagining/Downloads/pyserial-2.6')
 #####THIS IS IMPORTANT DON'T MESS WITH IT#######
-sys.path.insert('/Users/imagining/Desktop/liquid_working')
+sys.path.append('/Users/imagining/Desktop/liquid_working')
 
 import syringe_pump
 from psychopy import visual, core, event, logging, data, misc, sound
