@@ -1,7 +1,7 @@
 """
 deliver juice
 """
-
+import psychopy.app 
 import numpy as N
 import syringe_pump
 from psychopy import visual, core, event, logging, data, misc, sound
@@ -9,7 +9,7 @@ import sys,os,pickle
 import socket
 from socket import gethostname
 import inspect
-sys.path.append('/Applications/liquid/psychtask/')
+sys.path.append('/Users/gs24494/Documents/liquid/psychtask/')
 
 import exptutils
 from exptutils import *

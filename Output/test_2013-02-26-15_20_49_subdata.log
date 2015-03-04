@@ -1,0 +1,8 @@
+2.5780	INFO	Loaded calibration from:2012_07_24 20:26
+2.5780	INFO	['2012_07_24 20:26']
+2.5790	INFO	configured pyglet screen 0
+2.8243	INFO	Using gamma table of operating system
+2.9303	EXP	Set Window color=[ 0.  0.  0.] (rgb)
+3.9797	EXP	Started presenting 
+4.6177	DATA	Keypress: q
+4.6257	DATA	Key pressed: q

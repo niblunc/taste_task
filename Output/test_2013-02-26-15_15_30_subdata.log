@@ -1,0 +1,17 @@
+3.2029	INFO	Loaded calibration from:2012_07_24 20:26
+3.2029	INFO	['2012_07_24 20:26']
+3.2040	INFO	configured pyglet screen 0
+3.4075	INFO	Using gamma table of operating system
+3.4446	DATA	Mouse: Left button down, pos=(249,269)
+3.4458	DATA	Mouse: Left button up, pos=(249,269)
+3.4789	EXP	Set Window color=[ 0.  0.  0.] (rgb)
+4.1467	EXP	Started presenting 
+41.1735	DATA	Keypress: 5
+41.1745	DATA	Key pressed: 5
+41.1972	EXP	Set  text=
+41.3139	EXP	Set  image=bottled_water.jpg
+51.2291	EXP	Set  image=tampico.jpg
+61.2307	EXP	Set  image=bottled_water.jpg
+71.2308	EXP	Set  image=tampico.jpg
+81.2131	EXP	Set  image=tampico.jpg
+91.2146	EXP	Set  image=tampico.jpg

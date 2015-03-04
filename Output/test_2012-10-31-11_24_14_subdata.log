@@ -1,0 +1,184 @@
+242.2561	INFO	Loaded calibration from:2012_10_31 09:11
+242.2561	INFO	['2012_10_31 09:11']
+242.2570	INFO	configured pyglet screen 0
+242.3633	INFO	Using gamma table of operating system
+242.4117	EXP	Set Window color=[ 0.  0.  0.] (rgb)
+243.3648	EXP	Set  image=bottled_water.jpg
+252.2270	EXP	Set  image=bottled_water.jpg
+262.2262	EXP	Set  image=bottled_water.jpg
+272.2922	EXP	Set  image=bottled_water.jpg
+282.2245	EXP	Set  image=bottled_water.jpg
+292.2238	EXP	Set  image=bottled_water.jpg
+302.2230	EXP	Set  image=bottled_water.jpg
+312.6403	EXP	Set  image=bottled_water.jpg
+322.7565	EXP	Set  image=bottled_water.jpg
+332.4380	EXP	Set  image=bottled_water.jpg
+342.2199	EXP	Set  image=bottled_water.jpg
+352.2191	EXP	Set  image=bottled_water.jpg
+362.2183	EXP	Set  image=tampico.jpg
+375.2440	EXP	Set  image=tampico.jpg
+385.6780	EXP	Set  image=tampico.jpg
+392.2159	EXP	Set  image=tampico.jpg
+403.0344	EXP	Set  image=tampico.jpg
+413.0837	EXP	Set  image=tampico.jpg
+424.1197	EXP	Set  image=tampico.jpg
+432.8816	EXP	Set  image=tampico.jpg
+442.6801	EXP	Set  image=tampico.jpg
+452.2279	EXP	Set  image=tampico.jpg
+462.2270	EXP	Set  image=tampico.jpg
+473.4469	EXP	Set  image=tampico.jpg
+640.0331	INFO	Loaded calibration from:2012_10_31 09:11
+640.0332	INFO	['2012_10_31 09:11']
+640.0749	INFO	configured pyglet screen 0
+640.1785	INFO	Using gamma table of operating system
+640.2232	EXP	Set Window color=[ 0.  0.  0.] (rgb)
+651.9450	INFO	Loaded calibration from:2012_10_31 09:11
+651.9451	INFO	['2012_10_31 09:11']
+651.9458	INFO	configured pyglet screen 0
+651.9944	INFO	Using gamma table of operating system
+652.0618	EXP	Set Window color=[ 0.  0.  0.] (rgb)
+652.5466	EXP	Started presenting 
+652.5466	EXP	Set  image=bottled_water.jpg
+661.9606	EXP	Set  image=bottled_water.jpg
+671.9765	EXP	Set  image=bottled_water.jpg
+681.9590	EXP	Set  image=bottled_water.jpg
+691.9583	EXP	Set  image=bottled_water.jpg
+701.9574	EXP	Set  image=bottled_water.jpg
+711.9567	EXP	Set  image=bottled_water.jpg
+721.9726	EXP	Set  image=bottled_water.jpg
+731.9717	EXP	Set  image=bottled_water.jpg
+741.9710	EXP	Set  image=bottled_water.jpg
+751.9701	EXP	Set  image=bottled_water.jpg
+761.9694	EXP	Set  image=bottled_water.jpg
+771.9686	EXP	Set  image=tampico.jpg
+781.9678	EXP	Set  image=tampico.jpg
+791.9670	EXP	Set  image=tampico.jpg
+801.9662	EXP	Set  image=tampico.jpg
+811.9655	EXP	Set  image=tampico.jpg
+821.9647	EXP	Set  image=tampico.jpg
+831.9638	EXP	Set  image=tampico.jpg
+841.9631	EXP	Set  image=tampico.jpg
+859.4100	INFO	Loaded calibration from:2012_10_31 09:11
+859.4100	INFO	['2012_10_31 09:11']
+859.4107	INFO	configured pyglet screen 0
+859.4658	INFO	Using gamma table of operating system
+859.5038	EXP	Set Window color=[ 0.  0.  0.] (rgb)
+859.9216	EXP	Started presenting 
+859.9216	EXP	Set  image=bottled_water.jpg
+900.7899	INFO	Loaded calibration from:2012_10_31 09:11
+900.7899	INFO	['2012_10_31 09:11']
+900.7911	INFO	configured pyglet screen 0
+900.8580	INFO	Using gamma table of operating system
+900.9050	EXP	Set Window color=[ 0.  0.  0.] (rgb)
+901.3230	EXP	Started presenting 
+901.3230	EXP	Set  image=tampico.jpg
+908.6971	EXP	Set  image=[[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]]
+910.7036	EXP	Set  image=tampico.jpg
+918.6963	EXP	Set  image=[[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]]
+920.7028	EXP	Set  image=tampico.jpg
+928.6955	EXP	Set  image=[[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]]
+930.7020	EXP	Set  image=bottled_water.jpg
+938.8284	EXP	Set  image=[[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]]
+940.7011	EXP	Set  image=tampico.jpg
+948.6939	EXP	Set  image=[[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]]
+950.7171	EXP	Set  image=tampico.jpg
+958.7098	EXP	Set  image=[[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]]
+960.7163	EXP	Set  image=tampico.jpg
+968.7089	EXP	Set  image=[[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]]
+970.7156	EXP	Set  image=tampico.jpg
+978.7082	EXP	Set  image=[[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]]
+980.7482	EXP	Set  image=bottled_water.jpg
+988.7075	EXP	Set  image=[[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]]
+990.7140	EXP	Set  image=bottled_water.jpg
+998.7066	EXP	Set  image=[[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]]
+1000.7132	EXP	Set  image=bottled_water.jpg

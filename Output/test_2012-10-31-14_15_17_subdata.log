@@ -1,0 +1,54 @@
+16.2395	INFO	Loaded calibration from:2012_10_31 09:11
+16.2395	INFO	['2012_10_31 09:11']
+16.2405	INFO	configured pyglet screen 0
+17.3785	INFO	Using gamma table of operating system
+17.5134	DATA	Keypress: j
+17.5168	DATA	Keypress: o
+17.5173	DATA	Keypress: y
+17.5185	DATA	Mouse: Left button up, pos=(-279,496)
+17.5346	EXP	Set Window color=[ 0.  0.  0.] (rgb)
+18.1197	EXP	Started presenting 
+70.8834	DATA	Mouse: Left button down, pos=(629,326)
+70.9740	DATA	Mouse: Left button up, pos=(629,326)
+74.1911	DATA	Mouse: Left button down, pos=(93,422)
+74.2920	DATA	Mouse: Left button up, pos=(94,422)
+75.2611	DATA	Keypress: 5
+75.2615	DATA	Key pressed: 5
+75.2725	EXP	Set  text=
+75.3728	EXP	Set  image=bottled_water.jpg
+85.2883	EXP	Set  image=bottled_water.jpg
+95.2876	EXP	Set  image=tampico.jpg
+105.2868	EXP	Set  image=tampico.jpg
+115.3194	EXP	Set  image=bottled_water.jpg
+125.2853	EXP	Set  image=tampico.jpg
+135.2845	EXP	Set  image=tampico.jpg
+143.2912	DATA	Mouse: Left button up, pos=(624,613)
+143.3197	DATA	Mouse: Left button up, pos=(561,616)
+145.3004	EXP	Set  image=bottled_water.jpg
+155.2996	EXP	Set  image=tampico.jpg
+165.2988	EXP	Set  image=tampico.jpg
+175.2980	EXP	Set  image=bottled_water.jpg
+185.2777	DATA	Mouse: Left button up, pos=(313,613)
+185.2975	EXP	Set  image=tampico.jpg
+195.2965	EXP	Set  image=bottled_water.jpg
+205.2957	EXP	Set  image=bottled_water.jpg
+215.2949	EXP	Set  image=bottled_water.jpg
+225.2940	EXP	Set  image=tampico.jpg
+235.2933	EXP	Set  image=bottled_water.jpg
+245.2926	EXP	Set  image=tampico.jpg
+255.3085	EXP	Set  image=bottled_water.jpg
+265.2910	EXP	Set  image=bottled_water.jpg
+275.3075	EXP	Set  image=tampico.jpg
+285.2894	EXP	Set  image=tampico.jpg
+295.2886	EXP	Set  image=bottled_water.jpg
+305.2878	EXP	Set  image=tampico.jpg
+6969.2531	INFO	Loaded calibration from:2012_10_31 09:11
+6969.2532	INFO	['2012_10_31 09:11']
+6970.0118	INFO	configured pyglet screen 0
+6973.5376	INFO	Using gamma table of operating system
+6973.8332	EXP	Set Window color=[ 0.  0.  0.] (rgb)
+6975.3816	EXP	Started presenting 
+7072.9851	DATA	Keypress: 5
+7073.0449	DATA	Key pressed: 5
+7073.0661	EXP	Set  text=
+7073.6848	EXP	Set  image=tampico.jpg

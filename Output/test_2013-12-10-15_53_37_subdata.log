@@ -1,0 +1,84 @@
+17.6880	INFO	Loaded calibration from:2013_11_04 10:21
+17.6880	INFO	['2013_11_04 10:21']
+17.6889	INFO	configured pyglet screen 0
+18.0188	INFO	Using gamma table of operating system
+18.0407	EXP	Set Window color=[ 0.  0.  0.] (rgb)
+18.6587	EXP	Started presenting 
+1330.7495	DATA	Mouse: Left button up, pos=(544,602)
+1333.1816	DATA	Mouse: Left button up, pos=(272,614)
+1336.9016	DATA	Mouse: Left button up, pos=(146,608)
+1610.9253	DATA	Keypress: 5
+1610.9259	DATA	Key pressed: 5
+1610.9517	EXP	Set  text=
+1610.9532	Level Condition: 3	25
+1611.0350	EXP	Set  image=tampico.jpg
+1612.9531	Level injecting via pump at address 0	25
+1620.9728	Level Condition: 3	25
+1621.0392	EXP	Set  image=tampico.jpg
+1622.9531	Level injecting via pump at address 0	25
+1630.9768	Level Condition: 2	25
+1631.0433	EXP	Set  image=tampico.jpg
+1632.9531	Level injecting via pump at address 1	25
+1640.9644	Level Condition: 0	25
+1641.0307	EXP	Set  image=bottled_water.jpg
+1642.9531	Level injecting via pump at address 0	25
+1650.9684	Level Condition: 2	25
+1651.0349	EXP	Set  image=tampico.jpg
+1652.9531	Level injecting via pump at address 1	25
+1660.9725	Level Condition: 0	25
+1661.0390	EXP	Set  image=bottled_water.jpg
+1662.9531	Level injecting via pump at address 0	25
+1670.9600	Level Condition: 1	25
+1671.0265	EXP	Set  image=bottled_water.jpg
+1672.9531	Level injecting via pump at address 1	25
+1680.9641	Level Condition: 2	25
+1681.0305	EXP	Set  image=tampico.jpg
+1682.9531	Level injecting via pump at address 1	25
+1690.9681	Level Condition: 3	25
+1691.0346	EXP	Set  image=tampico.jpg
+1692.9531	Level injecting via pump at address 0	25
+1700.9724	Level Condition: 1	25
+1701.0387	EXP	Set  image=bottled_water.jpg
+1702.9531	Level injecting via pump at address 1	25
+1710.9764	Level Condition: 2	25
+1711.0428	EXP	Set  image=tampico.jpg
+1712.9531	Level injecting via pump at address 1	25
+1720.9638	Level Condition: 0	25
+1721.0137	EXP	Set  image=bottled_water.jpg
+1722.9531	Level injecting via pump at address 0	25
+1730.9680	Level Condition: 0	25
+1731.0345	EXP	Set  image=bottled_water.jpg
+1732.9531	Level injecting via pump at address 0	25
+1740.9720	Level Condition: 2	25
+1741.0385	EXP	Set  image=tampico.jpg
+1742.9531	Level injecting via pump at address 1	25
+1750.9762	Level Condition: 3	25
+1751.0426	EXP	Set  image=tampico.jpg
+1752.9531	Level injecting via pump at address 0	25
+1760.9636	Level Condition: 0	25
+1761.0301	EXP	Set  image=bottled_water.jpg
+1762.9531	Level injecting via pump at address 0	25
+1770.9678	Level Condition: 2	25
+1771.0343	EXP	Set  image=tampico.jpg
+1772.9531	Level injecting via pump at address 1	25
+1780.9719	Level Condition: 0	25
+1781.0383	EXP	Set  image=bottled_water.jpg
+1782.9531	Level injecting via pump at address 0	25
+1790.9760	Level Condition: 1	25
+1791.0424	EXP	Set  image=bottled_water.jpg
+1792.9531	Level injecting via pump at address 1	25
+1800.9634	Level Condition: 2	25
+1801.0299	EXP	Set  image=tampico.jpg
+1802.9531	Level injecting via pump at address 1	25
+1810.9676	Level Condition: 0	25
+1811.0340	EXP	Set  image=bottled_water.jpg
+1812.9531	Level injecting via pump at address 0	25
+1820.9716	Level Condition: 2	25
+1821.0381	EXP	Set  image=tampico.jpg
+1822.9531	Level injecting via pump at address 1	25
+1830.9758	Level Condition: 0	25
+1831.0422	EXP	Set  image=bottled_water.jpg
+1832.9531	Level injecting via pump at address 0	25
+1840.9799	Level Condition: 1	25
+1841.0464	EXP	Set  image=bottled_water.jpg
+1842.9531	Level injecting via pump at address 1	25

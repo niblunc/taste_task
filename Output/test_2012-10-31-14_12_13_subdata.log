@@ -1,0 +1,24 @@
+221.6151	INFO	Loaded calibration from:2012_10_31 09:11
+221.6151	INFO	['2012_10_31 09:11']
+221.7388	INFO	configured pyglet screen 0
+225.0833	INFO	Using gamma table of operating system
+225.5825	EXP	Set Window color=[ 0.  0.  0.] (rgb)
+227.3875	EXP	Started presenting 
+227.3875	EXP	Set  image=tampico.jpg
+229.9792	EXP	Set  image=tampico.jpg
+239.9785	EXP	Set  image=bottled_water.jpg
+249.9777	EXP	Set  image=tampico.jpg
+259.9769	EXP	Set  image=bottled_water.jpg
+269.9761	EXP	Set  image=tampico.jpg
+3217.7039	INFO	Loaded calibration from:2012_10_31 09:11
+3217.7040	INFO	['2012_10_31 09:11']
+3217.7095	INFO	configured pyglet screen 0
+3218.0388	INFO	Using gamma table of operating system
+3218.1889	EXP	Set Window color=[ 0.  0.  0.] (rgb)
+3220.4797	EXP	Started presenting 
+3220.4797	EXP	Started presenting 
+3222.8729	DATA	Keypress: 5
+3222.8773	DATA	Key pressed: 5
+3222.9042	EXP	Set  text=
+3223.2053	EXP	Set  image=tampico.jpg
+3232.9202	EXP	Set  image=bottled_water.jpg
