@@ -63,8 +63,8 @@ def wait_for_trigger():
     return True
 
 subdata={}
-subdata['subcode']='test'
-#subdata['subdata']=raw_input('subject id: ')
+#subdata['subcode']='test'
+subdata['subcode']=raw_input('subject id: ')
 
 # initialize subdata dictionary to store info about the study
 subdata['completed']=0
