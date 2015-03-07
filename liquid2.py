@@ -1,6 +1,7 @@
 """
 deliver juice
 """
+#####to run, in shell window <execfile("liquid2.py"), it initially doesn't work run via gui, then close and run cmdline#####
 import psychopy.app
 import numpy as N
 import sys,os,pickle
