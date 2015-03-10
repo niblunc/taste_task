@@ -9,6 +9,7 @@ import sys,os,pickle
 import socket
 from socket import gethostname
 import inspect
+sys.path.insert(0, '/Users/imagining/Downloads/pyserial-2.6')
 sys.path.append('/Applications/liquid/psychtask/')
 
 import exptutils
