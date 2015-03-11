@@ -1,0 +1,15 @@
+670.4208 	DATA 	Mouse: Left button down, pos=(279,303)
+670.4208 	DATA 	Mouse: Left button up, pos=(279,303)
+670.4210 	DATA 	Keypress: lcommand
+670.4210 	DATA 	Keypress: grave
+670.4211 	DATA 	Keypress: grave
+686.0638 	DATA 	Keypress: 5
+686.1363 	Level Condition: 0
+ 	25
+688.1093 	Level injecting via pump at address 0
+ 	25
+696.1259 	Level Condition: 2
+ 	25
+698.1065 	Level injecting via pump at address 1
+ 	25
+704.1245 	DATA 	Keypress: q

@@ -1,0 +1,545 @@
+9603.1811 	INFO 	Loaded monitor calibration from ['2015_03_03 13:07']
+9603.5915 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color=array([ 0.,  0.,  0.]), colorSpace='rgb', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x15630f08>, name='window1', pos=[560, 240], screen=0, size=array([800, 600]), stereo=False, units='deg', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+9603.5991 	EXP 	Created unnamed ImageStim = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, image=ndarray(...), interpolate=False, mask=None, maskParams=None, name='unnamed ImageStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.75,  0.75]), texRes=128, units='height', win=Window(...))
+9603.6199 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='BiauKai', fontFiles=[], height=1, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=unicode(...), units='deg', win=Window(...), wrapWidth=50)
+9603.6239 	EXP 	unnamed TextStim: autoDraw = True
+9612.1740 	DATA 	Mouse: unknownButton button up, pos=(230,608)
+9634.8200 	DATA 	Keypress: 5
+9634.8228 	EXP 	unnamed TextStim: text = ''
+9634.8438 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9634.8606 	Level Condition: 2 	25
+9634.9073 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+9636.8485 	Level injecting via pump at address 1 	25
+9638.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9638.8611 	DATA 	Keypress: 5
+9638.8615 	DATA 	Keypress: 5
+9638.8619 	DATA 	Keypress: 5
+9642.8503 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9642.8662 	DATA 	Keypress: 5
+9642.8667 	DATA 	Keypress: 5
+9642.8670 	DATA 	Keypress: 5
+9644.8454 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9644.8465 	DATA 	Keypress: 5
+9644.8468 	DATA 	Keypress: 5
+9644.8682 	Level Condition: 3 	25
+9644.9096 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+9646.8446 	Level injecting via pump at address 0 	25
+9648.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9648.8608 	DATA 	Keypress: 5
+9648.8612 	DATA 	Keypress: 5
+9648.8615 	DATA 	Keypress: 5
+9648.8619 	DATA 	Keypress: 5
+9652.8486 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9652.8650 	DATA 	Keypress: 5
+9652.8765 	DATA 	Keypress: 5
+9652.8771 	DATA 	Keypress: 5
+9654.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9654.8464 	DATA 	Keypress: 5
+9654.8468 	DATA 	Keypress: 5
+9654.8643 	Level Condition: 2 	25
+9654.8948 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+9656.8446 	Level injecting via pump at address 1 	25
+9658.8464 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9658.8644 	DATA 	Keypress: 5
+9658.8648 	DATA 	Keypress: 5
+9658.8651 	DATA 	Keypress: 5
+9662.8514 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9662.8686 	DATA 	Keypress: 5
+9662.8690 	DATA 	Keypress: 5
+9662.8694 	DATA 	Keypress: 5
+9662.8697 	DATA 	Keypress: 5
+9664.8454 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9664.8465 	DATA 	Keypress: 5
+9664.8681 	Level Condition: 0 	25
+9664.9096 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+9666.8446 	Level injecting via pump at address 0 	25
+9668.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9668.8620 	DATA 	Keypress: 5
+9668.8857 	DATA 	Keypress: 5
+9668.8863 	DATA 	Keypress: 5
+9668.8870 	DATA 	Keypress: 5
+9672.8487 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9672.8673 	DATA 	Keypress: 5
+9674.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9674.8494 	DATA 	Mouse: unknownButton button up, pos=(143,611)
+9674.8905 	Level Condition: 2 	25
+9674.9311 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+9676.8446 	Level injecting via pump at address 1 	25
+9678.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9682.8483 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9684.8460 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9684.8561 	Level Condition: 1 	25
+9684.8868 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+9686.8446 	Level injecting via pump at address 1 	25
+9688.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9692.8502 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9694.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9694.8471 	DATA 	Mouse: Left button down, pos=(298,463)
+9694.8742 	DATA 	Mouse: Left button up, pos=(298,463)
+9694.9094 	Level Condition: 0 	25
+9694.9331 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+9696.8449 	Level injecting via pump at address 0 	25
+9698.8462 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9702.8489 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9704.8456 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9704.8756 	Level Condition: 2 	25
+9704.9004 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+9706.8446 	Level injecting via pump at address 1 	25
+9708.8463 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9712.8485 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9714.8454 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9721.7774 	Level Condition: 0 	25
+9721.8079 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+9721.8089 	Level injecting via pump at address 0 	25
+9722.3330 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9723.9322 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9724.9039 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9724.9186 	Level Condition: 0 	25
+9724.9507 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+9726.8448 	Level injecting via pump at address 0 	25
+9728.8456 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9732.8485 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9740.4097 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9740.4303 	Level Condition: 2 	25
+9740.4613 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+9740.4622 	Level injecting via pump at address 1 	25
+9740.9859 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9742.8490 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9744.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9744.8563 	Level Condition: 2 	25
+9744.8688 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+9746.8452 	Level injecting via pump at address 1 	25
+9748.8459 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9752.8488 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9754.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9754.8711 	Level Condition: 0 	25
+9754.8925 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+9756.8446 	Level injecting via pump at address 0 	25
+9758.8463 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9762.8489 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9764.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9764.8531 	Level Condition: 3 	25
+9764.8697 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+9766.8446 	Level injecting via pump at address 0 	25
+9768.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9772.8486 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9774.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9774.8679 	Level Condition: 0 	25
+9774.8878 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+9776.8446 	Level injecting via pump at address 0 	25
+9778.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9782.8494 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9784.8457 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9784.8538 	Level Condition: 3 	25
+9784.8672 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+9786.8449 	Level injecting via pump at address 0 	25
+9788.8454 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9792.8491 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9794.8464 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9794.8761 	Level Condition: 0 	25
+9794.8946 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+9796.8446 	Level injecting via pump at address 0 	25
+9798.8454 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9802.8487 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9804.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9804.8497 	Level Condition: 3 	25
+9804.8615 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+9806.8446 	Level injecting via pump at address 0 	25
+9808.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9812.8484 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9814.8454 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9814.8488 	Level Condition: 0 	25
+9814.8667 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+9816.8446 	Level injecting via pump at address 0 	25
+9818.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9822.8495 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9824.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9824.8497 	Level Condition: 2 	25
+9824.8695 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+9826.8446 	Level injecting via pump at address 1 	25
+9828.8456 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9832.8503 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9834.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9834.8755 	Level Condition: 1 	25
+9834.8961 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+9836.8448 	Level injecting via pump at address 1 	25
+9838.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9842.8488 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9844.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9844.8499 	Level Condition: 2 	25
+9844.8625 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+9846.8451 	Level injecting via pump at address 1 	25
+9848.8463 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9852.8486 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9854.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9854.8502 	Level Condition: 1 	25
+9854.8704 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+9856.8448 	Level injecting via pump at address 1 	25
+9858.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9862.8485 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9864.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9864.8503 	Level Condition: 1 	25
+9864.8827 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+9866.8447 	Level injecting via pump at address 1 	25
+9868.8454 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9872.8486 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9874.8455 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9959.1372 	INFO 	Loaded monitor calibration from ['2015_03_03 13:07']
+9959.5788 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color=array([ 0.,  0.,  0.]), colorSpace='rgb', fullscr=UNKNOWN, gamma=None, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor instance at 0x17c80530>, name='window1', pos=[560, 240], screen=0, size=array([800, 600]), stereo=False, units='deg', useFBO=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+9959.5862 	EXP 	Created unnamed ImageStim = ImageStim(autoLog=True, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, image=ndarray(...), interpolate=False, mask=None, maskParams=None, name='unnamed ImageStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), size=array([ 0.75,  0.75]), texRes=128, units='height', win=Window(...))
+9959.6072 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='BiauKai', fontFiles=[], height=1, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text=unicode(...), units='deg', win=Window(...), wrapWidth=50)
+9959.6111 	EXP 	unnamed TextStim: autoDraw = True
+9962.3460 	DATA 	Mouse: unknownButton button up, pos=(260,605)
+9988.9980 	DATA 	Keypress: 5
+9989.0016 	EXP 	unnamed TextStim: text = ''
+9989.0254 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9989.0536 	Level Condition: 2 	25
+9989.0945 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+9991.0303 	Level injecting via pump at address 1 	25
+9993.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9993.0424 	DATA 	Keypress: 5
+9993.0429 	DATA 	Keypress: 5
+9993.0432 	DATA 	Keypress: 5
+9997.0317 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+9997.0477 	DATA 	Keypress: 5
+9997.0482 	DATA 	Keypress: 5
+9997.0597 	DATA 	Keypress: 5
+9999.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+9999.0280 	DATA 	Keypress: 5
+9999.0284 	DATA 	Keypress: 5
+9999.0443 	Level Condition: 1 	25
+9999.0854 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+10001.0263 	Level injecting via pump at address 1 	25
+10003.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10003.0423 	DATA 	Keypress: 5
+10003.0427 	DATA 	Keypress: 5
+10003.0430 	DATA 	Keypress: 5
+10003.0435 	DATA 	Keypress: 5
+10007.0302 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10007.0462 	DATA 	Keypress: 5
+10007.0466 	DATA 	Keypress: 5
+10007.0469 	DATA 	Keypress: 5
+10009.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10009.0281 	DATA 	Keypress: 5
+10009.0285 	DATA 	Keypress: 5
+10009.0468 	Level Condition: 2 	25
+10009.0900 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+10011.0263 	Level injecting via pump at address 1 	25
+10013.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10013.0431 	DATA 	Keypress: 5
+10013.0630 	DATA 	Keypress: 5
+10013.0637 	DATA 	Keypress: 5
+10017.0300 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10017.0466 	DATA 	Keypress: 5
+10017.0470 	DATA 	Keypress: 5
+10017.0473 	DATA 	Keypress: 5
+10017.0478 	DATA 	Keypress: 5
+10019.0272 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10019.0283 	DATA 	Keypress: 5
+10019.0500 	Level Condition: 0 	25
+10019.0908 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+10021.0263 	Level injecting via pump at address 0 	25
+10023.0277 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10023.0446 	DATA 	Keypress: 5
+10023.0450 	DATA 	Keypress: 5
+10023.0453 	DATA 	Keypress: 5
+10023.0458 	DATA 	Keypress: 5
+10027.0302 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10027.0470 	DATA 	Keypress: 5
+10027.0502 	DATA 	Keypress: 5
+10027.0506 	DATA 	Keypress: 5
+10029.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10029.0282 	DATA 	Keypress: 5
+10029.0312 	DATA 	Keypress: 5
+10029.0414 	Level Condition: 1 	25
+10029.0863 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+10031.0263 	Level injecting via pump at address 1 	25
+10033.0282 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10033.0469 	DATA 	Keypress: 5
+10033.0473 	DATA 	Keypress: 5
+10033.0475 	DATA 	Keypress: 5
+10037.0301 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10037.0474 	DATA 	Keypress: 5
+10037.0477 	DATA 	Keypress: 5
+10037.0481 	DATA 	Keypress: 5
+10037.0484 	DATA 	Keypress: 5
+10039.0270 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10039.0284 	DATA 	Keypress: 5
+10039.0287 	DATA 	Keypress: 5
+10039.0506 	Level Condition: 2 	25
+10039.0920 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+10041.0263 	Level injecting via pump at address 1 	25
+10043.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10043.0456 	DATA 	Keypress: 5
+10043.0462 	DATA 	Keypress: 5
+10043.0467 	DATA 	Keypress: 5
+10047.0301 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10047.0467 	DATA 	Keypress: 5
+10047.0679 	DATA 	Keypress: 5
+10047.0687 	DATA 	Keypress: 5
+10047.0692 	DATA 	Keypress: 5
+10049.0270 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10049.0279 	DATA 	Keypress: 5
+10049.0547 	Level Condition: 3 	25
+10049.0960 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+10051.0263 	Level injecting via pump at address 0 	25
+10053.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10053.0432 	DATA 	Keypress: 5
+10053.0436 	DATA 	Keypress: 5
+10053.0469 	DATA 	Keypress: 5
+10053.0475 	DATA 	Keypress: 5
+10057.0300 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10057.0516 	DATA 	Keypress: 5
+10057.0520 	DATA 	Keypress: 5
+10057.0523 	DATA 	Keypress: 5
+10059.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10059.0282 	DATA 	Keypress: 5
+10059.0286 	DATA 	Keypress: 5
+10059.0442 	Level Condition: 0 	25
+10059.0812 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+10061.0263 	Level injecting via pump at address 0 	25
+10063.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10063.0439 	DATA 	Keypress: 5
+10063.0551 	DATA 	Keypress: 5
+10063.0557 	DATA 	Keypress: 5
+10067.0307 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10067.0474 	DATA 	Keypress: 5
+10067.0478 	DATA 	Keypress: 5
+10067.0482 	DATA 	Keypress: 5
+10067.0485 	DATA 	Keypress: 5
+10069.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10069.0282 	DATA 	Keypress: 5
+10069.0398 	Level Condition: 3 	25
+10069.0597 	DATA 	Keypress: 5
+10069.0651 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+10071.0263 	Level injecting via pump at address 0 	25
+10073.0282 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10073.0494 	DATA 	Keypress: 5
+10073.0499 	DATA 	Keypress: 5
+10073.0505 	DATA 	Keypress: 5
+10077.0301 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10077.0474 	DATA 	Keypress: 5
+10077.0478 	DATA 	Keypress: 5
+10077.0481 	DATA 	Keypress: 5
+10079.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10079.0280 	DATA 	Keypress: 5
+10079.0284 	DATA 	Keypress: 5
+10079.0567 	Level Condition: 0 	25
+10079.0981 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+10081.0263 	Level injecting via pump at address 0 	25
+10083.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10083.0439 	DATA 	Keypress: 5
+10083.0443 	DATA 	Keypress: 5
+10083.0447 	DATA 	Keypress: 5
+10083.0451 	DATA 	Keypress: 5
+10087.0331 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10087.0516 	DATA 	Keypress: 5
+10087.0519 	DATA 	Keypress: 5
+10087.0523 	DATA 	Keypress: 5
+10089.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10089.0282 	DATA 	Keypress: 5
+10089.0286 	DATA 	Keypress: 5
+10089.0441 	Level Condition: 2 	25
+10089.0870 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+10091.0263 	Level injecting via pump at address 1 	25
+10093.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10093.0436 	DATA 	Keypress: 5
+10093.0440 	DATA 	Keypress: 5
+10093.0443 	DATA 	Keypress: 5
+10097.0318 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10097.0492 	DATA 	Keypress: 5
+10097.0609 	DATA 	Keypress: 5
+10097.0614 	DATA 	Keypress: 5
+10097.0618 	DATA 	Keypress: 5
+10099.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10099.0280 	DATA 	Keypress: 5
+10099.0477 	Level Condition: 0 	25
+10099.0886 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+10101.0263 	Level injecting via pump at address 0 	25
+10103.0283 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10103.0479 	DATA 	Keypress: 5
+10103.0483 	DATA 	Keypress: 5
+10103.0486 	DATA 	Keypress: 5
+10103.0492 	DATA 	Keypress: 5
+10107.0304 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10107.0477 	DATA 	Keypress: 5
+10107.0481 	DATA 	Keypress: 5
+10107.0485 	DATA 	Keypress: 5
+10109.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10109.0281 	DATA 	Keypress: 5
+10109.0285 	DATA 	Keypress: 5
+10109.0488 	Level Condition: 1 	25
+10109.0908 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+10111.0264 	Level injecting via pump at address 1 	25
+10113.0272 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10113.0442 	DATA 	Keypress: 5
+10113.0602 	DATA 	Keypress: 5
+10113.0607 	DATA 	Keypress: 5
+10117.0301 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10117.0470 	DATA 	Keypress: 5
+10117.0475 	DATA 	Keypress: 5
+10117.0478 	DATA 	Keypress: 5
+10117.0482 	DATA 	Keypress: 5
+10119.0272 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10119.0281 	DATA 	Keypress: 5
+10119.0285 	DATA 	Keypress: 5
+10119.0465 	Level Condition: 2 	25
+10119.0874 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+10121.0263 	Level injecting via pump at address 1 	25
+10123.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10123.0437 	DATA 	Keypress: 5
+10123.0441 	DATA 	Keypress: 5
+10123.0444 	DATA 	Keypress: 5
+10127.0301 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10127.0474 	DATA 	Keypress: 5
+10127.0479 	DATA 	Keypress: 5
+10127.0482 	DATA 	Keypress: 5
+10127.0486 	DATA 	Keypress: 5
+10129.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10129.0283 	DATA 	Keypress: 5
+10129.0525 	Level Condition: 2 	25
+10129.0937 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+10131.0263 	Level injecting via pump at address 1 	25
+10133.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10133.0431 	DATA 	Keypress: 5
+10133.0435 	DATA 	Keypress: 5
+10133.0438 	DATA 	Keypress: 5
+10133.0443 	DATA 	Keypress: 5
+10137.0320 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10137.0491 	DATA 	Keypress: 5
+10137.0494 	DATA 	Keypress: 5
+10137.0497 	DATA 	Keypress: 5
+10139.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10139.0281 	DATA 	Keypress: 5
+10139.0285 	DATA 	Keypress: 5
+10139.0541 	Level Condition: 2 	25
+10139.0951 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+10141.0263 	Level injecting via pump at address 1 	25
+10143.0272 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10143.0432 	DATA 	Keypress: 5
+10143.0437 	DATA 	Keypress: 5
+10143.0440 	DATA 	Keypress: 5
+10147.0303 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10147.0506 	DATA 	Keypress: 5
+10147.0511 	DATA 	Keypress: 5
+10147.0702 	DATA 	Keypress: 5
+10147.0707 	DATA 	Keypress: 5
+10149.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10149.0281 	DATA 	Keypress: 5
+10149.0480 	Level Condition: 3 	25
+10149.0889 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+10151.0264 	Level injecting via pump at address 0 	25
+10153.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10153.0438 	DATA 	Keypress: 5
+10153.0442 	DATA 	Keypress: 5
+10153.0445 	DATA 	Keypress: 5
+10153.0487 	DATA 	Keypress: 5
+10157.0301 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10157.0513 	DATA 	Keypress: 5
+10157.0517 	DATA 	Keypress: 5
+10157.0519 	DATA 	Keypress: 5
+10159.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10159.0281 	DATA 	Keypress: 5
+10159.0285 	DATA 	Keypress: 5
+10159.0531 	Level Condition: 3 	25
+10159.0943 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+10161.0263 	Level injecting via pump at address 0 	25
+10163.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10163.0438 	DATA 	Keypress: 5
+10163.0558 	DATA 	Keypress: 5
+10163.0562 	DATA 	Keypress: 5
+10163.0570 	DATA 	Keypress: 5
+10167.0308 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10167.0512 	DATA 	Keypress: 5
+10167.0516 	DATA 	Keypress: 5
+10167.0519 	DATA 	Keypress: 5
+10169.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10169.0282 	DATA 	Keypress: 5
+10169.0285 	DATA 	Keypress: 5
+10169.0389 	Level Condition: 1 	25
+10169.0830 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+10171.0263 	Level injecting via pump at address 1 	25
+10173.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10173.0486 	DATA 	Keypress: 5
+10173.0514 	DATA 	Keypress: 5
+10173.0518 	DATA 	Keypress: 5
+10177.0306 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10177.0515 	DATA 	Keypress: 5
+10177.0519 	DATA 	Keypress: 5
+10177.0522 	DATA 	Keypress: 5
+10177.0526 	DATA 	Keypress: 5
+10179.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10179.0280 	DATA 	Keypress: 5
+10179.0431 	Level Condition: 0 	25
+10179.0858 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+10181.0263 	Level injecting via pump at address 0 	25
+10183.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10183.0441 	DATA 	Keypress: 5
+10183.0445 	DATA 	Keypress: 5
+10183.0448 	DATA 	Keypress: 5
+10183.0452 	DATA 	Keypress: 5
+10187.0311 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10187.0481 	DATA 	Keypress: 5
+10187.0485 	DATA 	Keypress: 5
+10187.0488 	DATA 	Keypress: 5
+10189.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10189.0281 	DATA 	Keypress: 5
+10189.0284 	DATA 	Keypress: 5
+10189.0468 	Level Condition: 0 	25
+10189.0787 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+10191.0263 	Level injecting via pump at address 0 	25
+10193.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10193.0435 	DATA 	Keypress: 5
+10193.0439 	DATA 	Keypress: 5
+10193.0442 	DATA 	Keypress: 5
+10197.0302 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10197.0470 	DATA 	Keypress: 5
+10197.0624 	DATA 	Keypress: 5
+10197.0630 	DATA 	Keypress: 5
+10197.0636 	DATA 	Keypress: 5
+10199.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10199.0279 	DATA 	Keypress: 5
+10199.0283 	DATA 	Keypress: 5
+10199.0411 	Level Condition: 0 	25
+10199.0835 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+10201.0263 	Level injecting via pump at address 0 	25
+10203.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10203.0438 	DATA 	Keypress: 5
+10203.0443 	DATA 	Keypress: 5
+10203.0446 	DATA 	Keypress: 5
+10207.0300 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10207.0466 	DATA 	Keypress: 5
+10207.0469 	DATA 	Keypress: 5
+10207.0472 	DATA 	Keypress: 5
+10209.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10209.0280 	DATA 	Keypress: 5
+10209.0284 	DATA 	Keypress: 5
+10209.0488 	Level Condition: 0 	25
+10209.0895 	EXP 	unnamed ImageStim: image = 'bottled_water.jpg'
+10211.0263 	Level injecting via pump at address 0 	25
+10213.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10213.0432 	DATA 	Keypress: 5
+10213.0629 	DATA 	Keypress: 5
+10213.0635 	DATA 	Keypress: 5
+10213.0641 	DATA 	Keypress: 5
+10217.0324 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10217.0495 	DATA 	Keypress: 5
+10217.0499 	DATA 	Keypress: 5
+10217.0502 	DATA 	Keypress: 5
+10219.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10219.0279 	DATA 	Keypress: 5
+10219.0283 	DATA 	Keypress: 5
+10219.0522 	Level Condition: 2 	25
+10219.0923 	EXP 	unnamed ImageStim: image = 'tampico.jpg'
+10221.0263 	Level injecting via pump at address 1 	25
+10223.0278 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10223.0479 	DATA 	Keypress: 5
+10223.0485 	DATA 	Keypress: 5
+10223.0489 	DATA 	Keypress: 5
+10227.0304 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'swallow', units='deg', win=Window(...), wrapWidth=15.0)
+10227.0473 	DATA 	Keypress: 5
+10227.0478 	DATA 	Keypress: 5
+10227.0480 	DATA 	Keypress: 5
+10227.0483 	DATA 	Keypress: 5
+10229.0271 	EXP 	Created unnamed TextStim = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  1.,  1.]), colorSpace='rgb', contrast=1.0, depth=0, flipHoriz=False, flipVert=False, font='', fontFiles=[], height=1.0, italic=False, name='unnamed TextStim', opacity=1.0, ori=0.0, pos=array([ 0.,  0.]), rgb=array([ 1.,  1.,  1.]), text=u'', units='deg', win=Window(...), wrapWidth=15.0)
+10229.0280 	DATA 	Keypress: 5

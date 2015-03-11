@@ -1,6 +1,7 @@
 """
 deliver juice
 """
+sys.path.append('/Users/imagining/Desktop/liquid_working')
 
 import numpy as N
 import syringe_pump
@@ -10,7 +11,6 @@ import socket
 from socket import gethostname
 import inspect
 #sys.path.append('/Applications/liquid/psychtask/')
-sys.path.append('/Users/imagining/Desktop/liquid_working')
 
 import exptutils
 from exptutils import *

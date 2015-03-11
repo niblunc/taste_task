@@ -9,7 +9,7 @@ import sys,os,pickle
 sys.path.insert(0, '/Users/imagining/Downloads/pyserial-2.6')
 #####THIS IS IMPORTANT DON'T MESS WITH IT#######
 sys.path.append('/Users/imagining/Desktop/liquid_working')
-
+import cv2
 import syringe_pump
 from psychopy import visual, core, event, logging, data, misc, sound
 
@@ -92,7 +92,7 @@ subdata['simulated_response']=False
 
 dataFileName='Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
 logging.console.setLevel(logging.INFO)
-logfile=logging.LogFile(dataFileName,level=logging.INFO)
+logfile=logging.LogFile(dataFileName,level=logging.DATA)
 
 
 try:
@@ -197,10 +197,11 @@ for trial in range(ntrials):
     print 'trial %d'%trial
     trialdata['onset']=onsets[trial]
     print 'condition %d'%trialcond[trial]
-    logging.log(logging.DATA,'Condition: %d'%trialcond[trial])
+    logging.log(logging.DATA,"Condition: %d"%trialcond[trial])
     print 'showing image: %s'%stim_images[trialcond[trial]]
     visual_stim.setImage(stim_images[trialcond[trial]])
     visual_stim.draw()
+    logging.log(logging.DATA, "image=%s"%stim_images[trialcond[trial]])
     while clock.getTime()<trialdata['onset']:#wait until the specified onset time to display image_file
         if check_for_quit(subdata,win):
             exptutils.shut_down_cleanly(subdata,win)
@@ -212,7 +213,7 @@ for trial in range(ntrials):
 
     if hasPump:
         print 'injecting via pump at address %d'%pump[trial]
-        logging.log(logging.DATA,'injecting via pump at address %d'%pump[trial])
+        logging.log(logging.DATA,"injecting via pump at address %d"%pump[trial])
 
         dev.sendCmd('%dRUN'%pump[trial])
     else:
