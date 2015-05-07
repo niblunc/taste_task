@@ -1,0 +1,52 @@
+153.2407 	WARNING 	Movie2 stim could not be imported and won't be available
+160.9505 	DATA 	Keypress: 5
+160.9911 	Level Condition: 1 	25
+161.0096 	Level image=bottled_water.jpg 	25
+170.9947 	Level Condition: 3 	25
+171.0001 	Level image=tampico.jpg 	25
+180.9959 	Level Condition: 2 	25
+180.9998 	Level image=tampico.jpg 	25
+190.9976 	Level Condition: 0 	25
+191.0043 	Level image=bottled_water.jpg 	25
+201.0180 	Level Condition: 0 	25
+201.0229 	Level image=bottled_water.jpg 	25
+210.9840 	Level Condition: 2 	25
+210.9871 	Level image=tampico.jpg 	25
+220.9990 	Level Condition: 1 	25
+221.0055 	Level image=bottled_water.jpg 	25
+231.0017 	Level Condition: 2 	25
+231.0063 	Level image=tampico.jpg 	25
+240.9838 	Level Condition: 3 	25
+240.9866 	Level image=tampico.jpg 	25
+250.9842 	Level Condition: 2 	25
+250.9870 	Level image=tampico.jpg 	25
+260.9841 	Level Condition: 0 	25
+260.9891 	Level image=bottled_water.jpg 	25
+270.9837 	Level Condition: 0 	25
+270.9884 	Level image=bottled_water.jpg 	25
+280.9835 	Level Condition: 2 	25
+280.9866 	Level image=tampico.jpg 	25
+290.9912 	Level Condition: 1 	25
+290.9984 	Level image=bottled_water.jpg 	25
+300.9840 	Level Condition: 0 	25
+300.9895 	Level image=bottled_water.jpg 	25
+310.9843 	Level Condition: 3 	25
+310.9882 	Level image=tampico.jpg 	25
+320.9840 	Level Condition: 2 	25
+320.9879 	Level image=tampico.jpg 	25
+330.9845 	Level Condition: 0 	25
+330.9920 	Level image=bottled_water.jpg 	25
+340.9855 	Level Condition: 3 	25
+340.9884 	Level image=tampico.jpg 	25
+350.9849 	Level Condition: 1 	25
+350.9903 	Level image=bottled_water.jpg 	25
+360.9840 	Level Condition: 0 	25
+360.9889 	Level image=bottled_water.jpg 	25
+371.0111 	Level Condition: 0 	25
+371.0160 	Level image=bottled_water.jpg 	25
+380.9833 	DATA 	Mouse: Left button down, pos=(454,598)
+381.0030 	DATA 	Mouse: Left button up, pos=(454,598)
+381.0224 	Level Condition: 2 	25
+381.0267 	Level image=tampico.jpg 	25
+391.1399 	Level Condition: 2 	25
+391.1443 	Level image=tampico.jpg 	25

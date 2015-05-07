@@ -1,0 +1,29 @@
+142.1756 	WARNING 	Movie2 stim could not be imported and won't be available
+160.7366 	DATA 	Keypress: 5
+160.7911 	Level Condition: 1 	25
+160.8094 	Level image=bottled_water.jpg 	25
+162.7647 	Level injecting via pump at address 1 	25
+170.7786 	Level Condition: 3 	25
+170.7847 	Level image=tampico.jpg 	25
+172.7612 	Level injecting via pump at address 0 	25
+174.7754 	DATA 	Keypress: q
+178.7932 	DATA 	Keypress: q
+178.7936 	DATA 	Keypress: q
+178.7941 	DATA 	Keypress: q
+178.7945 	DATA 	Keypress: q
+178.7949 	DATA 	Keypress: q
+178.7953 	DATA 	Keypress: q
+178.7957 	DATA 	Keypress: q
+178.7961 	DATA 	Keypress: q
+178.7965 	DATA 	Keypress: q
+178.7971 	DATA 	Keypress: q
+178.7975 	DATA 	Keypress: q
+178.7979 	DATA 	Keypress: q
+178.7983 	DATA 	Keypress: q
+180.7637 	DATA 	Keypress: q
+180.7640 	DATA 	Keypress: q
+180.7645 	DATA 	Keypress: q
+180.7658 	DATA 	Keypress: q
+180.7662 	DATA 	Keypress: q
+180.7665 	DATA 	Keypress: q
+180.7669 	DATA 	Keypress: q
