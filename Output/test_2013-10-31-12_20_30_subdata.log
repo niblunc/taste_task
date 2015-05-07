@@ -1,6 +1,0 @@
-1.2653	WARNING	pygame audio lib was requested but not loaded: No module named pygame
-1.2661	WARNING	pyo audio lib was requested but not loaded: No module named pyo
-1.2661	WARNING	No audio lib could be loaded. Sounds will not be available.
-1.2661	ERROR	No audio API found. Try installing pygame 1.8+
-1.2714	INFO	Loaded calibration from:2012_07_24 20:26
-1.2714	INFO	['2012_07_24 20:26']
