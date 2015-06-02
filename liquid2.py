@@ -9,7 +9,7 @@ import sys,os,pickle
 #this is a unc edit, changed this path
 sys.path.insert(0, '/Users/gs24494/Documents/pyserial-2.6')
 #####THIS IS IMPORTANT DON'T MESS WITH IT#######
-sys.path.append('/Users/imagining/Desktop/liquid_working')
+sys.path.append('/Users/gs24494/Documents/taste_task')
 import cv2
 import syringe_pump
 from psychopy import visual, core, event, logging, data, misc, sound
