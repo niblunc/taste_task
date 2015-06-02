@@ -6,7 +6,8 @@ import psychopy.app
 import numpy as N
 import sys,os,pickle
 ################################################
-sys.path.insert(0, '/Users/imagining/Downloads/pyserial-2.6')
+#this is a unc edit, changed this path
+sys.path.insert(0, '/Users/gs24494/Documents/pyserial-2.6')
 #####THIS IS IMPORTANT DON'T MESS WITH IT#######
 sys.path.append('/Users/imagining/Desktop/liquid_working')
 import cv2
