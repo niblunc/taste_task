@@ -259,6 +259,6 @@ for trial in range(ntrials):
 win.close()
 
 #print dev.sendCmd('VER')
-f=open('Output/liquid_subdata_%s.pkl'%datestamp,'wb')
+f=open('/Users/nibl/Documents/Output/liquid_subdata_%s.pkl'%datestamp,'wb')
 pickle.dump(subdata,f)
 f.close()
