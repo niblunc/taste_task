@@ -90,7 +90,7 @@ subdata['start_key']='5'
 subdata['quit_key']='q'
 
 subdata['simulated_response']=False
-
+#where to save the data 
 dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
 logging.console.setLevel(logging.INFO)
 logfile=logging.LogFile(dataFileName,level=logging.DATA)
@@ -111,9 +111,7 @@ except:
 #from new_era import PumpInterface
 #pi = PumpInterface(port='/dev/tty.usbserial')
 
-# deliver 0.5 ml over 5 seconds
-# equates to
-
+#parameters for how much liquid and how long
 diameter=26.59
 mls_to_deliver=0.5
 delivery_time=2.0
@@ -127,10 +125,13 @@ rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
 
 trialcond=N.zeros(24).astype('int')
 
+#trial conditions, need to change here for training or prediction error
 trialcond[0:8]=0     # water cue, water delivery
 trialcond[8:12]=1    # water cue, juice delivery
 trialcond[12:20]=2   # juice cue, juice delivery
 trialcond[20:24]=3   # juice cue, water delivery
+
+#will need to change these images
 stim_images=['bottled_water.jpg','bottled_water.jpg','tampico.jpg','tampico.jpg']
 ntrials=len(trialcond)
 pump=N.zeros(ntrials)
@@ -138,7 +139,7 @@ pump=N.zeros(ntrials)
 N.random.shuffle(trialcond)
 
 # pump zero is neutral, pump 1 is juice
-
+#this will need another pump built in
 pump[trialcond==1]=1
 pump[trialcond==2]=1
 
