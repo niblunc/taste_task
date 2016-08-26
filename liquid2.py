@@ -17,7 +17,7 @@ from psychopy import visual, core, event, logging, data, misc, sound
 import socket
 from socket import gethostname
 import inspect
-sys.path.append('/Users/imagining/Desktop/liquid/psychtask')
+sys.path.append('/Users/nibl/Documents/taste_task/psychtask')
 
 import exptutils
 from exptutils import *
