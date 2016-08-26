@@ -91,7 +91,7 @@ subdata['quit_key']='q'
 
 subdata['simulated_response']=False
 
-dataFileName='Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
+dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
 logging.console.setLevel(logging.INFO)
 logfile=logging.LogFile(dataFileName,level=logging.DATA)
 
