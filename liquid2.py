@@ -139,9 +139,9 @@ for x in N.nditer(jitter, op_flags=['readwrite']):
 
 
 
-trial_length=jitter.tolist()
+tlength=jitter.tolist()
 
-#trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
+trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
 
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
 
@@ -168,8 +168,8 @@ pump[trialcond==2]=1
 preonsets=[0]
 #setting the onsets
 #problem is here, need to make an array with trail lengths and steps in array form
-for i, item in enumerate(trial_length):
-    x=preonsets[-1]+trial_length[i]
+for i, item in enumerate(tlength):
+    x=preonsets[-1]+tlength[i]
     preonsets.append(x)
 
 onsets=N.array(preonsets)
