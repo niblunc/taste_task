@@ -280,7 +280,7 @@ for trial in range(ntrials):
     message=visual.TextStim(win, text='')
     message.draw()
     win.flip()
-
+#doesn't like the trial_length is variable
     while clock.getTime()<(trialdata['onset']+trial_length):
         pass
 
