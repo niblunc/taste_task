@@ -166,6 +166,10 @@ pump[trialcond==2]=1
 
 #setting the onsets
 #problem is here, need to make an array with trail lengths and steps in array form
+for i, item in enumerate(list_a):
+    x=list_b[-1]+list_a[i]
+    list_b.append(x)
+
 onsets=N.arange(0,ntrials*trial_length,step=trial_length)
 
 
