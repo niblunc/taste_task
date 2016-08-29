@@ -118,7 +118,7 @@ jitter[0]=2.0
 jitter[1]=3.0
 jitter[2]=4.0
 jitter[3]=6.0
-
+N.random.shuffle(jitter)
 
 
 #parameters for how much liquid and how long
@@ -128,7 +128,7 @@ delivery_time=2.0
 cue_time=2.0
 wait_time=2.0
 rinse_time=2.0
-swallow_time=2.0
+swallow_time=jitter
 trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
 
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
@@ -252,7 +252,8 @@ for trial in range(ntrials):
     while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
         pass
 
-    message=visual.TextStim(win, text='swallow')
+    #message=visual.TextStim(win, text='swallow')
+    message=visual.TextStim(win, text='jitter')
     message.draw()
     win.flip()
 
