@@ -121,6 +121,7 @@ jitter[21:24]=6.0
 N.random.shuffle(jitter)
 njitter=len(jitter)
 
+
 #parameters for how much liquid and how long
 diameter=26.59
 mls_to_deliver=0.5
@@ -130,6 +131,13 @@ wait_time=2.0
 rinse_time=2.0
 swallow_time=2.0
 #need to make this a loop to grab a new jitter every trial#
+
+#example
+#for x in N.nditer(jitter, op_flags=['readwrite']):
+#...     x[...] = 8 + x
+#this will make the random trial_lengths
+
+
 trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
 
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
