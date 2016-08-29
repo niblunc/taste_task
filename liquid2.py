@@ -165,6 +165,7 @@ pump[trialcond==2]=1
 
 
 #setting the onsets
+#problem is here, need to make an array with trail lengths and steps in array form
 onsets=N.arange(0,ntrials*trial_length,step=trial_length)
 
 
