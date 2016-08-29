@@ -133,12 +133,13 @@ swallow_time=2.0
 #need to make this a loop to grab a new jitter every trial#
 
 #example
-#for x in N.nditer(jitter, op_flags=['readwrite']):
-#...     x[...] = 8 + x
+for x in N.nditer(jitter, op_flags=['readwrite']):
+    x[...] = 8 + x
 #this will make the random trial_lengths
 
 
-trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
+trial_length=jitter
+#trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
 
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
 
