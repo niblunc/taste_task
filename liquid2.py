@@ -130,9 +130,7 @@ cue_time=2.0
 wait_time=2.0
 rinse_time=2.0
 swallow_time=2.0
-#need to make this a loop to grab a new jitter every trial#
 
-#example
 for x in N.nditer(jitter, op_flags=['readwrite']):
     x[...] = 8 + x
 #this will make the random trial_lengths
@@ -167,7 +165,6 @@ pump[trialcond==2]=1
 
 preonsets=[0]
 #setting the onsets
-#problem is here, need to make an array with trail lengths and steps in array form
 for i, item in enumerate(tlength):
     x=preonsets[-1]+tlength[i]
     preonsets.append(x)
