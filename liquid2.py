@@ -116,8 +116,7 @@ jitter=N.zeros(3).astype('float')
 #trial conditions, need to change here for training or prediction error
 jitter[0]=2.0 
 jitter[1]=3.0
-jitter[2]=4.0
-jitter[3]=6.0
+jitter[2]=6.0
 N.random.shuffle(jitter)
 
 
@@ -128,7 +127,7 @@ delivery_time=2.0
 cue_time=2.0
 wait_time=2.0
 rinse_time=2.0
-swallow_time=jitter
+swallow_time=2.0
 trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
 
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
