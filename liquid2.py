@@ -112,11 +112,11 @@ except:
 #pi = PumpInterface(port='/dev/tty.usbserial')
 
 #creating variable jitter
-jitter=N.zeros(24).astype('float')
+jitter=N.zeros(23).astype('float')
 #trial conditions, need to change here for training or prediction error
 jitter[0:7]=2.0 
 jitter[7:21]=3.0
-jitter[21:24]=6.0
+jitter[21:23]=6.0
 
 N.random.shuffle(jitter)
 njitter=len(jitter)
@@ -138,8 +138,8 @@ for x in N.nditer(jitter, op_flags=['readwrite']):
 #this will make the random trial_lengths
 
 
-trial_length=jitter
-trial_length.tolist()
+
+trial_length=jitter.tolist()
 
 #trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
 
@@ -165,13 +165,14 @@ N.random.shuffle(trialcond)
 pump[trialcond==1]=1
 pump[trialcond==2]=1
 
-
+preonsets=[0]
 #setting the onsets
 #problem is here, need to make an array with trail lengths and steps in array form
 for i, item in enumerate(trial_length):
-    x=onsets[-1]+trial_length[i]
-    onsets.append(x)
+    x=preonsets[-1]+trial_length[i]
+    preonsets.append(x)
 
+onsets=N.array(preonsets)
 #onsets=N.arange(0,ntrials*trial_length,step=trial_length)
 
 
