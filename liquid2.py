@@ -139,6 +139,8 @@ for x in N.nditer(jitter, op_flags=['readwrite']):
 
 
 trial_length=jitter
+trial_length.tolist()
+
 #trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
 
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
@@ -166,11 +168,11 @@ pump[trialcond==2]=1
 
 #setting the onsets
 #problem is here, need to make an array with trail lengths and steps in array form
-for i, item in enumerate(list_a):
-    x=list_b[-1]+list_a[i]
-    list_b.append(x)
+for i, item in enumerate(trial_length):
+    x=onsets[-1]+trial_length[i]
+    onsets.append(x)
 
-onsets=N.arange(0,ntrials*trial_length,step=trial_length)
+#onsets=N.arange(0,ntrials*trial_length,step=trial_length)
 
 
 # clear infusion measurements
