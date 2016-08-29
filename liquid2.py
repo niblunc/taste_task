@@ -111,6 +111,16 @@ except:
 #from new_era import PumpInterface
 #pi = PumpInterface(port='/dev/tty.usbserial')
 
+#creating variable jitter
+jitter=N.zeros(3).astype('float')
+#trial conditions, need to change here for training or prediction error
+jitter[0]=2.0 
+jitter[1]=3.0
+jitter[2]=4.0
+jitter[3]=6.0
+
+
+
 #parameters for how much liquid and how long
 diameter=26.59
 mls_to_deliver=0.5
