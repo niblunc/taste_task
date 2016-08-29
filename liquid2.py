@@ -117,8 +117,9 @@ jitter=N.zeros(24).astype('float')
 jitter[0:7]=2.0 
 jitter[7:21]=3.0
 jitter[21:24]=6.0
-N.random.shuffle(jitter)
 
+N.random.shuffle(jitter)
+njitter=len(jitter)
 
 #parameters for how much liquid and how long
 diameter=26.59
@@ -127,7 +128,7 @@ delivery_time=2.0
 cue_time=2.0
 wait_time=2.0
 rinse_time=2.0
-#swallow_time=2.0
+swallow_time=2.0
 #need to make this a loop to grab a new jitter every trial#
 trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
 
@@ -154,7 +155,7 @@ pump[trialcond==1]=1
 pump[trialcond==2]=1
 
 
-
+#setting the onsets
 onsets=N.arange(0,ntrials*trial_length,step=trial_length)
 
 
