@@ -112,11 +112,11 @@ except:
 #pi = PumpInterface(port='/dev/tty.usbserial')
 
 #creating variable jitter
-jitter=N.zeros(3).astype('float')
+jitter=N.zeros(24).astype('float')
 #trial conditions, need to change here for training or prediction error
-jitter[0]=2.0 
-jitter[1]=3.0
-jitter[2]=6.0
+jitter[0:7]=2.0 
+jitter[7:21]=3.0
+jitter[21:24]=6.0
 N.random.shuffle(jitter)
 
 
@@ -127,7 +127,8 @@ delivery_time=2.0
 cue_time=2.0
 wait_time=2.0
 rinse_time=2.0
-swallow_time=2.0
+#swallow_time=2.0
+#need to make this a loop to grab a new jitter every trial#
 trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
 
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
@@ -255,7 +256,7 @@ for trial in range(ntrials):
     message=visual.TextStim(win, text='jitter')
     message.draw()
     win.flip()
-
+#need to change the swallow time here
     while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+swallow_time):
         pass
     message=visual.TextStim(win, text='')
