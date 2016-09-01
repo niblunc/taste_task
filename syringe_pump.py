@@ -171,7 +171,7 @@ if __name__ == '__main__':
         dev.sendCmd('CLD WDR\r')
         dev.sendCmd('DIR INF\r')
         dev.sendCmd('DIS\r')
-        dev.sendCmd('RUN\r')
+        dev.sendCmd('RUN\r')#start
         time.sleep(4.0)
-        dev.sendCmd('STP\r')
+        dev.sendCmd('STP\r')#stop
         dev.sendCmd('DIS\r')

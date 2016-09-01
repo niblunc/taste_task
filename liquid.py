@@ -1,23 +1,16 @@
 """
 deliver juice
 """
-#####to run, in shell window <execfile("liquid2.py"), it initially doesn't work run via gui, then close and run cmdline#####
-import psychopy.app
+import sys
+sys.path.append('/Users/nibl/Documents/taste_task/')
 import numpy as N
-import sys,os,pickle
-################################################
-#this is a unc edit, changed this path
-sys.path.insert(0, '/Users/nibl/Documents/pyserial-2.6')
-#####THIS IS IMPORTANT DON'T MESS WITH IT#######
-sys.path.append('/Users/nibl/Documents/taste_task')
-import cv2
 import syringe_pump
 from psychopy import visual, core, event, logging, data, misc, sound
-
+import sys,os,pickle
 import socket
 from socket import gethostname
 import inspect
-sys.path.append('/Users/nibl/Documents/taste_task/psychtask')
+
 
 import exptutils
 from exptutils import *
@@ -65,9 +58,7 @@ def wait_for_trigger():
     return True
 
 subdata={}
-#subdata['subcode']='test'
-subdata['subcode']=raw_input('subject id: ')
-
+subdata['subcode']='test'
 # initialize subdata dictionary to store info about the study
 subdata['completed']=0
 subdata['cwd']=os.getcwd()
@@ -90,15 +81,15 @@ subdata['start_key']='5'
 subdata['quit_key']='q'
 
 subdata['simulated_response']=False
-#where to save the data 
+
 dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
 logging.console.setLevel(logging.INFO)
-logfile=logging.LogFile(dataFileName,level=logging.DATA)
+logfile=logging.LogFile(dataFileName,level=logging.INFO)
 
-#check if the pump exists#
+
 try:
     print 'initializing serial device:'
-    dev=syringe_pump.SyringePump('/dev/tty.KeySerial1')
+    dev=syringe_pump.SyringePump('/dev/tty.USA19H142P1.1')
     print dev
     print 'using serial device: ', dev
     if not dev.isOpen():
@@ -108,19 +99,12 @@ except:
     hasPump=False
 
 
+#from new_era import PumpInterface
+#pi = PumpInterface(port='/dev/tty.usbserial')
 
-#creating variable jitter
-jitter=N.zeros(23).astype('float')
-#trial conditions, need to change here for training or prediction error
-jitter[0:7]=2.0 
-jitter[7:21]=3.0
-jitter[21:23]=6.0
+# deliver 0.5 ml over 5 seconds
+# equates to
 
-N.random.shuffle(jitter)
-njitter=len(jitter)
-
-
-#parameters for how much liquid and how long
 diameter=26.59
 mls_to_deliver=0.5
 delivery_time=2.0
@@ -128,27 +112,16 @@ cue_time=2.0
 wait_time=2.0
 rinse_time=2.0
 swallow_time=2.0
-
-#this will make the random trial_lengths
-for x in N.nditer(jitter, op_flags=['readwrite']):
-    x[...] = 8 + x
-
-
-tlength=jitter.tolist()
-
 trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
 
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
 
 trialcond=N.zeros(24).astype('int')
 
-#trial conditions, need to change here for training or prediction error
 trialcond[0:8]=0     # water cue, water delivery
 trialcond[8:12]=1    # water cue, juice delivery
 trialcond[12:20]=2   # juice cue, juice delivery
 trialcond[20:24]=3   # juice cue, water delivery
-
-#will need to change these images
 stim_images=['bottled_water.jpg','bottled_water.jpg','tampico.jpg','tampico.jpg']
 ntrials=len(trialcond)
 pump=N.zeros(ntrials)
@@ -156,18 +129,13 @@ pump=N.zeros(ntrials)
 N.random.shuffle(trialcond)
 
 # pump zero is neutral, pump 1 is juice
-#this will need another pump built in
+
 pump[trialcond==1]=1
 pump[trialcond==2]=1
 
-preonsets=[0]
-#setting the onsets
-for i, item in enumerate(tlength):
-    x=preonsets[-1]+tlength[i]
-    preonsets.append(x)
 
-onsets=N.array(preonsets)
-#onsets=N.arange(0,ntrials*trial_length,step=trial_length)
+
+onsets=N.arange(0,ntrials*trial_length,step=trial_length)
 
 
 # clear infusion measurements
@@ -176,8 +144,7 @@ if hasPump:
     subdata['pumpver']=dev.sendCmd('VER')
 
     dev.setBaudrate(9600)
-#i think the issue is here
-#should be sending commands to the pumps
+
     for cmd in commands_to_send:
         print 'sending: ',cmd
         dev.sendCmd(cmd)
@@ -192,7 +159,7 @@ if hasPump:
 
     print subdata['pumpdata']
 
-#######################setup screen########################################
+# setup screen
 
 fullscr=False
 
@@ -208,7 +175,6 @@ else:
     print "quit status:",wt
     
 message=visual.TextStim(win, text='')
-############################################################################
 
 subdata['trialdata']={}
 clock.reset()
@@ -223,11 +189,10 @@ for trial in range(ntrials):
     print 'trial %d'%trial
     trialdata['onset']=onsets[trial]
     print 'condition %d'%trialcond[trial]
-    logging.log(logging.DATA,"Condition: %d"%trialcond[trial])
+    logging.log(logging.DATA,'Condition: %d'%trialcond[trial])
     print 'showing image: %s'%stim_images[trialcond[trial]]
     visual_stim.setImage(stim_images[trialcond[trial]])
     visual_stim.draw()
-    logging.log(logging.DATA, "image=%s"%stim_images[trialcond[trial]])
     while clock.getTime()<trialdata['onset']:#wait until the specified onset time to display image_file
         if check_for_quit(subdata,win):
             exptutils.shut_down_cleanly(subdata,win)
@@ -239,7 +204,7 @@ for trial in range(ntrials):
 
     if hasPump:
         print 'injecting via pump at address %d'%pump[trial]
-        logging.log(logging.DATA,"injecting via pump at address %d"%pump[trial])
+        logging.log(logging.DATA,'injecting via pump at address %d'%pump[trial])
 
         dev.sendCmd('%dRUN'%pump[trial])
     else:
@@ -266,17 +231,16 @@ for trial in range(ntrials):
     while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
         pass
 
-    #message=visual.TextStim(win, text='swallow')
-    message=visual.TextStim(win, text='jitter')
+    message=visual.TextStim(win, text='swallow')
     message.draw()
     win.flip()
-#need to change the swallow time here
+
     while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+swallow_time):
         pass
     message=visual.TextStim(win, text='')
     message.draw()
     win.flip()
-#doesn't like the trial_length is variable
+
     while clock.getTime()<(trialdata['onset']+trial_length):
         pass
 
@@ -285,6 +249,6 @@ for trial in range(ntrials):
 win.close()
 
 #print dev.sendCmd('VER')
-f=open('/Users/nibl/Documents/Output/liquid_subdata_%s.pkl'%datestamp,'wb')
+f=open('Output/liquid_subdata_%s.pkl'%datestamp,'wb')
 pickle.dump(subdata,f)
 f.close()

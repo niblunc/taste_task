@@ -2,6 +2,8 @@
 set up pump
 """
 
+import sys
+sys.path.append('/Users/nibl/Documents/taste_task/')
 import numpy as N
 import syringe_pump
 from psychopy import visual, core, event, logging, data, misc, sound
