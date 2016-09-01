@@ -19,7 +19,7 @@ try:
     if not dev.isOpen():
         raise Exception('noPump')
     print 'initializing serial device:'
-    dev=syringe_pump.SyringePump('/dev/tty.usbserial')
+    dev=syringe_pump.SyringePump('/dev/tty.USA19H142P1.1')
     print dev
     hasPump=True
 except:
