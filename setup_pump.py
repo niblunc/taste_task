@@ -2,6 +2,8 @@
 set up pump
 """
 
+import sys
+sys.path.append('/Users/nibl/Documents/taste_task/')
 import numpy as N
 import syringe_pump
 from psychopy import visual, core, event, logging, data, misc, sound
@@ -19,7 +21,7 @@ try:
     if not dev.isOpen():
         raise Exception('noPump')
     print 'initializing serial device:'
-    dev=syringe_pump.SyringePump('/dev/tty.usbserial')
+    dev=syringe_pump.SyringePump('/dev/tty.USA19H142P1.1')
     print dev
     hasPump=True
 except:

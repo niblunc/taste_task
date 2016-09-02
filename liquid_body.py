@@ -1,7 +1,3 @@
-"""
-deliver juice
-"""
-#####to run, in shell window <execfile("liquid2.py"), it initially doesn't work run via gui, then close and run cmdline#####
 import psychopy.app
 import numpy as N
 import sys,os,pickle
@@ -23,51 +19,8 @@ import exptutils
 from exptutils import *
 
 import datetime
-
-def store_scriptfile():
-    scriptfile= inspect.getfile(inspect.currentframe())# save a copy of the script in the data file
-    f=open(scriptfile)
-    script=f.readlines()
-    f.close()
-    return script
-
-def check_for_quit(subdata,win):
-    k=event.getKeys()
-    print 'checking for quit key %s'%subdata['quit_key']
-    print 'found:',k
-    if k.count(subdata['quit_key']) >0:# if subdata['quit_key'] is pressed...
-        print 'quit key pressed'
-        return True
-    else:
-        return False
-
-def wait_for_trigger():
-    event.clearEvents()
-    if subdata['simulated_response']:
-        msg="SIMULATION MODE"
-    else:
-        msg=''
-    message=visual.TextStim(win, text='%s Waiting for start key (or press %s)\nBe very still!'%(msg,subdata['start_key']),
-    font='BiauKai', height=1,color=u'white', colorSpace=u'rgb', opacity=1,depth=0.0,
-    alignHoriz='center',wrapWidth=50)
-    message.setAutoDraw(True) #automatically draw every frame
-    win.flip()
-    start=False
-    while start==False:
-        k=event.waitKeys()
-        if k.count(subdata['start_key'])>0:#as soon as subdata['start_key'] is pressed...
-            start=True
-            message.setText('')#this clears the screen
-            win.flip()
-        if k.count(subdata['quit_key']) >0:# if subdata['quit_key'] is pressed...
-            exptutils.shut_down_cleanly(subdata,win)
-            return False
-    return True
-
+#subdata['subcode']=raw_input('subject id: ')
 subdata={}
-#subdata['subcode']='test'
-subdata['subcode']=raw_input('subject id: ')
-
 # initialize subdata dictionary to store info about the study
 subdata['completed']=0
 subdata['cwd']=os.getcwd()
@@ -91,7 +44,7 @@ subdata['quit_key']='q'
 
 subdata['simulated_response']=False
 #where to save the data 
-dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
+dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['datestamp'])
 logging.console.setLevel(logging.INFO)
 logfile=logging.LogFile(dataFileName,level=logging.DATA)
 ##########################
@@ -101,29 +54,10 @@ logging.console.setLevel(logging.INFO)
 logfile=logging.LogFile(dataFileName,level=logging.DATA)
 ##########################
 
-info = {}
-subdata['port'] = '/dev/tty.KeySerial1'
-
-# Serial connection and commands setup
-ser = serial.Serial(
-                    port=subdata['port'],
-                    baudrate=19200,
-                    parity=serial.PARITY_NONE,
-                    stopbits=serial.STOPBITS_ONE,
-                    bytesize=serial.EIGHTBITS
-                   )
-if not ser.isOpen():
-    ser.open()
 #check if the pump exists#
-<<<<<<< HEAD
 try:
     print 'initializing serial device:'
-<<<<<<< HEAD
-    #dev=syringe_pump.SyringePump('/dev/tty.usbserial')
-    dev=syringe_pump.SyringePump('/dev/tty.USA19H142P1.1')
-=======
     dev=syringe_pump.SyringePump('/dev/tty.KeySerial1', debug=True)
->>>>>>> working
     print dev
     print 'using serial device: ', dev
     if not dev.isOpen():
@@ -131,17 +65,6 @@ try:
     hasPump=True
 except:
     hasPump=False
-=======
-#try:
-#    print 'initializing serial device:'
-#    dev=syringe_pump.SyringePump('/dev/tty.KeySerial1', debug=True)
-#    print 'using serial device: ', dev
-#    if not dev.isOpen():
-#        raise Exception('noPump')
-#    hasPump=True
-#except:
-#    hasPump=False
->>>>>>> temp
 
 if not dev.isOpen():
     dev.open()
@@ -157,12 +80,6 @@ jitter[21:23]=6.0
 N.random.shuffle(jitter)
 njitter=len(jitter)
 
-#this will make the random trial_lengths
-for x in N.nditer(jitter, op_flags=['readwrite']):
-    x[...] = 8 + x
-
-
-tlength=jitter.tolist()
 
 #parameters for how much liquid and how long
 diameter=26.59
@@ -172,10 +89,17 @@ cue_time=2.0
 wait_time=2.0
 rinse_time=2.0
 swallow_time=2.0
-rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
+
+#this will make the random trial_lengths
+for x in N.nditer(jitter, op_flags=['readwrite']):
+    x[...] = 8 + x
+
+
+tlength=jitter.tolist()
 
 trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
 
+rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
 
 trialcond=N.zeros(24).astype('int')
 
@@ -236,7 +160,6 @@ if hasPump:
 #    dev.setBaudrate(9600)
 #i think the issue is here
 #should be sending commands to the pumps
-<<<<<<< HEAD
 #    for cmd in commands_to_send:
 #        print 'sending: ',cmd
 #        dev.sendCmd(cmd)
@@ -250,21 +173,6 @@ if hasPump:
 #            core.wait(0.1)
 #
 #    print subdata['pumpdata']
-=======
-    for cmd in commands_to_send:
-        print 'sending: ',cmd
-        dev.sendCmd(cmd)
-        core.wait(0.1)
-
-    subdata['pumpdata']={}
-    for p in [0,1]:
-        for cmd in ['DIS','DIR','RAT','VOL','DIA']:
-            fullcmd='%d%s'%(p,cmd)#this puts 0 or 1 infront of the cmd
-            subdata['pumpdata'][fullcmd]=dev.sendCmd(fullcmd)
-            core.wait(0.1)
-
-    print subdata['pumpdata']
->>>>>>> temp
 
 #######################setup screen########################################
 

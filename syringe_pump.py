@@ -2,13 +2,13 @@ from __future__ import print_function
 import serial
 import time
 
-debug = False 
+debug = True 
 
 class SyringePump(serial.Serial):
 
     def __init__(self,port,timeout=0.5,debug=False):
         params = {
-                'timeout'  : timeout,
+                'timeout'  : None,
                 'baudrate' : 19200,
                 'bytesize' : serial.EIGHTBITS,
                 'parity'   : serial.PARITY_NONE,
@@ -20,7 +20,7 @@ class SyringePump(serial.Serial):
     def sendCmd(self,cmd):
         if self.debug:
             print('cmd: {0}'.format(cmd))
-        cmd = '{0}\r'.format(cmd)
+        cmd = '{0\r}'.format(cmd)
         self.write(cmd)
         rsp = self.readline()
         self.checkRsp(rsp)
@@ -144,7 +144,7 @@ def float2PumpFormat(val):
 # -----------------------------------------------------------------------------
 if __name__ == '__main__':
     if 1:
-        dev = SyringePump('/dev/ttyUSB1')
+        dev = SyringePump('/dev/tty.USA19H142P1.1')
         dev.debug = False 
         dev.setDiameter(1.0)
         dev.setRate(5.0,'NS')
@@ -163,7 +163,7 @@ if __name__ == '__main__':
 
     if 0:
 
-        dev = SyringePump('/dev/ttyUSB1')
+        dev = SyringePump('/dev/tty.USA19H142P1.1')
         dev.sendCmd('DIA 1.000\r')
         dev.sendCmd('RAT 0.100 UM\r')
         dev.sendCmd('VOL UL\r')
@@ -171,7 +171,7 @@ if __name__ == '__main__':
         dev.sendCmd('CLD WDR\r')
         dev.sendCmd('DIR INF\r')
         dev.sendCmd('DIS\r')
-        dev.sendCmd('RUN\r')
+        dev.sendCmd('RUN\r')#start
         time.sleep(4.0)
-        dev.sendCmd('STP\r')
+        dev.sendCmd('STP\r')#stop
         dev.sendCmd('DIS\r')
