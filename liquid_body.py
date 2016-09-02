@@ -1,7 +1,3 @@
-"""
-deliver juice
-"""
-#####to run, in shell window <execfile("liquid2.py"), it initially doesn't work run via gui, then close and run cmdline#####
 import psychopy.app
 import numpy as N
 import sys,os,pickle
@@ -23,51 +19,8 @@ import exptutils
 from exptutils import *
 
 import datetime
-
-def store_scriptfile():
-    scriptfile= inspect.getfile(inspect.currentframe())# save a copy of the script in the data file
-    f=open(scriptfile)
-    script=f.readlines()
-    f.close()
-    return script
-
-def check_for_quit(subdata,win):
-    k=event.getKeys()
-    print 'checking for quit key %s'%subdata['quit_key']
-    print 'found:',k
-    if k.count(subdata['quit_key']) >0:# if subdata['quit_key'] is pressed...
-        print 'quit key pressed'
-        return True
-    else:
-        return False
-
-def wait_for_trigger():
-    event.clearEvents()
-    if subdata['simulated_response']:
-        msg="SIMULATION MODE"
-    else:
-        msg=''
-    message=visual.TextStim(win, text='%s Waiting for start key (or press %s)\nBe very still!'%(msg,subdata['start_key']),
-    font='BiauKai', height=1,color=u'white', colorSpace=u'rgb', opacity=1,depth=0.0,
-    alignHoriz='center',wrapWidth=50)
-    message.setAutoDraw(True) #automatically draw every frame
-    win.flip()
-    start=False
-    while start==False:
-        k=event.waitKeys()
-        if k.count(subdata['start_key'])>0:#as soon as subdata['start_key'] is pressed...
-            start=True
-            message.setText('')#this clears the screen
-            win.flip()
-        if k.count(subdata['quit_key']) >0:# if subdata['quit_key'] is pressed...
-            exptutils.shut_down_cleanly(subdata,win)
-            return False
-    return True
-
+#subdata['subcode']=raw_input('subject id: ')
 subdata={}
-#subdata['subcode']='test'
-subdata['subcode']=raw_input('subject id: ')
-
 # initialize subdata dictionary to store info about the study
 subdata['completed']=0
 subdata['cwd']=os.getcwd()
@@ -91,7 +44,7 @@ subdata['quit_key']='q'
 
 subdata['simulated_response']=False
 #where to save the data 
-dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
+dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['datestamp'])
 logging.console.setLevel(logging.INFO)
 logfile=logging.LogFile(dataFileName,level=logging.DATA)
 ##########################
