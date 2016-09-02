@@ -95,10 +95,20 @@ dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'
 logging.console.setLevel(logging.INFO)
 logfile=logging.LogFile(dataFileName,level=logging.DATA)
 
+info = {}
+info['port'] = '/dev/tty.KeySerial1'
+
 #check if the pump exists#
 try:
     print 'initializing serial device:'
-    dev=syringe_pump.SyringePump('/dev/tty.KeySerial1')
+    #dev=syringe_pump.SyringePump('/dev/tty.KeySerial1')
+    dev = serial.Serial(
+                    port=info['port'],
+                    baudrate=19200,
+                    parity=serial.PARITY_NONE,
+                    stopbits=serial.STOPBITS_ONE,
+                    bytesize=serial.EIGHTBITS
+                   )
     print dev
     print 'using serial device: ', dev
     if not dev.isOpen():
