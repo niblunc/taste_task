@@ -101,7 +101,21 @@ logging.console.setLevel(logging.INFO)
 logfile=logging.LogFile(dataFileName,level=logging.DATA)
 ##########################
 
+info = {}
+subdata['port'] = '/dev/tty.KeySerial1'
+
+# Serial connection and commands setup
+ser = serial.Serial(
+                    port=subdata['port'],
+                    baudrate=19200,
+                    parity=serial.PARITY_NONE,
+                    stopbits=serial.STOPBITS_ONE,
+                    bytesize=serial.EIGHTBITS
+                   )
+if not ser.isOpen():
+    ser.open()
 #check if the pump exists#
+<<<<<<< HEAD
 try:
     print 'initializing serial device:'
     dev=syringe_pump.SyringePump('/dev/tty.KeySerial1', debug=True)
@@ -112,6 +126,17 @@ try:
     hasPump=True
 except:
     hasPump=False
+=======
+#try:
+#    print 'initializing serial device:'
+#    dev=syringe_pump.SyringePump('/dev/tty.KeySerial1', debug=True)
+#    print 'using serial device: ', dev
+#    if not dev.isOpen():
+#        raise Exception('noPump')
+#    hasPump=True
+#except:
+#    hasPump=False
+>>>>>>> temp
 
 if not dev.isOpen():
     dev.open()
@@ -127,6 +152,12 @@ jitter[21:23]=6.0
 N.random.shuffle(jitter)
 njitter=len(jitter)
 
+#this will make the random trial_lengths
+for x in N.nditer(jitter, op_flags=['readwrite']):
+    x[...] = 8 + x
+
+
+tlength=jitter.tolist()
 
 #parameters for how much liquid and how long
 diameter=26.59
@@ -136,17 +167,10 @@ cue_time=2.0
 wait_time=2.0
 rinse_time=2.0
 swallow_time=2.0
-
-#this will make the random trial_lengths
-for x in N.nditer(jitter, op_flags=['readwrite']):
-    x[...] = 8 + x
-
-
-tlength=jitter.tolist()
+rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
 
 trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
 
-rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
 
 trialcond=N.zeros(24).astype('int')
 
@@ -207,6 +231,7 @@ if hasPump:
 #    dev.setBaudrate(9600)
 #i think the issue is here
 #should be sending commands to the pumps
+<<<<<<< HEAD
 #    for cmd in commands_to_send:
 #        print 'sending: ',cmd
 #        dev.sendCmd(cmd)
@@ -220,6 +245,21 @@ if hasPump:
 #            core.wait(0.1)
 #
 #    print subdata['pumpdata']
+=======
+    for cmd in commands_to_send:
+        print 'sending: ',cmd
+        dev.sendCmd(cmd)
+        core.wait(0.1)
+
+    subdata['pumpdata']={}
+    for p in [0,1]:
+        for cmd in ['DIS','DIR','RAT','VOL','DIA']:
+            fullcmd='%d%s'%(p,cmd)#this puts 0 or 1 infront of the cmd
+            subdata['pumpdata'][fullcmd]=dev.sendCmd(fullcmd)
+            core.wait(0.1)
+
+    print subdata['pumpdata']
+>>>>>>> temp
 
 #######################setup screen########################################
 
