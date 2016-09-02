@@ -2,25 +2,33 @@ from __future__ import print_function
 import serial
 import time
 
-debug = False 
+debug = True 
 
 class SyringePump(serial.Serial):
 
     def __init__(self,port,timeout=0.5,debug=False):
         params = {
-                'timeout'  : timeout,
+                'timeout'  : None,
                 'baudrate' : 19200,
                 'bytesize' : serial.EIGHTBITS,
                 'parity'   : serial.PARITY_NONE,
                 'stopbits' : serial.STOPBITS_ONE,
                 }
         super(SyringePump,self).__init__(port,**params)
+#        #serial.Serial.__init__(
+#                    self,
+#                    port=port,
+#                    baudrate=19200,
+#                    parity=serial.PARITY_NONE,
+#                    stopbits=serial.STOPBITS_ONE,
+#                    bytesize=serial.EIGHTBITS
+#                   )
         self.debug=debug
 
     def sendCmd(self,cmd):
         if self.debug:
             print('cmd: {0}'.format(cmd))
-        cmd = '{0}\r'.format(cmd)
+        cmd = '{0}'.format(cmd)
         self.write(cmd)
         rsp = self.readline()
         self.checkRsp(rsp)

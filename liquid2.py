@@ -98,7 +98,7 @@ logfile=logging.LogFile(dataFileName,level=logging.DATA)
 #check if the pump exists#
 try:
     print 'initializing serial device:'
-    dev=syringe_pump.SyringePump('/dev/tty.KeySerial1')
+    dev=syringe_pump.SyringePump('/dev/tty.KeySerial1', debug=True)
     print dev
     print 'using serial device: ', dev
     if not dev.isOpen():
@@ -107,7 +107,9 @@ try:
 except:
     hasPump=False
 
-
+if not dev.isOpen():
+    dev.open()
+    print dev, "is open"
 
 #creating variable jitter
 jitter=N.zeros(23).astype('float')
@@ -168,29 +170,50 @@ for i, item in enumerate(tlength):
 
 onsets=N.array(preonsets)
 #onsets=N.arange(0,ntrials*trial_length,step=trial_length)
+#    def sendCmd(self,cmd):
+#        if self.debug:
+#            print('cmd: {0}'.format(cmd))
+#        cmd = '{0}\r'.format(cmd)
+#        self.write(cmd)
+#        rsp = self.readline()
+#        self.checkRsp(rsp)
+#        return rsp
 
 
 # clear infusion measurements
 if hasPump:
-    commands_to_send=['0PHN01','1PHN01','0CLDINF','1CLDINF','0DIRINF','1DIRINF','0RAT%0.1fMH'%rate,'1RAT%0.1fMH'%rate,'0VOL%0.1f'%mls_to_deliver,'1VOL%0.1f'%mls_to_deliver,'0DIA%0.1fMH'%diameter,'1DIA%0.1fMH'%diameter]
-    subdata['pumpver']=dev.sendCmd('VER')
-
-    dev.setBaudrate(9600)
+    pump_setup = ['VOL ML\r','TRGFT\r','AL 0\r','PF 0\r','BP 1\r','BP 1\r']
+    pump_phases = ['dia26.59\r', 'phn01\r', 'funrat\r', 'rat6.6mm\r', 'vol1\r', 'dirinf\r', \
+    'phn02\r', 'funrat\r', 'rat15mm\r', 'vol0.1\r', 'dirwdr\r', \
+    'phn03\r', 'funstp\r']
+    
+    for c in pump_setup:
+        dev.write(c)
+        time.sleep(.25)
+    
+    for c in pump_phases:
+        dev.write(c)
+        time.sleep(.25)
+    
+#    commands_to_send=['0PHN01','1PHN01','0CLDINF','1CLDINF','0DIRINF','1DIRINF','0RAT%0.1fMH'%rate,'1RAT%0.1fMH'%rate,'0VOL%0.1f'%mls_to_deliver,'1VOL%0.1f'%mls_to_deliver,'0DIA%0.1fMH'%diameter,'1DIA%0.1fMH'%diameter]
+#    subdata['pumpver']=dev.sendCmd('VER')
+#
+#    dev.setBaudrate(9600)
 #i think the issue is here
 #should be sending commands to the pumps
-    for cmd in commands_to_send:
-        print 'sending: ',cmd
-        dev.sendCmd(cmd)
-        core.wait(0.1)
-
-    subdata['pumpdata']={}
-    for p in [0,1]:
-        for cmd in ['DIS','DIR','RAT','VOL','DIA']:
-            fullcmd='%d%s'%(p,cmd)
-            subdata['pumpdata'][fullcmd]=dev.sendCmd(fullcmd)
-            core.wait(0.1)
-
-    print subdata['pumpdata']
+#    for cmd in commands_to_send:
+#        print 'sending: ',cmd
+#        dev.sendCmd(cmd)
+#        core.wait(0.1)
+#
+#    subdata['pumpdata']={}
+#    for p in [0,1]:
+#        for cmd in ['DIS','DIR','RAT','VOL','DIA']:
+#            fullcmd='%d%s'%(p,cmd)
+#            subdata['pumpdata'][fullcmd]=dev.sendCmd(fullcmd)
+#            core.wait(0.1)
+#
+#    print subdata['pumpdata']
 
 #######################setup screen########################################
 
@@ -285,6 +308,8 @@ for trial in range(ntrials):
 win.close()
 
 #print dev.sendCmd('VER')
+print dev.getVolumeAccum()
+
 f=open('/Users/nibl/Documents/Output/liquid_subdata_%s.pkl'%datestamp,'wb')
 pickle.dump(subdata,f)
 f.close()
