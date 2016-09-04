@@ -42,7 +42,7 @@ except:
 if hasPump:
         #dev = SyringePump('/dev/tty.USA19H142P1.1')
         dev.debug = True 
-        dev.setDiameter(1.0)
+        dev.setDiameter(1.0)#hanging here
         dev.setRate(5.0,'NS')
         dev.setAccumUnits('UL')
         dev.clearVolumeAccum()

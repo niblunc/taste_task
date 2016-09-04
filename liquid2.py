@@ -63,7 +63,8 @@ def wait_for_trigger():
 ######################################################################
 # initialize subdata dictionary to store info about the study
 subdata={}
-subdata['subcode']=raw_input('subject id: ')
+#subdata['subcode']=raw_input('subject id: ')
+subdata['subcode']='test'
 subdata['completed']=0
 subdata['cwd']=os.getcwd()
 subdata['hostname']=socket.gethostname()
@@ -88,7 +89,6 @@ dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'
 logging.console.setLevel(logging.INFO)
 logfile=logging.LogFile(dataFileName,level=logging.DATA)
 ##########################
-subdata['subcode']=raw_input('subject id: ')
 dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
 logging.console.setLevel(logging.INFO)
 logfile=logging.LogFile(dataFileName,level=logging.DATA)
@@ -172,28 +172,27 @@ onsets=N.array(preonsets)
 ##############################################################################
 ############infusion measurements######################################
 ##############################################################################
-
-if hasPump:
-    
-    commands_to_send=['0PHN01','1PHN01','0CLDINF','1CLDINF','0DIRINF','1DIRINF','0RAT%0.1fMH'%rate,'1RAT%0.1fMH'%rate,'0VOL%0.1f'%mls_to_deliver,'1VOL%0.1f'%mls_to_deliver,'0DIA%0.1fMH'%diameter,'1DIA%0.1fMH'%diameter]
-    subdata['pumpver']=dev.sendCmd('VER')
-
-    dev.setBaudrate(9600)
+#if hasPump:
+#    
+#    commands_to_send=['0PHN01','1PHN01','0CLDINF','1CLDINF','0DIRINF','1DIRINF','0RAT%0.1fMH'%rate,'1RAT%0.1fMH'%rate,'0VOL%0.1f'%mls_to_deliver,'1VOL%0.1f'%mls_to_deliver,'0DIA%0.1fMH'%diameter,'1DIA%0.1fMH'%diameter]
+#    subdata['pumpver']=dev.sendCmd('VER')
+#
+#    dev.setBaudrate(9600)
 #i think the issue is here
 #should be sending commands to the pumps
-    for cmd in commands_to_send:
-        print 'sending: ',cmd
-        dev.sendCmd(cmd)
-        core.wait(0.1)
-
-    subdata['pumpdata']={}
-    for p in [0,1]:
-        for cmd in ['DIS','DIR','RAT','VOL','DIA']:
-            fullcmd='%d%s'%(p,cmd)
-            subdata['pumpdata'][fullcmd]=dev.sendCmd(fullcmd)
-            core.wait(0.1)
-
-    print subdata['pumpdata']
+#    for cmd in commands_to_send:
+#        print 'sending: ',cmd
+#        dev.sendCmd(cmd)
+#        core.wait(0.1)
+#
+#    subdata['pumpdata']={}
+#    for p in [0,1]:
+#        for cmd in ['DIS','DIR','RAT','VOL','DIA']:
+#            fullcmd='%d%s'%(p,cmd)
+#            subdata['pumpdata'][fullcmd]=dev.sendCmd(fullcmd)
+#            core.wait(0.1)
+#
+#    print subdata['pumpdata']
 ###########################################################################
 ###########################################################################    
 #######################setup screen########################################
@@ -248,7 +247,7 @@ for trial in range(ntrials):
         print 'injecting via pump at address %d'%pump[trial]
         logging.log(logging.DATA,"injecting via pump at address %d"%pump[trial])
 
-        dev.sendCmd('%dRUN'%pump[trial])
+        dev.write('%dRUN\r'%pump[trial])
     else:
         print 'no pump: should be injecting via pump at address %d'%pump[trial]
 
@@ -258,7 +257,7 @@ for trial in range(ntrials):
     message.draw()
     win.flip()
     if hasPump:
-        trialdata['dis']=[dev.sendCmd('0DIS'),dev.sendCmd('1DIS')]
+        trialdata['dis']=[dev.write('0DIS'),dev.write('1DIS')]
 
 
     while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time):
@@ -266,7 +265,7 @@ for trial in range(ntrials):
 
     if hasPump:
         print 'injecting rinse via pump at address %d'%0
-        dev.sendCmd('%dRUN'%0)
+        dev.write('%dRUN\r'%0)
     else:
         print 'no pump: should be injecting rinse via pump at address %d'%pump[trial]
 

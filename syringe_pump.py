@@ -38,7 +38,7 @@ class SyringePump(serial.Serial):
         if val < 0.1 or val > 50.0:
             raise ValueError, 'syringe diameter out of range'
         valStr = float2PumpFormat(val)
-        self.sendCmd('DIA {0}'.format(valStr))
+        self.sendCmd('DIA {0}'.format(valStr))#hanging here
 
     def setRate(self,val,units='UM'):
         """
