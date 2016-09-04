@@ -9,7 +9,7 @@ sys.path.insert(0, '/Users/nibl/Documents/pyserial-2.6')
 #####THIS IS IMPORTANT DON'T MESS WITH IT#######
 sys.path.append('/Users/nibl/Documents/taste_task')
 import cv2
-import syringe_pump
+import syringe_pump_original as syringe_pump
 from psychopy import visual, core, event, logging, data, misc, sound
 import socket
 from socket import gethostname
@@ -171,40 +171,40 @@ onsets=N.array(preonsets)
 
 ##############################################################################
 ############infusion measurements######################################
-dev.write('0PHN01\r')
-dev.write('1PHN01\r')
-dev.write('0CLDINF\r')
-dev.write('1CLDINF\r')
-dev.write('0DIRINF\r')
-dev.write('1DIRINF\r')
-dev.write('0RAT900.0MH\r')
-dev.write('1RAT900.0MH\r')
-dev.write('0VOL0.5\r')
-dev.write('1VOL0.5\r')
-dev.write('0DIA26.6MH\r')
-dev.write('1DIA26.6MH\r')
+#dev.write('0PHN01\r')
+#dev.write('1PHN01\r')
+#dev.write('0CLDINF\r')
+#dev.write('1CLDINF\r')
+#dev.write('0DIRINF\r')
+#dev.write('1DIRINF\r')
+#dev.write('0RAT900.0MH\r')
+#dev.write('1RAT900.0MH\r')
+#dev.write('0VOL0.5\r')
+#dev.write('1VOL0.5\r')
+#dev.write('0DIA26.6MH\r')
+#dev.write('1DIA26.6MH\r')
 ##############################################################################
-#if hasPump:
-#    
-#    commands_to_send=['0PHN01','1PHN01','0CLDINF','1CLDINF','0DIRINF','1DIRINF','0RAT%0.1fMH'%rate,'1RAT%0.1fMH'%rate,'0VOL%0.1f'%mls_to_deliver,'1VOL%0.1f'%mls_to_deliver,'0DIA%0.1fMH'%diameter,'1DIA%0.1fMH'%diameter]
-#    subdata['pumpver']=dev.sendCmd('VER')
-#
-#    dev.setBaudrate(9600)
+if hasPump:
+    
+    commands_to_send=['0PHN01','1PHN01','0CLDINF','1CLDINF','0DIRINF','1DIRINF','0RAT%0.1fMH'%rate,'1RAT%0.1fMH'%rate,'0VOL%0.1f'%mls_to_deliver,'1VOL%0.1f'%mls_to_deliver,'0DIA%0.1fMH'%diameter,'1DIA%0.1fMH'%diameter]
+    subdata['pumpver']=dev.sendCmd('VER')
+
+    dev.setBaudrate(9600)
 #i think the issue is here
 #should be sending commands to the pumps
-#    for cmd in commands_to_send:
-#        print 'sending: ',cmd
-#        dev.sendCmd(cmd)
-#        core.wait(0.1)
-#
-#    subdata['pumpdata']={}
-#    for p in [0,1]:
-#        for cmd in ['DIS','DIR','RAT','VOL','DIA']:
-#            fullcmd='%d%s'%(p,cmd)
-#            subdata['pumpdata'][fullcmd]=dev.sendCmd(fullcmd)
-#            core.wait(0.1)
-#
-#    print subdata['pumpdata']
+    for cmd in commands_to_send:
+        print 'sending: ',cmd
+        dev.sendCmd(cmd)
+        core.wait(0.1)
+
+    subdata['pumpdata']={}
+    for p in [0,1]:
+        for cmd in ['DIS','DIR','RAT','VOL','DIA']:
+            fullcmd='%d%s'%(p,cmd)
+            subdata['pumpdata'][fullcmd]=dev.sendCmd(fullcmd)
+            core.wait(0.1)
+
+    print subdata['pumpdata']
 ###########################################################################
 ###########################################################################    
 #######################setup screen########################################

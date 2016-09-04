@@ -5,7 +5,7 @@ import sys
 sys.path.insert(0, '/Users/nibl/Documents/pyserial-2.6')
 sys.path.append('/Users/nibl/Documents/taste_task/')
 import numpy as N
-import syringe_pump
+import syringe_pump_original as syringe_pump
 from psychopy import visual, core, event, logging, data, misc, sound
 import sys,os,pickle
 import socket
@@ -142,7 +142,7 @@ onsets=N.arange(0,ntrials*trial_length,step=trial_length)
 # clear infusion measurements
 if hasPump:
     commands_to_send=['0PHN01','1PHN01','0CLDINF','1CLDINF','0DIRINF','1DIRINF','0RAT%0.1fMH'%rate,'1RAT%0.1fMH'%rate,'0VOL%0.1f'%mls_to_deliver,'1VOL%0.1f'%mls_to_deliver,'0DIA%0.1fMH'%diameter,'1DIA%0.1fMH'%diameter]
-    #subdata['pumpver']=dev.sendCmd('VER')
+    subdata['pumpver']=dev.sendCmd('VER')
 
     dev.setBaudrate(9600)
 

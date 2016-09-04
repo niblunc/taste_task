@@ -10,7 +10,7 @@ sys.path.insert(0, '/Users/nibl/Documents/pyserial-2.6')
 #####THIS IS IMPORTANT DON'T MESS WITH IT#######
 sys.path.append('/Users/nibl/Documents/taste_task/')
 import cv2
-import syringe_pump
+import syringe_pump_original as syringe_pump
 from psychopy import visual, core, event, logging, data, misc, sound
 
 import socket
@@ -97,7 +97,7 @@ logfile=logging.LogFile(dataFileName,level=logging.DATA)
 
 try:
     print 'initializing serial device:'
-    dev=syringe_pump.SyringePump('/dev/tty.USA19H142P1.1')
+    dev=syringe_pump.SyringePump('/dev/tty.KeySerial1')
     print dev
     print 'using serial device: ', dev
     if not dev.isOpen():
