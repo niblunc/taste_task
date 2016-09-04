@@ -1,29 +1,25 @@
 """
 deliver juice
 """
-#####to run, in shell window <execfile("liquid2.py"), it initially doesn't work run via gui, then close and run cmdline#####
+#####to run, in shell window <execfile("liquid2.py"), it initially doesn't work run via gui, then close and run cmdline##################################################
 import psychopy.app
 import numpy as N
 import sys,os,pickle
-################################################
-#this is a unc edit, changed this path
 sys.path.insert(0, '/Users/nibl/Documents/pyserial-2.6')
 #####THIS IS IMPORTANT DON'T MESS WITH IT#######
 sys.path.append('/Users/nibl/Documents/taste_task')
 import cv2
 import syringe_pump
 from psychopy import visual, core, event, logging, data, misc, sound
-
 import socket
 from socket import gethostname
 import inspect
 sys.path.append('/Users/nibl/Documents/taste_task/psychtask')
-
 import exptutils
 from exptutils import *
-
 import datetime
-
+######################################################################
+#helper functions
 def store_scriptfile():
     scriptfile= inspect.getfile(inspect.currentframe())# save a copy of the script in the data file
     f=open(scriptfile)
@@ -63,12 +59,11 @@ def wait_for_trigger():
             exptutils.shut_down_cleanly(subdata,win)
             return False
     return True
-
-subdata={}
-#subdata['subcode']='test'
-subdata['subcode']=raw_input('subject id: ')
-
+######################################################################
+######################################################################
 # initialize subdata dictionary to store info about the study
+subdata={}
+subdata['subcode']=raw_input('subject id: ')
 subdata['completed']=0
 subdata['cwd']=os.getcwd()
 subdata['hostname']=socket.gethostname()
@@ -85,10 +80,8 @@ subdata['stim_log']={}
 subdata['is_this_SS_trial']={}
 subdata['SS']={}
 subdata['broke_on_trial']={}
-
 subdata['start_key']='5'
 subdata['quit_key']='q'
-
 subdata['simulated_response']=False
 #where to save the data 
 dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
@@ -99,23 +92,9 @@ subdata['subcode']=raw_input('subject id: ')
 dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
 logging.console.setLevel(logging.INFO)
 logfile=logging.LogFile(dataFileName,level=logging.DATA)
-##########################
-
-info = {}
-subdata['port'] = '/dev/tty.KeySerial1'
-
-# Serial connection and commands setup
-ser = serial.Serial(
-                    port=subdata['port'],
-                    baudrate=19200,
-                    parity=serial.PARITY_NONE,
-                    stopbits=serial.STOPBITS_ONE,
-                    bytesize=serial.EIGHTBITS
-                   )
-if not ser.isOpen():
-    ser.open()
-#check if the pump exists#
-<<<<<<< HEAD
+##############################################################################
+###########test if pump exists################################################
+##############################################################################
 try:
     print 'initializing serial device:'
     dev=syringe_pump.SyringePump('/dev/tty.KeySerial1', debug=True)
@@ -126,23 +105,11 @@ try:
     hasPump=True
 except:
     hasPump=False
-=======
-#try:
-#    print 'initializing serial device:'
-#    dev=syringe_pump.SyringePump('/dev/tty.KeySerial1', debug=True)
-#    print 'using serial device: ', dev
-#    if not dev.isOpen():
-#        raise Exception('noPump')
-#    hasPump=True
-#except:
-#    hasPump=False
->>>>>>> temp
+##############################################################################
+##############################################################################
+###############creating variable jitter#######################################
+##############################################################################
 
-if not dev.isOpen():
-    dev.open()
-    print dev, "is open"
-
-#creating variable jitter
 jitter=N.zeros(23).astype('float')
 #trial conditions, need to change here for training or prediction error
 jitter[0:7]=2.0 
@@ -159,7 +126,9 @@ for x in N.nditer(jitter, op_flags=['readwrite']):
 
 tlength=jitter.tolist()
 
-#parameters for how much liquid and how long
+##############################################################################
+################parameters for how much liquid and how long###################
+##############################################################################
 diameter=26.59
 mls_to_deliver=0.5
 delivery_time=2.0
@@ -199,53 +168,19 @@ for i, item in enumerate(tlength):
     preonsets.append(x)
 
 onsets=N.array(preonsets)
-#onsets=N.arange(0,ntrials*trial_length,step=trial_length)
-#    def sendCmd(self,cmd):
-#        if self.debug:
-#            print('cmd: {0}'.format(cmd))
-#        cmd = '{0}\r'.format(cmd)
-#        self.write(cmd)
-#        rsp = self.readline()
-#        self.checkRsp(rsp)
-#        return rsp
 
+##############################################################################
+############infusion measurements######################################
+##############################################################################
 
-# clear infusion measurements
 if hasPump:
-    pump_setup = ['VOL ML\r','TRGFT\r','AL 0\r','PF 0\r','BP 1\r','BP 1\r']
-    pump_phases = ['dia26.59\r', 'phn01\r', 'funrat\r', 'rat6.6mm\r', 'vol1\r', 'dirinf\r', \
-    'phn02\r', 'funrat\r', 'rat15mm\r', 'vol0.1\r', 'dirwdr\r', \
-    'phn03\r', 'funstp\r']
     
-    for c in pump_setup:
-        dev.write(c)
-        time.sleep(.25)
-    
-    for c in pump_phases:
-        dev.write(c)
-        time.sleep(.25)
-    
-#    commands_to_send=['0PHN01','1PHN01','0CLDINF','1CLDINF','0DIRINF','1DIRINF','0RAT%0.1fMH'%rate,'1RAT%0.1fMH'%rate,'0VOL%0.1f'%mls_to_deliver,'1VOL%0.1f'%mls_to_deliver,'0DIA%0.1fMH'%diameter,'1DIA%0.1fMH'%diameter]
-#    subdata['pumpver']=dev.sendCmd('VER')
-#
-#    dev.setBaudrate(9600)
+    commands_to_send=['0PHN01','1PHN01','0CLDINF','1CLDINF','0DIRINF','1DIRINF','0RAT%0.1fMH'%rate,'1RAT%0.1fMH'%rate,'0VOL%0.1f'%mls_to_deliver,'1VOL%0.1f'%mls_to_deliver,'0DIA%0.1fMH'%diameter,'1DIA%0.1fMH'%diameter]
+    subdata['pumpver']=dev.sendCmd('VER')
+
+    dev.setBaudrate(9600)
 #i think the issue is here
 #should be sending commands to the pumps
-<<<<<<< HEAD
-#    for cmd in commands_to_send:
-#        print 'sending: ',cmd
-#        dev.sendCmd(cmd)
-#        core.wait(0.1)
-#
-#    subdata['pumpdata']={}
-#    for p in [0,1]:
-#        for cmd in ['DIS','DIR','RAT','VOL','DIA']:
-#            fullcmd='%d%s'%(p,cmd)
-#            subdata['pumpdata'][fullcmd]=dev.sendCmd(fullcmd)
-#            core.wait(0.1)
-#
-#    print subdata['pumpdata']
-=======
     for cmd in commands_to_send:
         print 'sending: ',cmd
         dev.sendCmd(cmd)
@@ -254,15 +189,16 @@ if hasPump:
     subdata['pumpdata']={}
     for p in [0,1]:
         for cmd in ['DIS','DIR','RAT','VOL','DIA']:
-            fullcmd='%d%s'%(p,cmd)#this puts 0 or 1 infront of the cmd
+            fullcmd='%d%s'%(p,cmd)
             subdata['pumpdata'][fullcmd]=dev.sendCmd(fullcmd)
             core.wait(0.1)
 
     print subdata['pumpdata']
->>>>>>> temp
-
+###########################################################################
+###########################################################################    
 #######################setup screen########################################
-
+###########################################################################
+###########################################################################
 fullscr=False
 
 win = visual.Window([800,600],allowGUI=True, fullscr=fullscr, monitor='testMonitor', units='deg')
@@ -277,6 +213,8 @@ else:
     print "quit status:",wt
     
 message=visual.TextStim(win, text='')
+############################################################################
+##################set up trials#############################################
 ############################################################################
 
 subdata['trialdata']={}
