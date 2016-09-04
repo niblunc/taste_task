@@ -171,6 +171,18 @@ onsets=N.array(preonsets)
 
 ##############################################################################
 ############infusion measurements######################################
+dev.write('0PHN01\r')
+dev.write('1PHN01\r')
+dev.write('0CLDINF\r')
+dev.write('1CLDINF\r')
+dev.write('0DIRINF\r')
+dev.write('1DIRINF\r')
+dev.write('0RAT900.0MH\r')
+dev.write('1RAT900.0MH\r')
+dev.write('0VOL0.5\r')
+dev.write('1VOL0.5\r')
+dev.write('0DIA26.6MH\r')
+dev.write('1DIA26.6MH\r')
 ##############################################################################
 #if hasPump:
 #    

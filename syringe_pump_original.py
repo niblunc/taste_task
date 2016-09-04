@@ -2,13 +2,13 @@ from __future__ import print_function
 import serial
 import time
 
-debug = True 
+debug = False 
 
 class SyringePump(serial.Serial):
 
-    def __init__(self,port,timeout=0.5,debug=True):
+    def __init__(self,port,timeout=0.5,debug=False):
         params = {
-                'timeout'  : None,
+                'timeout'  : timeout,
                 'baudrate' : 19200,
                 'bytesize' : serial.EIGHTBITS,
                 'parity'   : serial.PARITY_NONE,
@@ -38,7 +38,7 @@ class SyringePump(serial.Serial):
         if val < 0.1 or val > 50.0:
             raise ValueError, 'syringe diameter out of range'
         valStr = float2PumpFormat(val)
-        self.sendCmd('DIA {0}'.format(valStr))#hanging here
+        self.sendCmd('DIA {0}'.format(valStr))
 
     def setRate(self,val,units='UM'):
         """
@@ -144,7 +144,7 @@ def float2PumpFormat(val):
 # -----------------------------------------------------------------------------
 if __name__ == '__main__':
     if 1:
-        dev = SyringePump('/dev/tty.USA19H142P1.1')
+        dev = SyringePump('/dev/ttyUSB1')
         dev.debug = False 
         dev.setDiameter(1.0)
         dev.setRate(5.0,'NS')
@@ -163,7 +163,7 @@ if __name__ == '__main__':
 
     if 0:
 
-        dev = SyringePump('/dev/tty.USA19H142P1.1')
+        dev = SyringePump('/dev/ttyUSB1')
         dev.sendCmd('DIA 1.000\r')
         dev.sendCmd('RAT 0.100 UM\r')
         dev.sendCmd('VOL UL\r')
@@ -171,7 +171,7 @@ if __name__ == '__main__':
         dev.sendCmd('CLD WDR\r')
         dev.sendCmd('DIR INF\r')
         dev.sendCmd('DIS\r')
-        dev.sendCmd('RUN\r')#start
+        dev.sendCmd('RUN\r')
         time.sleep(4.0)
-        dev.sendCmd('STP\r')#stop
+        dev.sendCmd('STP\r')
         dev.sendCmd('DIS\r')

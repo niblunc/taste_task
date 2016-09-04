@@ -2,6 +2,7 @@
 deliver juice
 """
 import sys
+sys.path.insert(0, '/Users/nibl/Documents/pyserial-2.6')
 sys.path.append('/Users/nibl/Documents/taste_task/')
 import numpy as N
 import syringe_pump
@@ -89,7 +90,7 @@ logfile=logging.LogFile(dataFileName,level=logging.INFO)
 
 try:
     print 'initializing serial device:'
-    dev=syringe_pump.SyringePump('/dev/tty.USA19H142P1.1')
+    dev=syringe_pump.SyringePump('/dev/tty.KeySerial1')
     print dev
     print 'using serial device: ', dev
     if not dev.isOpen():
@@ -141,7 +142,7 @@ onsets=N.arange(0,ntrials*trial_length,step=trial_length)
 # clear infusion measurements
 if hasPump:
     commands_to_send=['0PHN01','1PHN01','0CLDINF','1CLDINF','0DIRINF','1DIRINF','0RAT%0.1fMH'%rate,'1RAT%0.1fMH'%rate,'0VOL%0.1f'%mls_to_deliver,'1VOL%0.1f'%mls_to_deliver,'0DIA%0.1fMH'%diameter,'1DIA%0.1fMH'%diameter]
-    subdata['pumpver']=dev.sendCmd('VER')
+    #subdata['pumpver']=dev.sendCmd('VER')
 
     dev.setBaudrate(9600)
 
