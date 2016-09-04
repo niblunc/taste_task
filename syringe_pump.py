@@ -20,7 +20,7 @@ class SyringePump(serial.Serial):
     def sendCmd(self,cmd):
         if self.debug:
             print('cmd: {0}'.format(cmd))
-        cmd = '{0\r}'.format(cmd)
+        cmd = '{0}\r'.format(cmd)
         self.write(cmd)
         rsp = self.readline()
         self.checkRsp(rsp)

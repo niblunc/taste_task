@@ -292,7 +292,6 @@ for trial in range(ntrials):
 win.close()
 
 #print dev.sendCmd('VER')
-print dev.getVolumeAccum()
 
 f=open('/Users/nibl/Documents/Output/liquid_subdata_%s.pkl'%datestamp,'wb')
 pickle.dump(subdata,f)
