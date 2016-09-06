@@ -18,19 +18,18 @@ info['participant'] = 'test'
 dlg = gui.DlgFromDict(info)
 if not dlg.OK:
     core.quit()
-info['dateStr'] = data.getDateStr()
 #######################################
 subdata={}
-#subdata['subcode']=raw_input('subject id: ')
+
 subdata['subcode']='test'
 subdata['completed']=0
 subdata['cwd']=os.getcwd()
-#subdata['hostname']=socket.gethostname()
+
 clock=core.Clock()
 datestamp=datetime.datetime.now().strftime("%Y-%m-%d-%H_%M_%S")
 subdata['datestamp']=datestamp
 subdata['expt_title']='tampico_probabilistic'
-#subdata['script']=store_scriptfile()
+
 subdata['response']={}
 subdata['score']={}
 subdata['rt']={}
@@ -50,7 +49,7 @@ logfile=logging.LogFile(dataFileName,level=logging.DATA)
 # Serial connection and commands setup
 ser = serial.Serial(
                     port=info['port'],
-                    baudrate=19200,
+                    baudrate=9600,
                     parity=serial.PARITY_NONE,
                     stopbits=serial.STOPBITS_ONE,
                     bytesize=serial.EIGHTBITS
@@ -97,18 +96,13 @@ instruction1_text = visual.TextStim(win, pos=(0, 0), text="You will see pictures
 instruction2_text = visual.TextStim(win, pos=(0, 0), text="When you are instructed to administer the dose of Crave Crush or placebo, move slowly and wait until the last five seconds to put it in your mouth. \n\nPress a button to continue.")
 instruction3_text = visual.TextStim(win, pos=(0, 0), text="Remember to follow the instructions carefully. \n\nPress a button to continue.")
 fixation_text = visual.TextStim(win, text='+', pos=(0, 0), height=2)
-taste_delivery_text = visual.TextStim(win, text='Taste delivery', pos=(0, 0))
-administer_crave_crush_text = visual.TextStim(win, text='Administer Crave Crush/Placebo now', pos=(0, .6))
-dissolve_text = visual.TextStim(win, text='Wait for Crave Crush/Placebo to dissolve', pos=(0, .6))
-pumping_text = visual.TextStim(win, text='Pumping...', pos=(0, 0))
+
 pumping_ready_text = visual.TextStim(win, text='Ready to pump. Press \'c\' to initiate.', pos=(0, 0))
 scan_trigger_text = visual.TextStim(win, text='Waiting for scan trigger...', pos=(0, 0))
 swallow_text = visual.TextStim(win, text='Swallow', pos=(0, 0))
 tampico_image = visual.ImageStim(win, image='tampico.jpg')
 water_image=visual.ImageStim(win, image='bottled_water.jpg')
-#milkshake_image2 = visual.ImageStim(win, image='Milkshake2.jpg', pos=(0,.5))
-crave_rating_scale = visual.RatingScale(win=win, name='crave_rating', marker=u'triangle', size=1.0, pos=[0.0, -0.7], low=0, high=4, labels=[u''], scale=u'Rate your craving from 0 - 4',singleClick=True)
-ratings_and_onsets = [] # ALL THE DATA
+ratings_and_onsets = []
 
 #global settings
 diameter=26.59
@@ -119,6 +113,10 @@ wait_time=2.0
 rinse_time=2.0
 swallow_time=2.0
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 900
+###########Grace notes##################
+#need to make 2 sets of runs with randomized onsets of 45 events each with random jitters
+#15 tasty, 15 not tasty, 15 neutral
+#need to make 2 sets of runs with 24 events per block of mismatched and matched, with 14 matched
 
 #Trials
 trialcond=N.zeros(6).astype('int')
@@ -154,7 +152,6 @@ def run_block():
     while True:
         scan_trigger_text.draw()
         win.flip()
-        # keycode 39
         if 'c' in event.waitKeys():
             break
         event.clearEvents()
@@ -219,17 +216,9 @@ def run_block():
         win.close()
 
 run_block()
-#win.close()
-print ratings_and_onsets
 
 f=open('/Users/nibl/Documents/Output/liquid_subdata_%s.pkl'%datestamp,'wb')
 pickle.dump(subdata,f)
 f.close()
-
-myfile = open('data/{participant}_{dateStr}.csv'.format(**info), 'wb')
-wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-wr.writerow(['event','data'])
-for row in ratings_and_onsets:
-    wr.writerow(row)
 
 core.quit()
