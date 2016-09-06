@@ -1,23 +1,24 @@
-"""
-deliver juice
-"""
-import sys
-sys.path.insert(0, '/Users/nibl/Documents/pyserial-2.6')
-sys.path.append('/Users/nibl/Documents/taste_task/')
-import numpy as N
-import syringe_pump_original as syringe_pump
+import psychopy.app
 from psychopy import visual, core, event, logging, data, misc, sound
+
+import numpy as N
 import sys,os,pickle
+sys.path.insert(0, '/Users/nibl/Documents/pyserial-2.6')
+sys.path.append('/Users/nibl/Documents/taste_task')
+import cv2
 import socket
 from socket import gethostname
 import inspect
-
-
+sys.path.append('/Users/nibl/Documents/taste_task/psychtask')
 import exptutils
 from exptutils import *
-
 import datetime
+import serial
+import time
 
+
+######################################################################
+#helper functions
 def store_scriptfile():
     scriptfile= inspect.getfile(inspect.currentframe())# save a copy of the script in the data file
     f=open(scriptfile)
@@ -57,14 +58,10 @@ def wait_for_trigger():
             exptutils.shut_down_cleanly(subdata,win)
             return False
     return True
-
+######################################################################
+######################################################################
 subdata={}
 subdata['subcode']='test'
-# initialize subdata dictionary to store info about the study
-subdata['completed']=0
-subdata['cwd']=os.getcwd()
-subdata['hostname']=socket.gethostname()
-clock=core.Clock()
 datestamp=datetime.datetime.now().strftime("%Y-%m-%d-%H_%M_%S")
 subdata['datestamp']=datestamp
 subdata['expt_title']='tampico_probabilistic'
@@ -77,35 +74,44 @@ subdata['stim_log']={}
 subdata['is_this_SS_trial']={}
 subdata['SS']={}
 subdata['broke_on_trial']={}
-
 subdata['start_key']='5'
 subdata['quit_key']='q'
-
 subdata['simulated_response']=False
-
+datestamp=datetime.datetime.now().strftime("%Y-%m-%d-%H_%M_%S")
+subdata['datestamp']=datestamp
+clock=core.Clock()
 dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
-logging.console.setLevel(logging.INFO)
-logfile=logging.LogFile(dataFileName,level=logging.INFO)
+##############################################################################
+###########test if pump exists################################################
+##############################################################################
+#try:
+print 'initializing serial device:'
+dev=serial.Serial(port='/dev/tty.USA19H142P1.1',baudrate=9600,parity=serial.PARITY_NONE,stopbits=serial.STOPBITS_ONE,bytesize=serial.EIGHTBITS)
+print dev
+print 'using serial device: ', dev
+if not dev.isOpen():
+    dev.open()
+##############################################################################
+################juice water parameters and onset##############################
+##############################################################################
+trialcond=N.zeros(24).astype('int')
+trialcond[0:12]=0     # water cue, water delivery
+trialcond[12:24]=1    # juice cue, juice delivery
+#made an array of 0s and 1s
+stim_images=['bottled_water.jpg','tampico.jpg']
+ntrials=len(trialcond)#set 24 trials
+pump=N.zeros(ntrials)#0 array, length 24
 
+N.random.shuffle(trialcond)#randomize conditions
 
-try:
-    print 'initializing serial device:'
-    dev=syringe_pump.SyringePump('/dev/tty.USA19H142P1.1')
-    print dev
-    print 'using serial device: ', dev
-    if not dev.isOpen():
-        raise Exception('noPump')
-    hasPump=True
-except:
-    hasPump=False
+# pump zero is neutral, pump 1 is juice
+#this will need another pump built in
+pump[trialcond==1]=1#set when which pump is supposed to pump
+#pump[trialcond==2]=1
 
-
-#from new_era import PumpInterface
-#pi = PumpInterface(port='/dev/tty.usbserial')
-
-# deliver 0.5 ml over 5 seconds
-# equates to
-
+##############################################################################
+################parameters for how much liquid and how long###################
+##############################################################################
 diameter=26.59
 mls_to_deliver=0.5
 delivery_time=2.0
@@ -113,55 +119,30 @@ cue_time=2.0
 wait_time=2.0
 rinse_time=2.0
 swallow_time=2.0
+rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 900
 trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
 
-rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
+#pump_setup = ['VOL ML\r','TRGFT\r','PF 0\r']
+pump_setup = ['0VOL ML\r', '1VOL ML\r']
+pump_phases=['0PHN01\r','1PHN01\r','0CLDINF\r','1CLDINF\r','0DIRINF\r','1DIRINF\r','0RAT900MH\r','1RAT900MH\r','0VOL0.5\r','1VOL0.5\r','0DIA26.95MH\r','1DIA26.95MH\r']
+#pump_phases = ['dia26.59\r', 'phn01\r', 'funrat\r', 'rat6.6mm\r', 'vol1\r', 'dirinf\r', 
+#'phn02\r', 'funrat\r', 'rat15mm\r', 'vol0.1\r', 'dirwdr\r', \
+#'phn03\r', 'funstp\r']
 
-trialcond=N.zeros(24).astype('int')
+for c in pump_setup:
+    dev.write(c)
+    time.sleep(.25)
 
-trialcond[0:8]=0     # water cue, water delivery
-trialcond[8:12]=1    # water cue, juice delivery
-trialcond[12:20]=2   # juice cue, juice delivery
-trialcond[20:24]=3   # juice cue, water delivery
-stim_images=['bottled_water.jpg','bottled_water.jpg','tampico.jpg','tampico.jpg']
-ntrials=len(trialcond)
-pump=N.zeros(ntrials)
-
-N.random.shuffle(trialcond)
-
-# pump zero is neutral, pump 1 is juice
-
-pump[trialcond==1]=1
-pump[trialcond==2]=1
+for c in pump_phases:
+    dev.write(c)
+    time.sleep(.25)
 
 
 
-onsets=N.arange(0,ntrials*trial_length,step=trial_length)
-
-
-# clear infusion measurements
-if hasPump:
-    commands_to_send=['0PHN01','1PHN01','0CLDINF','1CLDINF','0DIRINF','1DIRINF','0RAT%0.1fMH'%rate,'1RAT%0.1fMH'%rate,'0VOL%0.1f'%mls_to_deliver,'1VOL%0.1f'%mls_to_deliver,'0DIA%0.1fMH'%diameter,'1DIA%0.1fMH'%diameter]
-    subdata['pumpver']=dev.sendCmd('VER')
-
-    dev.setBaudrate(9600)
-
-    for cmd in commands_to_send:
-        print 'sending: ',cmd
-        dev.sendCmd(cmd)
-        core.wait(0.1)
-
-    subdata['pumpdata']={}
-    for p in [0,1]:
-        for cmd in ['DIS','DIR','RAT','VOL','DIA']:
-            fullcmd='%d%s'%(p,cmd)
-            subdata['pumpdata'][fullcmd]=dev.sendCmd(fullcmd)
-            core.wait(0.1)
-
-    print subdata['pumpdata']
-
-# setup screen
-
+###########################################################################    
+#######################setup screen########################################
+###########################################################################
+###########################################################################
 fullscr=False
 
 win = visual.Window([800,600],allowGUI=True, fullscr=fullscr, monitor='testMonitor', units='deg')
@@ -176,76 +157,79 @@ else:
     print "quit status:",wt
     
 message=visual.TextStim(win, text='')
-
+############################################################################
 subdata['trialdata']={}
 clock.reset()
 event.clearEvents()
-
-for trial in range(ntrials):
-    if check_for_quit(subdata,win):
-        exptutils.shut_down_cleanly(subdata,win)
-        sys.exit()
-
+onsets=N.arange(0,ntrials*trial_length,step=trial_length)
+print(onsets)
+for trial in range(ntrials):#for trial in 24 trials
+    #print(trial)
+    #if check_for_quit(subdata,win):
+    #    exptutils.shut_down_cleanly(subdata,win)
+    #    sys.exit()
     trialdata={}
     print 'trial %d'%trial
     trialdata['onset']=onsets[trial]
     print 'condition %d'%trialcond[trial]
-    logging.log(logging.DATA,'Condition: %d'%trialcond[trial])
     print 'showing image: %s'%stim_images[trialcond[trial]]
     visual_stim.setImage(stim_images[trialcond[trial]])
     visual_stim.draw()
+
     while clock.getTime()<trialdata['onset']:#wait until the specified onset time to display image_file
-        if check_for_quit(subdata,win):
-            exptutils.shut_down_cleanly(subdata,win)
-            sys.exit()
-    win.flip()
+#        if check_for_quit(subdata,win):
+#            exptutils.shut_down_cleanly(subdata,win)
+#            sys.exit()
+#    win.flip()
 
     while clock.getTime()<(trialdata['onset']+cue_time):#show the image
         pass
-
+    
     if hasPump:
         print 'injecting via pump at address %d'%pump[trial]
-        logging.log(logging.DATA,'injecting via pump at address %d'%pump[trial])
-
-        dev.sendCmd('%dRUN'%pump[trial])
+        #print('%dRUN\r'%pump[trial])
+        dev.write('%dRUN\r'%pump[trial])
+        #dev.write('RUN\r')
     else:
         print 'no pump: should be injecting via pump at address %d'%pump[trial]
-
+        
     while clock.getTime()<(trialdata['onset']+cue_time+delivery_time):#wait until liquid is delivered
         pass
-    message=visual.TextStim(win, text='')
-    message.draw()
-    win.flip()
+#    message=visual.TextStim(win, text='')
+#    message.draw()
+#    win.flip()
     if hasPump:
-        trialdata['dis']=[dev.sendCmd('0DIS'),dev.sendCmd('1DIS')]
-
+        trialdata['dis']=[dev.write('0DIS\r'),dev.write('1DIS\r')]
+        print(trialdata['dis'])
 
     while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time):
         pass
 
     if hasPump:
         print 'injecting rinse via pump at address %d'%0
-        dev.sendCmd('%dRUN'%0)
+    #print('%dRUN\r'%0)
+        dev.write('%dRUN\r'%0)
+    #dev.write('RUN\r')
     else:
         print 'no pump: should be injecting rinse via pump at address %d'%pump[trial]
-
+        
     while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
         pass
 
-    message=visual.TextStim(win, text='swallow')
-    message.draw()
-    win.flip()
+#    message=visual.TextStim(win, text='swallow')
+#    message.draw()
+#    win.flip()
 
     while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+swallow_time):
         pass
-    message=visual.TextStim(win, text='')
-    message.draw()
-    win.flip()
+#    message=visual.TextStim(win, text='')
+#    message.draw()
+#    win.flip()
 
     while clock.getTime()<(trialdata['onset']+trial_length):
         pass
 
-    subdata['trialdata'][trial]=trialdata           
+    subdata['trialdata'][trial]=trialdata
 
 win.close()
 
@@ -253,3 +237,6 @@ win.close()
 f=open('Output/liquid_subdata_%s.pkl'%datestamp,'wb')
 pickle.dump(subdata,f)
 f.close()
+
+
+

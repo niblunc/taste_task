@@ -28,7 +28,7 @@ class SyringePump(serial.Serial):
 
     def checkRsp(self,rsp):
         if self.debug:
-            print('rsp: {0}, {1}'.format([x for x in rsp],[ord(x) for x in rsp]))
+            print('rsp: {0}, {1}'.format([x for x in rsp],[ord(x) for x in rsp]))#gives the unicode for the response
 
     def setDiameter(self,val):
         """

@@ -97,7 +97,7 @@ logfile=logging.LogFile(dataFileName,level=logging.DATA)
 ##############################################################################
 try:
     print 'initializing serial device:'
-    dev=syringe_pump.SyringePump('/dev/tty.KeySerial1', debug=True)
+    dev=syringe_pump.SyringePump('/dev/tty.USA19H142P1.1', debug=True)
     print dev
     print 'using serial device: ', dev
     if not dev.isOpen():

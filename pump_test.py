@@ -61,14 +61,14 @@ if hasPump:
 ##############################################################################
 ################parameters for how much liquid and how long###################
 ##############################################################################
-#diameter=26.59
-#mls_to_deliver=0.5
-#delivery_time=2.0
-#cue_time=2.0
-#wait_time=2.0
-#rinse_time=2.0
-#swallow_time=2.0
-#rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
+diameter=26.59
+mls_to_deliver=0.5
+delivery_time=2.0
+cue_time=2.0
+wait_time=2.0
+rinse_time=2.0
+swallow_time=2.0
+rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour
 #
 #trial_length=cue_time+delivery_time+wait_time+rinse_time+swallow_time
 #
