@@ -29,16 +29,8 @@ ser = serial.Serial(
 if not ser.isOpen():
     ser.open()
 
-# sanity check
-#ser.write('BUZ13\r')
 time.sleep(1)
 
-# Pump setup and phases: infuse 1mL@6mm, withdraw .1mL@15mm (max), stop pump
-#pump_setup = ['VOL ML\r','TRGFT\r','AL 0\r','PF 0\r','BP 1\r','BP 1\r']
-#pump_setup = ['VOL ML\r']
-#pump_phases = ['dia26.59\r', 'phn01\r', 'funrat\r', 'rat6.6mm\r', 'vol1\r', 'dirinf\r', \
-#'phn02\r', 'funrat\r', 'rat15mm\r', 'vol0.1\r', 'dirwdr\r', \
-#'phn03\r', 'funstp\r']
 pump_setup = ['0VOL ML\r', '1VOL ML\r']
 pump_phases=['0PHN01\r','1PHN01\r','0CLDINF\r','1CLDINF\r','0DIRINF\r','1DIRINF\r','0RAT900MH\r','1RAT900MH\r','0VOL0.5\r','1VOL0.5\r','0DIA26.95MH\r','1DIA26.95MH\r']
 
@@ -49,6 +41,7 @@ for c in pump_setup:
 for c in pump_phases:
     ser.write(c)
     time.sleep(.25)
+
 # HELPER FUNCTIONS
 def show_instruction(instrStim):
     # shows an instruction until a key is hit.
@@ -87,6 +80,7 @@ water_image=visual.ImageStim(win, image='bottled_water.jpg')
 #milkshake_image2 = visual.ImageStim(win, image='Milkshake2.jpg', pos=(0,.5))
 crave_rating_scale = visual.RatingScale(win=win, name='crave_rating', marker=u'triangle', size=1.0, pos=[0.0, -0.7], low=0, high=4, labels=[u''], scale=u'Rate your craving from 0 - 4',singleClick=True)
 ratings_and_onsets = [] # ALL THE DATA
+
 #global settings
 diameter=26.59
 mls_to_deliver=0.5
@@ -96,6 +90,7 @@ wait_time=2.0
 rinse_time=2.0
 swallow_time=2.0
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 900
+
 #Trials
 trialcond=N.zeros(6).astype('int')
 trialcond[0:3]=0    # water cue, water delivery
@@ -119,20 +114,6 @@ stim_images=['bottled_water.jpg','tampico.jpg']
 """
 
 def run_block():
-    # Pump test
-#    while True:
-#        pumping_ready_text.draw()
-#        win.flip()
-#        if 'c' in event.waitKeys():
-#            break
-#        event.clearEvents()
-#    ser.write('run\r')
-#    while True:
-#        pumping_text.draw()
-#        win.flip()
-#        if 'c' in event.waitKeys():
-#            break
-#        event.clearEvents()
 
     # Instructions (press any key to continue)
     show_instruction(instruction1_text)
@@ -154,10 +135,6 @@ def run_block():
         ratings_and_onsets.append(['fixation',t])
         show_stim(fixation_text, 2)  # 10 sec blank screen with fixation cross
         t = clock.getTime()
-        #ratings_and_onsets.append(['milkshake',t])
-        #show_stim(tampico_image, 2)  # 10 sec milkshake image
-        # >>5 sec milkshake image with craving scale below, participants are asked to rate their craving for the milkshake on the button box 1-5
-        t = clock.getTime()
         for trial in range(ntrials):
             trialdata={}
             trialdata['onset']=onsets[trial]
@@ -165,6 +142,7 @@ def run_block():
             print 'condition %d'%trialcond[trial]
             print 'showing image: %s'%stim_images[trialcond[trial]]
             visual_stim.draw()
+            
             while clock.getTime()<trialdata['onset']:
                 pass
             win.flip()
@@ -203,66 +181,12 @@ def run_block():
 
             while clock.getTime()<(trialdata['onset']+trial_length):
                 pass
+            
+        win.close()
 
-            #t = clock.getTime()
-            #ratings_and_onsets.append(['taste_delivery',t])
-            #for frame in range(60 * 2):
-            #    taste_delivery_text.draw()
-            #    win.flip()
-            #t = clock.getTime()
-            #ratings_and_onsets.append(['swallow',t])
-            #for frame in range(60 * 2):
-            #    swallow_text.draw()
-            #    win.flip()
-        t = clock.getTime()
-        ratings_and_onsets.append(['fixation',t])
-        show_stim(fixation_text, 2) #  20 second blank screen with fixation cross
-        t = clock.getTime()
-        ratings_and_onsets.append(['milkshake',t])
-        show_stim(milkshake_image,5) #  10 sec milkshake image
-         # >>5 sec milkshake image with craving scale below, participants are asked to rate their craving for the milkshake on the button box 1-5
-        t = clock.getTime()
-        ratings_and_onsets.append(['rate_milkshake',t])
-        for frame in range(60 * 5):
-            milkshake_image2.draw()
-            crave_rating_scale.draw()
-            win.flip()
-        if crave_rating_scale.noResponse:
-            ratings_and_onsets.append(['rating',-1])
-            crave_rating_scale.reset()
-        else:
-            rate = crave_rating_scale.getRating()
-            crave_rating_scale.reset()
-            ratings_and_onsets.append(['rating',rate])
-
-        #  9> 60 sec screen that counts down and tells participant to administer crave crush/placebo
-        if cycle == 0:
-            timer = core.CountdownTimer(5)
-            t = clock.getTime()
-            ratings_and_onsets.append(['administer_crave_crush',t])
-            while timer.getTime() > 0:  # after 5s will become negative
-                administer_crave_crush_text.draw()
-                counter = visual.TextStim(win, text='\n\n{0} seconds'.format(int(timer.getTime())))
-                counter.draw()
-                win.flip()
-            #  10> 180 second blank screen for the crave crush/placebo to melt
-            timer = core.CountdownTimer(10)
-            t = clock.getTime()
-            ratings_and_onsets.append(['wait_for_dissolve',t])
-            while timer.getTime() > 0:  # after 5s will become negative
-                dissolve_text.draw()
-                counter = visual.TextStim(win, text='\n\n{0} seconds'.format(int(timer.getTime())))
-                counter.draw()
-                win.flip()
-
-run_block()
-win.close()
-print ratings_and_onsets
-
-myfile = open('data/{participant}_{dateStr}.csv'.format(**info), 'wb')
-wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-wr.writerow(['event','data'])
-for row in ratings_and_onsets:
-    wr.writerow(row)
+#print dev.sendCmd('VER')
+f=open('Output/liquid_subdata_%s.pkl'%datestamp,'wb')
+pickle.dump(subdata,f)
+f.close()
 
 core.quit()
