@@ -1,11 +1,13 @@
 # Crave Crush Experiement. 11/20/2015
 # Author: Nathan Nichols <nathann@ori.org>
 
-from psychopy import visual, core, data, gui, event, data
+from psychopy import visual, core, data, gui, event, data, logging
 import csv
 import time
 import serial
 import numpy as N
+import sys,os,pickle
+import datetime
 # Lab tech setup
 
 monSize = [800, 600]
@@ -17,7 +19,34 @@ dlg = gui.DlgFromDict(info)
 if not dlg.OK:
     core.quit()
 info['dateStr'] = data.getDateStr()
-
+#######################################
+subdata={}
+#subdata['subcode']=raw_input('subject id: ')
+subdata['subcode']='test'
+subdata['completed']=0
+subdata['cwd']=os.getcwd()
+#subdata['hostname']=socket.gethostname()
+clock=core.Clock()
+datestamp=datetime.datetime.now().strftime("%Y-%m-%d-%H_%M_%S")
+subdata['datestamp']=datestamp
+subdata['expt_title']='tampico_probabilistic'
+#subdata['script']=store_scriptfile()
+subdata['response']={}
+subdata['score']={}
+subdata['rt']={}
+subdata['stim_onset_time']={}
+subdata['stim_log']={}
+subdata['is_this_SS_trial']={}
+subdata['SS']={}
+subdata['broke_on_trial']={}
+subdata['start_key']='5'
+subdata['quit_key']='q'
+subdata['simulated_response']=False
+##########################
+dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
+logging.console.setLevel(logging.INFO)
+logfile=logging.LogFile(dataFileName,level=logging.DATA)
+#######################################
 # Serial connection and commands setup
 ser = serial.Serial(
                     port=info['port'],
@@ -108,6 +137,7 @@ onsets=N.arange(0,ntrials*trial_length,step=trial_length)
 #this will need another pump built in
 pump[trialcond==1]=1
 stim_images=['bottled_water.jpg','tampico.jpg']
+subdata['trialdata']={}
 
 """
     The main run block!
@@ -136,12 +166,14 @@ def run_block():
         show_stim(fixation_text, 2)  # 10 sec blank screen with fixation cross
         t = clock.getTime()
         for trial in range(ntrials):
+                    
             trialdata={}
             trialdata['onset']=onsets[trial]
             visual_stim.setImage(stim_images[trialcond[trial]])
             print 'condition %d'%trialcond[trial]
             print 'showing image: %s'%stim_images[trialcond[trial]]
             visual_stim.draw()
+            logging.log(logging.DATA, "image=%s"%stim_images[trialcond[trial]])
             
             while clock.getTime()<trialdata['onset']:
                 pass
@@ -150,6 +182,7 @@ def run_block():
             while clock.getTime()<(trialdata['onset']+cue_time):#show the image
                 pass
             print 'injecting via pump at address %d'%pump[trial]
+            logging.log(logging.DATA,"injecting via pump at address %d"%pump[trial])
             ser.write('%drun\r'%pump[trial])
             while clock.getTime()<(trialdata['onset']+cue_time+delivery_time):
                 pass
@@ -182,11 +215,21 @@ def run_block():
             while clock.getTime()<(trialdata['onset']+trial_length):
                 pass
             
+            subdata['trialdata'][trial]=trialdata
         win.close()
 
-#print dev.sendCmd('VER')
-f=open('Output/liquid_subdata_%s.pkl'%datestamp,'wb')
+run_block()
+#win.close()
+print ratings_and_onsets
+
+f=open('/Users/nibl/Documents/Output/liquid_subdata_%s.pkl'%datestamp,'wb')
 pickle.dump(subdata,f)
 f.close()
+
+myfile = open('data/{participant}_{dateStr}.csv'.format(**info), 'wb')
+wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+wr.writerow(['event','data'])
+for row in ratings_and_onsets:
+    wr.writerow(row)
 
 core.quit()
