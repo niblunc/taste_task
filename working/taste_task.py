@@ -1,5 +1,4 @@
-# Crave Crush Experiement. 11/20/2015
-# Author: Nathan Nichols <nathann@ori.org>
+# taste task. 09/07/2016
 
 from psychopy import visual, core, data, gui, event, data, logging
 import csv
@@ -8,7 +7,6 @@ import serial
 import numpy as N
 import sys,os,pickle
 import datetime
-# Lab tech setup
 
 monSize = [800, 600]
 info = {}
@@ -38,8 +36,6 @@ subdata['stim_log']={}
 subdata['is_this_SS_trial']={}
 subdata['SS']={}
 subdata['broke_on_trial']={}
-subdata['start_key']='5'
-subdata['quit_key']='q'
 subdata['simulated_response']=False
 ##########################
 dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
@@ -112,7 +108,7 @@ delivery_time=2.0
 cue_time=2.0
 wait_time=2.0
 rinse_time=2.0
-swallow_time=2.0
+#swallow_time=2.0
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 900
 ###########Grace notes##################
 #need to make 2 sets of runs with randomized onsets of 45 events each with random jitters
@@ -120,26 +116,51 @@ rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 900
 #need to make 2 sets of runs with 24 events per block of mismatched and matched, with 14 matched
 
 #Trials
-trialcond=N.zeros(6).astype('int')
-trialcond[0:2]=0    # water cue, water delivery
-trialcond[2:4]=1    # juice cue, juice delivery
-trialcond[4:6]=2
+#trialcond=N.zeros(6).astype('int')
+#trialcond[0:2]=0    # water cue, water delivery
+#trialcond[2:4]=1    # juice cue, juice delivery
+#trialcond[4:6]=2    # third flavor and delivery
 #made an array of 0s and 1s
-stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
-ntrials=len(trialcond)#set 24 trials
-pump=N.zeros(ntrials)#0 array, length 24
-trial_length=10
-onsets=N.arange(0,ntrials*trial_length,step=trial_length)
+#stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
+#ntrials=len(trialcond)#set 24 trials
+#pump=N.zeros(ntrials)#0 array, length 24
+#trial_length=10
+#onsets=N.arange(0,ntrials*trial_length,step=trial_length)
 
 #N.random.shuffle(trialcond)#randomize conditions
 
 # pump zero is neutral, pump 1 is juice
 #this will need another pump built in
+#####################
+#load in onset files#
+
+onsets=[]
+f=open('/Users/nibl/Documents/taste_task/onset_files/onsets_run01_2016-09-07-16_30_37','r')
+x = f.readlines()
+onsets=[]
+for i in x:
+    onsets.append(int(i.strip()))
+
+onsets=[float(i) for i in onsets]
+
+jitter=[]
+g=open('/Users/nibl/Documents/taste_task/onset_files/jitter_run01_2016-09-07-16_30_37','r')
+y = g.readlines()
+for i in y:
+    jitter.append(i.strip())
+    
+jitter=[float(i) for i in jitter]
+
+trialcond=N.loadtxt('/Users/nibl/Documents/taste_task/onset_files/conds_run01_2016-09-07-16_30_37', dtype='int')
+
+ntrials=len(trialcond)
+pump=N.zeros(ntrials)
 pump[trialcond==1]=1
 pump[trialcond==2]=2
 stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
 subdata['trialdata']={}
 
+            
 """
     The main run block!
 """
@@ -206,13 +227,13 @@ def run_block():
             message.draw()
             win.flip()
 
-            while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+swallow_time):
+            while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
                 pass
             message=visual.TextStim(win, text='')
             message.draw()
             win.flip()
 
-            while clock.getTime()<(trialdata['onset']+trial_length):
+            while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
                 pass
             
             subdata['trialdata'][trial]=trialdata
