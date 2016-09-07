@@ -15,7 +15,7 @@ def make_onsets(run):
 
     N.random.shuffle(jitter)
     njitter=len(jitter)
-    
+    jitter2=jitter.tolist()
 #this will make the random trial_lengths
     for x in N.nditer(jitter, op_flags=['readwrite']):
         x[...] = 8 + x
@@ -46,7 +46,7 @@ def make_onsets(run):
 #write file with the jitter    
     g=open('/Users/nibl/Documents/taste_task/onset_files/jitter_'+run+'_'+datestamp, 'w')
     print g
-    for item in tlength:
+    for item in jitter2:
         print>>g, item
     g.close()
 #write file with conditions
