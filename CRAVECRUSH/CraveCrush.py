@@ -59,8 +59,8 @@ if not ser.isOpen():
 
 time.sleep(1)
 
-pump_setup = ['0VOL ML\r', '1VOL ML\r']
-pump_phases=['0PHN01\r','1PHN01\r','0CLDINF\r','1CLDINF\r','0DIRINF\r','1DIRINF\r','0RAT900MH\r','1RAT900MH\r','0VOL0.5\r','1VOL0.5\r','0DIA26.95MH\r','1DIA26.95MH\r']
+pump_setup = ['0VOL ML\r', '1VOL ML\r', '2VOL ML\r']
+pump_phases=['0PHN01\r','1PHN01\r', '2PHN01\r', '0CLDINF\r','1CLDINF\r', '2CLDINF\r', '0DIRINF\r','1DIRINF\r', '2DIRINF\r','0RAT900MH\r','1RAT900MH\r', '2RAT900MH\r', '0VOL0.5\r','1VOL0.5\r', '2VOL0.5\r', '0DIA26.95MH\r','1DIA26.95MH\r', '2DIA26.95MH\r']
 
 for c in pump_setup:
     ser.write(c)
@@ -102,6 +102,7 @@ scan_trigger_text = visual.TextStim(win, text='Waiting for scan trigger...', pos
 swallow_text = visual.TextStim(win, text='Swallow', pos=(0, 0))
 tampico_image = visual.ImageStim(win, image='tampico.jpg')
 water_image=visual.ImageStim(win, image='bottled_water.jpg')
+milkshake_image=visual.ImageStim(win, image='Milkshake.jpg')
 ratings_and_onsets = []
 
 #global settings
@@ -119,11 +120,12 @@ rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 900
 #need to make 2 sets of runs with 24 events per block of mismatched and matched, with 14 matched
 
 #Trials
-trialcond=N.zeros(6).astype('int')
+trialcond=N.zeros(9).astype('int')
 trialcond[0:3]=0    # water cue, water delivery
 trialcond[3:6]=1    # juice cue, juice delivery
+trialcond[6:9]=3    # milkshake cue, milkshake delivery
 #made an array of 0s and 1s
-stim_images=['bottled_water.jpg','tampico.jpg']
+stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
 ntrials=len(trialcond)#set 24 trials
 pump=N.zeros(ntrials)#0 array, length 24
 trial_length=10
@@ -134,7 +136,8 @@ onsets=N.arange(0,ntrials*trial_length,step=trial_length)
 # pump zero is neutral, pump 1 is juice
 #this will need another pump built in
 pump[trialcond==1]=1
-stim_images=['bottled_water.jpg','tampico.jpg']
+pump[trialcond==2]=2
+
 subdata['trialdata']={}
 
 """
@@ -180,7 +183,7 @@ def run_block():
                 pass
             print 'injecting via pump at address %d'%pump[trial]
             logging.log(logging.DATA,"injecting via pump at address %d"%pump[trial])
-            ser.write('%drun\r'%pump[trial])
+            #ser.write('%drun\r'%pump[trial])
             while clock.getTime()<(trialdata['onset']+cue_time+delivery_time):
                 pass
             message=visual.TextStim(win, text='')
@@ -194,7 +197,7 @@ def run_block():
                 pass
             
             print 'injecting rinse via pump at address %d'%0
-            ser.write('%dRUN\r'%0)
+            #ser.write('%dRUN\r'%0)
         
             while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
                 pass
