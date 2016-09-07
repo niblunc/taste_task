@@ -139,9 +139,10 @@ f=open('/Users/nibl/Documents/taste_task/onset_files/onsets_run01_2016-09-07-16_
 x = f.readlines()
 onsets=[]
 for i in x:
-    onsets.append(int(i.strip()))
+    onsets.append(i.strip())
 
 onsets=[float(i) for i in onsets]
+print(onsets)
 
 jitter=[]
 g=open('/Users/nibl/Documents/taste_task/onset_files/jitter_run01_2016-09-07-16_30_37','r')
@@ -150,8 +151,10 @@ for i in y:
     jitter.append(i.strip())
     
 jitter=[float(i) for i in jitter]
+print(jitter)
 
 trialcond=N.loadtxt('/Users/nibl/Documents/taste_task/onset_files/conds_run01_2016-09-07-16_30_37', dtype='int')
+print(trialcond)
 
 ntrials=len(trialcond)
 pump=N.zeros(ntrials)
