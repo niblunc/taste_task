@@ -60,11 +60,7 @@ if not ser.isOpen():
 time.sleep(1)
 
 pump_setup = ['0VOL ML\r', '1VOL ML\r', '2VOL ML\r']
-<<<<<<< HEAD
-pump_phases=['0PHN01\r','1PHN01\r', '2PHN01\r', '0CLDINF\r','1CLDINF\r', '2CLDINF\r', '0DIRINF\r','1DIRINF\r', '2DIRINF\r','0RAT900MH\r','1RAT900MH\r', '2RAT900MH\r', '0VOL0.5\r','1VOL0.5\r', '2VOL0.5\r', '0DIA26.95MH\r','1DIA26.95MH\r', '2DIA26.95MH\r']
-=======
 pump_phases=['0PHN01\r','1PHN01\r', '2PHN01\r','0CLDINF\r','1CLDINF\r','2CLDINF\r','0DIRINF\r','1DIRINF\r','2DIRINF\r','0RAT900MH\r','1RAT900MH\r','2RAT900MH\r','0VOL0.5\r','1VOL0.5\r', '2VOL0.5\r','0DIA26.95MH\r','1DIA26.95MH\r', '2DIA26.95MH\r']
->>>>>>> test
 
 for c in pump_setup:
     ser.write(c)
@@ -106,11 +102,7 @@ scan_trigger_text = visual.TextStim(win, text='Waiting for scan trigger...', pos
 swallow_text = visual.TextStim(win, text='Swallow', pos=(0, 0))
 tampico_image = visual.ImageStim(win, image='tampico.jpg')
 water_image=visual.ImageStim(win, image='bottled_water.jpg')
-<<<<<<< HEAD
-milkshake_image=visual.ImageStim(win, image='Milkshake.jpg')
-=======
 milk_image=visual.ImageStim(win, image='Milkshake.jpg')
->>>>>>> test
 ratings_and_onsets = []
 
 #global settings
@@ -128,17 +120,10 @@ rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 900
 #need to make 2 sets of runs with 24 events per block of mismatched and matched, with 14 matched
 
 #Trials
-<<<<<<< HEAD
-trialcond=N.zeros(9).astype('int')
-trialcond[0:3]=0    # water cue, water delivery
-trialcond[3:6]=1    # juice cue, juice delivery
-trialcond[6:9]=3    # milkshake cue, milkshake delivery
-=======
 trialcond=N.zeros(6).astype('int')
 trialcond[0:2]=0    # water cue, water delivery
 trialcond[2:4]=1    # juice cue, juice delivery
 trialcond[4:6]=2
->>>>>>> test
 #made an array of 0s and 1s
 stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
 ntrials=len(trialcond)#set 24 trials
@@ -152,11 +137,7 @@ onsets=N.arange(0,ntrials*trial_length,step=trial_length)
 #this will need another pump built in
 pump[trialcond==1]=1
 pump[trialcond==2]=2
-<<<<<<< HEAD
-
-=======
 stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
->>>>>>> test
 subdata['trialdata']={}
 
 """
@@ -182,12 +163,13 @@ def run_block():
     for cycle in [0,1]:
         t = clock.getTime()
         ratings_and_onsets.append(['fixation',t])
-        show_stim(fixation_text, 7)  # 10 sec blank screen with fixation cross
+        show_stim(fixation_text, 2)  # 10 sec blank screen with fixation cross
         t = clock.getTime()
         for trial in range(ntrials):
-            trialdata={}#dictionary
-            trialdata['onset']=onsets[trial]#onsets, trial is the number, the trialdata is getting the onset time and adding it to the trial data dictionary 
-            visual_stim.setImage(stim_images[trialcond[trial]])#need to insert the stim_image array here
+                    
+            trialdata={}
+            trialdata['onset']=onsets[trial]
+            visual_stim.setImage(stim_images[trialcond[trial]])
             print 'condition %d'%trialcond[trial]
             print 'showing image: %s'%stim_images[trialcond[trial]]
             visual_stim.draw()
@@ -208,7 +190,7 @@ def run_block():
             message.draw()
             win.flip()
             
-            trialdata['dis']=[ser.write('0DIS\r'),ser.write('1DIS\r'), ser.write('2DIS\r')]
+            trialdata['dis']=[ser.write('0DIS\r'),ser.write('1DIS\r')]
             print(trialdata['dis'])
 
             while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time):
