@@ -194,6 +194,7 @@ def run_block():
             trialdata={}
             trialdata['onset']=onsets[trial]
             visual_stim.setImage(stim_images[trialcond[trial]])
+            print trial
             print 'condition %d'%trialcond[trial]
             print 'showing image: %s'%stim_images[trialcond[trial]]
             visual_stim.draw()
