@@ -2,9 +2,10 @@
 deliver juice
 """
 import sys
+sys.path.insert(0, '/Users/nibl/Documents/pyserial-2.6')
 sys.path.append('/Users/nibl/Documents/taste_task/')
 import numpy as N
-import syringe_pump
+import syringe_pump_original as syringe_pump
 from psychopy import visual, core, event, logging, data, misc, sound
 import sys,os,pickle
 import socket
