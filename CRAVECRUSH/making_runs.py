@@ -17,7 +17,7 @@ for x in N.nditer(jitter, op_flags=['readwrite']):
     x[...] = 8 + x
 
 
-tlength=jitter.tolist()
+tlength=jitter.tolist()#same as jitter just a list
 
 trialcond=N.zeros(45).astype('int')
 trialcond[0:15]=0      # water cue, water delivery
@@ -30,8 +30,8 @@ N.random.shuffle(trialcond)
 stim_images=['bottled_water.jpg','tampico.jpg', 'third_image.jpg']
 ntrials=len(trialcond)#set 45 trials
 pump=N.zeros(ntrials)#0 array, length 45
-trial_length=10
-onsets=N.arange(0,ntrials*trial_length,step=trial_length)
+#trial_length=10
+#onsets=N.arange(0,ntrials*trial_length,step=trial_length)
 
 #N.random.shuffle(trialcond)#randomize conditions
 # pump zero is neutral, pump 1 is juice
@@ -45,5 +45,8 @@ for i, item in enumerate(tlength):
     x=preonsets[-1]+tlength[i]
     preonsets.append(x)
 
-onsets2=N.array(preonsets)
+#onsets2=N.array(preonsets)
+
+#for item in thelist:
+#  print>>thefile, item
 

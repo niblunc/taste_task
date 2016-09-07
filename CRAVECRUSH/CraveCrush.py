@@ -160,13 +160,13 @@ def run_block():
     for cycle in [0,1]:
         t = clock.getTime()
         ratings_and_onsets.append(['fixation',t])
-        show_stim(fixation_text, 2)  # 10 sec blank screen with fixation cross
+        show_stim(fixation_text, 7)  # 10 sec blank screen with fixation cross
         t = clock.getTime()
         for trial in range(ntrials):
                     
-            trialdata={}
-            trialdata['onset']=onsets[trial]
-            visual_stim.setImage(stim_images[trialcond[trial]])
+            trialdata={}#dictionary
+            trialdata['onset']=onsets[trial]#onsets, trial is the number, the trialdata is getting the onset time and adding it to the trial data dictionary 
+            visual_stim.setImage(stim_images[trialcond[trial]])#need to insert the stim_image array here
             print 'condition %d'%trialcond[trial]
             print 'showing image: %s'%stim_images[trialcond[trial]]
             visual_stim.draw()
