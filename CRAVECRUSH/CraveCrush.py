@@ -166,7 +166,6 @@ def run_block():
         show_stim(fixation_text, 7)  # 10 sec blank screen with fixation cross
         t = clock.getTime()
         for trial in range(ntrials):
-                    
             trialdata={}#dictionary
             trialdata['onset']=onsets[trial]#onsets, trial is the number, the trialdata is getting the onset time and adding it to the trial data dictionary 
             visual_stim.setImage(stim_images[trialcond[trial]])#need to insert the stim_image array here
@@ -183,21 +182,21 @@ def run_block():
                 pass
             print 'injecting via pump at address %d'%pump[trial]
             logging.log(logging.DATA,"injecting via pump at address %d"%pump[trial])
-            #ser.write('%drun\r'%pump[trial])
+            ser.write('%drun\r'%pump[trial])
             while clock.getTime()<(trialdata['onset']+cue_time+delivery_time):
                 pass
             message=visual.TextStim(win, text='')
             message.draw()
             win.flip()
             
-            trialdata['dis']=[ser.write('0DIS\r'),ser.write('1DIS\r')]
+            trialdata['dis']=[ser.write('0DIS\r'),ser.write('1DIS\r'), ser.write('2DIS\r')]
             print(trialdata['dis'])
 
             while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time):
                 pass
             
             print 'injecting rinse via pump at address %d'%0
-            #ser.write('%dRUN\r'%0)
+            ser.write('%dRUN\r'%0)
         
             while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
                 pass
