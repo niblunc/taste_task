@@ -193,72 +193,72 @@ def run_block():
         event.clearEvents()
 
     clock=core.Clock()
-    for cycle in [0,1]:
+    #for cycle in [0,1]:
+    t = clock.getTime()
+    ratings_and_onsets.append(['fixation',t])
+    show_stim(fixation_text, 2)  # 10 sec blank screen with fixation cross
+    t = clock.getTime()
+    ratings_and_onsets.append(['start',t])
+    for trial in range(ntrials):
+        trialdata={}
+        trialdata['onset']=onsets[trial]
+        visual_stim.setImage(stim_images[trialcond[trial]])
+        print trial
+        print 'condition %d'%trialcond[trial]
+        print 'showing image: %s'%stim_images[trialcond[trial]]
         t = clock.getTime()
-        ratings_and_onsets.append(['fixation',t])
-        show_stim(fixation_text, 2)  # 10 sec blank screen with fixation cross
+        ratings_and_onsets.append(["image=%s"%stim_images[trialcond[trial]],t])
+        visual_stim.draw()
+        logging.log(logging.DATA, "image=%s"%stim_images[trialcond[trial]])
+            
+        while clock.getTime()<trialdata['onset']:
+            pass
+        win.flip()
+            
+        while clock.getTime()<(trialdata['onset']+cue_time):#show the image
+            pass
+        print 'injecting via pump at address %d'%pump[trial]
+        logging.log(logging.DATA,"injecting via pump at address %d"%pump[trial])
         t = clock.getTime()
-        ratings_and_onsets.append(['start',t])
-        for trial in range(ntrials):
-            trialdata={}
-            trialdata['onset']=onsets[trial]
-            visual_stim.setImage(stim_images[trialcond[trial]])
-            print trial
-            print 'condition %d'%trialcond[trial]
-            print 'showing image: %s'%stim_images[trialcond[trial]]
-            t = clock.getTime()
-            ratings_and_onsets.append(["image=%s"%stim_images[trialcond[trial]],t])
-            visual_stim.draw()
-            logging.log(logging.DATA, "image=%s"%stim_images[trialcond[trial]])
+        ratings_and_onsets.append(["injecting via pump at address %d"%pump[trial], t])
+        ser.write('%drun\r'%pump[trial])
+        while clock.getTime()<(trialdata['onset']+cue_time+delivery_time):
+            pass
+        message=visual.TextStim(win, text='')
+        message.draw()
+        win.flip()
             
-            while clock.getTime()<trialdata['onset']:
-                pass
-            win.flip()
-            
-            while clock.getTime()<(trialdata['onset']+cue_time):#show the image
-                pass
-            print 'injecting via pump at address %d'%pump[trial]
-            logging.log(logging.DATA,"injecting via pump at address %d"%pump[trial])
-            t = clock.getTime()
-            ratings_and_onsets.append(["injecting via pump at address %d"%pump[trial], t])
-            ser.write('%drun\r'%pump[trial])
-            while clock.getTime()<(trialdata['onset']+cue_time+delivery_time):
-                pass
-            message=visual.TextStim(win, text='')
-            message.draw()
-            win.flip()
-            
-            trialdata['dis']=[ser.write('0DIS\r'),ser.write('1DIS\r')]
-            print(trialdata['dis'])
+        trialdata['dis']=[ser.write('0DIS\r'),ser.write('1DIS\r')]
+        print(trialdata['dis'])
 
-            while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time):
-                pass
+        while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time):
+            pass
             
-            print 'injecting rinse via pump at address %d'%0
-            t = clock.getTime()
-            ratings_and_onsets.append(['injecting rinse via pump at address %d'%0, t])
-            ser.write('%dRUN\r'%0)
+        print 'injecting rinse via pump at address %d'%0
+        t = clock.getTime()
+        ratings_and_onsets.append(['injecting rinse via pump at address %d'%0, t])
+        ser.write('%dRUN\r'%0)
         
-            while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
-                pass
+        while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
+            pass
 
-            message=visual.TextStim(win, text='swallow')
-            message.draw()
-            win.flip()
+        message=visual.TextStim(win, text='swallow')
+        message.draw()
+        win.flip()
 
-            while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
-                pass
-            message=visual.TextStim(win, text='')
-            message.draw()
-            win.flip()
+        while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
+            pass
+        message=visual.TextStim(win, text='')
+        message.draw()
+        win.flip()
 
-            while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
-                pass
-            t = clock.getTime()
-            ratings_and_onsets.append(['end time', t])
+        while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
+            pass
+        t = clock.getTime()
+        ratings_and_onsets.append(['end time', t])
             
-            subdata['trialdata'][trial]=trialdata
-        win.close()
+        subdata['trialdata'][trial]=trialdata
+    win.close()
 
 run_block()
 
