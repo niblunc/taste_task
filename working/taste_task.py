@@ -13,13 +13,17 @@ info = {}
 info['fullscr'] = False
 info['port'] = '/dev/tty.USA19H142P1.1'
 info['participant'] = 'test'
+info['run']=''
+info['onset']='/Users/nibl/Documents/taste_task/onset_files/onsets_run02_2016-09-08-10_06_53'
+info['jitter']='/Users/nibl/Documents/taste_task/onset_files/jitter_run02_2016-09-08-10_06_53'
+info['conds']='/Users/nibl/Documents/taste_task/onset_files/conds_run02_2016-09-08-10_06_53'
 dlg = gui.DlgFromDict(info)
 if not dlg.OK:
     core.quit()
 #######################################
 subdata={}
 
-subdata['subcode']='test'
+#subdata['subcode']='test'
 subdata['completed']=0
 subdata['cwd']=os.getcwd()
 
@@ -38,7 +42,7 @@ subdata['SS']={}
 subdata['broke_on_trial']={}
 subdata['simulated_response']=False
 ##########################
-dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
+dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(info['participant'],subdata['datestamp'])
 logging.console.setLevel(logging.INFO)
 logfile=logging.LogFile(dataFileName,level=logging.DATA)
 #######################################
@@ -135,26 +139,25 @@ rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 900
 #load in onset files#
 
 onsets=[]
-f=open('/Users/nibl/Documents/taste_task/onset_files/onsets_run01_2016-09-07-16_30_37','r')
+f=open(info['onset'],'r')
 x = f.readlines()
-onsets=[]
 for i in x:
     onsets.append(i.strip())
 
 onsets=[float(i) for i in onsets]
-print(onsets)
+print(onsets, 'onsets')
 
 jitter=[]
-g=open('/Users/nibl/Documents/taste_task/onset_files/jitter_run01_2016-09-07-16_30_37','r')
+g=open(info['jitter'],'r')
 y = g.readlines()
 for i in y:
     jitter.append(i.strip())
     
 jitter=[float(i) for i in jitter]
-print(jitter)
+print(jitter, 'jitter')
 
-trialcond=N.loadtxt('/Users/nibl/Documents/taste_task/onset_files/conds_run01_2016-09-07-16_30_37', dtype='int')
-print(trialcond)
+trialcond=N.loadtxt(info['conds'], dtype='int')
+print(trialcond,'trial conditions')
 
 ntrials=len(trialcond)
 pump=N.zeros(ntrials)
