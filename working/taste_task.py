@@ -151,14 +151,14 @@ pump=N.zeros(ntrials)
 #    pump zero is neutral, pump 1 is juice, pump 2 is milkshake
 
 if info['color']=='red':
-    pump[trialcond==1]=1 #tampico pump
-    pump[trialcond==2]=2 #milkshake pump
-    stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
+    pump[trialcond==1]=1 #tasty pump
+    pump[trialcond==2]=2 #not tasty pump
+    stim_images=['waterlogo.jpg','tasty.jpg', 'not_tasty.jpg']
 else:
-    stim_images=['tampico.jpg', 'Milkshake.jpg', 'tampico.jpg']
-    pump[trialcond==0]=1 #tampico pump
-    pump[trialcond==1]=2 #milkshake pump
-    pump[trialcond==2]=2 #milkshake pump
+    stim_images=['tasty.jpg', 'not_tasty.jpg', 'tasty.jpg']
+    pump[trialcond==0]=1 #tasty pump
+    pump[trialcond==1]=2 #not tasty pump
+    pump[trialcond==2]=2 #not tasty pump
 
 subdata['trialdata']={}
 
