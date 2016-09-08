@@ -198,14 +198,16 @@ def run_block():
         ratings_and_onsets.append(['fixation',t])
         show_stim(fixation_text, 2)  # 10 sec blank screen with fixation cross
         t = clock.getTime()
+        ratings_and_onsets.append(['start',t])
         for trial in range(ntrials):
-                    
             trialdata={}
             trialdata['onset']=onsets[trial]
             visual_stim.setImage(stim_images[trialcond[trial]])
             print trial
             print 'condition %d'%trialcond[trial]
             print 'showing image: %s'%stim_images[trialcond[trial]]
+            t = clock.getTime()
+            ratings_and_onsets.append(["image=%s"%stim_images[trialcond[trial]],t])
             visual_stim.draw()
             logging.log(logging.DATA, "image=%s"%stim_images[trialcond[trial]])
             
@@ -217,6 +219,8 @@ def run_block():
                 pass
             print 'injecting via pump at address %d'%pump[trial]
             logging.log(logging.DATA,"injecting via pump at address %d"%pump[trial])
+            t = clock.getTime()
+            ratings_and_onsets.append(["injecting via pump at address %d"%pump[trial], t])
             ser.write('%drun\r'%pump[trial])
             while clock.getTime()<(trialdata['onset']+cue_time+delivery_time):
                 pass
@@ -231,6 +235,8 @@ def run_block():
                 pass
             
             print 'injecting rinse via pump at address %d'%0
+            t = clock.getTime()
+            ratings_and_onsets.append(['injecting rinse via pump at address %d'%0, t])
             ser.write('%dRUN\r'%0)
         
             while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
@@ -248,14 +254,24 @@ def run_block():
 
             while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
                 pass
+            t = clock.getTime()
+            ratings_and_onsets.append(['end time', t])
             
             subdata['trialdata'][trial]=trialdata
         win.close()
 
 run_block()
 
+subdata.update(info)
 f=open('/Users/nibl/Documents/Output/liquid_subdata_%s.pkl'%datestamp,'wb')
 pickle.dump(subdata,f)
 f.close()
+
+myfile = open('/Users/nibl/Documents/Output/liquid_subdata_%s.csv'%datestamp.format(**info), 'wb')
+wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+wr.writerow(['event','data'])
+for row in ratings_and_onsets:
+    wr.writerow(row)
+
 
 core.quit()
