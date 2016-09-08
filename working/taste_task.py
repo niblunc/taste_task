@@ -1,7 +1,7 @@
 # taste task. 09/07/2016
 # red=practice; blue=prediction error
-# run01 and run02 are practice
-# run03 and run04 are prediction error
+# run01 and run02 are practice (need to be paired with red)
+# run03 and run04 are prediction error (need to be paired with blue)
 
 from psychopy import visual, core, data, gui, event, data, logging
 import csv
@@ -10,6 +10,8 @@ import serial
 import numpy as N
 import sys,os,pickle
 import datetime
+import exptutils
+from exptutils import *
 
 monSize = [800, 600]
 info = {}
@@ -47,11 +49,13 @@ subdata['simulated_response']=False
 subdata['onset']='/Users/nibl/Documents/taste_task/onset_files/onsets_'+info['run']
 subdata['jitter']='/Users/nibl/Documents/taste_task/onset_files/jitter_'+info['run']
 subdata['conds']='/Users/nibl/Documents/taste_task/onset_files/conds_'+info['run']
+subdata['quit_key']='q'
 
-##########################
+#######################################
 dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(info['participant'],subdata['datestamp'])
 logging.console.setLevel(logging.INFO)
 logfile=logging.LogFile(dataFileName,level=logging.DATA)
+ratings_and_onsets = []
 #######################################
 # Serial connection and commands setup
 ser = serial.Serial(
@@ -93,24 +97,27 @@ def show_stim(stim, seconds):
     for frame in range(60 * seconds):
         stim.draw()
         win.flip()
+        
+def check_for_quit(subdata,win):
+    k=event.getKeys()
+    print 'checking for quit key %s'%subdata['quit_key']
+    print 'found:',k
+    if k.count(subdata['quit_key']) >0:# if subdata['quit_key'] is pressed...
+        print 'quit key pressed'
+        return True
+    else:
+        return False
 
 # MONITOR
 win = visual.Window(monSize, fullscr=info['fullscr'],
                     monitor='testMonitor', units='deg')
 visual_stim=visual.ImageStim(win, image=N.zeros((300,300)), size=(0.75,0.75),units='height')
 # STIMS
-instruction1_text = visual.TextStim(win, pos=(0, 0), text="You will see pictures of a chocolate milkshake that will be followed by tastes of milkshake. At certain points, you will be asked for a rating from 0 to 4. \n\nUse the button box to rate your craving for chocolate milkshake after seeing the picture. \n\nPress a button to continue.")
-instruction2_text = visual.TextStim(win, pos=(0, 0), text="When you are instructed to administer the dose of Crave Crush or placebo, move slowly and wait until the last five seconds to put it in your mouth. \n\nPress a button to continue.")
-instruction3_text = visual.TextStim(win, pos=(0, 0), text="Remember to follow the instructions carefully. \n\nPress a button to continue.")
 fixation_text = visual.TextStim(win, text='+', pos=(0, 0), height=2)
 
-pumping_ready_text = visual.TextStim(win, text='Ready to pump. Press \'c\' to initiate.', pos=(0, 0))
 scan_trigger_text = visual.TextStim(win, text='Waiting for scan trigger...', pos=(0, 0))
-swallow_text = visual.TextStim(win, text='Swallow', pos=(0, 0))
-tampico_image = visual.ImageStim(win, image='tampico.jpg')
-water_image=visual.ImageStim(win, image='bottled_water.jpg')
-milk_image=visual.ImageStim(win, image='Milkshake.jpg')
-ratings_and_onsets = []
+
+
 
 #global settings
 diameter=26.59
@@ -119,7 +126,7 @@ delivery_time=2.0
 cue_time=2.0
 wait_time=2.0
 rinse_time=2.0
-#swallow_time=2.0
+
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 900
 
 #####################
@@ -148,7 +155,7 @@ print(trialcond,'trial conditions')
 
 ntrials=len(trialcond)
 pump=N.zeros(ntrials)
-#    pump zero is neutral, pump 1 is juice, pump 2 is milkshake
+#    pump zero is neutral, pump 1 is tasty, pump 2 is not tasty
 
 if info['color']=='red':
     pump[trialcond==1]=1 #tasty pump
@@ -169,16 +176,11 @@ subdata['trialdata']={}
 
 def run_block():
 
-    # Instructions (press any key to continue)
-    show_instruction(instruction1_text)
-    show_instruction(instruction2_text)
-    show_instruction(instruction3_text)
-
     # Await scan trigger
     while True:
         scan_trigger_text.draw()
         win.flip()
-        if 'c' in event.waitKeys():
+        if 'o' in event.waitKeys():
             break
         event.clearEvents()
 
@@ -190,6 +192,10 @@ def run_block():
     clock.reset()
     ratings_and_onsets.append(['start',t])
     for trial in range(ntrials):
+        if check_for_quit(subdata,win):
+            exptutils.shut_down_cleanly(subdata,win)
+            sys.exit()
+        
         trialdata={}
         trialdata['onset']=onsets[trial]
         visual_stim.setImage(stim_images[trialcond[trial]])

@@ -38,19 +38,19 @@ def make_onsets(run):
         x=preonsets[-1]+tlength[i]
         preonsets.append(x)
 #write file with the onset
-    f=open('/Users/nibl/Documents/taste_task/onset_files/onsets_'+run+'_'+datestamp, 'w')
+    f=open('/Users/nibl/Documents/taste_task/onset_files/onsets_'+run, 'w')
     print f
     for item in preonsets:
         print>>f, item
     f.close()
 #write file with the jitter    
-    g=open('/Users/nibl/Documents/taste_task/onset_files/jitter_'+run+'_'+datestamp, 'w')
+    g=open('/Users/nibl/Documents/taste_task/onset_files/jitter_'+run, 'w')
     print g
     for item in jitter2:
         print>>g, item
     g.close()
 #write file with conditions
-    h=open('/Users/nibl/Documents/taste_task/onset_files/conds_'+run+'_'+datestamp, 'w')
+    h=open('/Users/nibl/Documents/taste_task/onset_files/conds_'+run, 'w')
     print h
     for item in conds:
         print>>h, item
