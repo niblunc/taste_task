@@ -1,4 +1,7 @@
 # taste task. 09/07/2016
+# red=practice; blue=prediction error
+# run01 and run02 are practice
+# run03 and run04 are prediction error
 
 from psychopy import visual, core, data, gui, event, data, logging
 import csv
@@ -14,9 +17,8 @@ info['fullscr'] = False
 info['port'] = '/dev/tty.USA19H142P1.1'
 info['participant'] = 'test'
 info['run']=''
-info['onset']='/Users/nibl/Documents/taste_task/onset_files/onsets_run02_2016-09-08-10_06_53'
-info['jitter']='/Users/nibl/Documents/taste_task/onset_files/jitter_run02_2016-09-08-10_06_53'
-info['conds']='/Users/nibl/Documents/taste_task/onset_files/conds_run02_2016-09-08-10_06_53'
+info['color']=''
+
 dlg = gui.DlgFromDict(info)
 if not dlg.OK:
     core.quit()
@@ -41,6 +43,11 @@ subdata['is_this_SS_trial']={}
 subdata['SS']={}
 subdata['broke_on_trial']={}
 subdata['simulated_response']=False
+
+subdata['onset']='/Users/nibl/Documents/taste_task/onset_files/onsets_'+info['run']
+subdata['jitter']='/Users/nibl/Documents/taste_task/onset_files/jitter_'+info['run']
+subdata['conds']='/Users/nibl/Documents/taste_task/onset_files/conds_'+info['run']
+
 ##########################
 dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(info['participant'],subdata['datestamp'])
 logging.console.setLevel(logging.INFO)
@@ -114,32 +121,12 @@ wait_time=2.0
 rinse_time=2.0
 #swallow_time=2.0
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 900
-###########Grace notes##################
-#need to make 2 sets of runs with randomized onsets of 45 events each with random jitters
-#15 tasty, 15 not tasty, 15 neutral
-#need to make 2 sets of runs with 24 events per block of mismatched and matched, with 14 matched
 
-#Trials
-#trialcond=N.zeros(6).astype('int')
-#trialcond[0:2]=0    # water cue, water delivery
-#trialcond[2:4]=1    # juice cue, juice delivery
-#trialcond[4:6]=2    # third flavor and delivery
-#made an array of 0s and 1s
-#stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
-#ntrials=len(trialcond)#set 24 trials
-#pump=N.zeros(ntrials)#0 array, length 24
-#trial_length=10
-#onsets=N.arange(0,ntrials*trial_length,step=trial_length)
-
-#N.random.shuffle(trialcond)#randomize conditions
-
-# pump zero is neutral, pump 1 is juice
-#this will need another pump built in
 #####################
 #load in onset files#
 
 onsets=[]
-f=open(info['onset'],'r')
+f=open(subdata['onset'],'r')
 x = f.readlines()
 for i in x:
     onsets.append(i.strip())
@@ -148,7 +135,7 @@ onsets=[float(i) for i in onsets]
 print(onsets, 'onsets')
 
 jitter=[]
-g=open(info['jitter'],'r')
+g=open(subdata['jitter'],'r')
 y = g.readlines()
 for i in y:
     jitter.append(i.strip())
@@ -156,14 +143,33 @@ for i in y:
 jitter=[float(i) for i in jitter]
 print(jitter, 'jitter')
 
-trialcond=N.loadtxt(info['conds'], dtype='int')
+trialcond=N.loadtxt(subdata['conds'], dtype='int')
 print(trialcond,'trial conditions')
 
 ntrials=len(trialcond)
 pump=N.zeros(ntrials)
-pump[trialcond==1]=1
-pump[trialcond==2]=2
-stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
+#    pump zero is neutral, pump 1 is juice, pump 2 is milkshake
+#######practice############
+#pump[trialcond==1]=1
+#pump[trialcond==2]=2
+#stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
+###########################
+############prediction error################
+#pump[trailcond==0]=1 #tampico pump
+#pump[trialcond==1]=2 #milkshake pump
+#pump[trialcond==2]=2 #milkshake pump
+#stim_images=['tampico.jpg', 'Milkshake.jpg', 'Milkshake.jpg']
+
+if info['color']=='red':
+    pump[trialcond==1]=1 #tampico pump
+    pump[trialcond==2]=2 #milkshake pump
+    stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
+else:
+    stim_images=['tampico.jpg', 'Milkshake.jpg', 'Milkshake.jpg']
+    pump[trailcond==0]=1 #tampico pump
+    pump[trialcond==1]=2 #milkshake pump
+    pump[trialcond==2]=2 #milkshake pump
+
 subdata['trialdata']={}
 
             
