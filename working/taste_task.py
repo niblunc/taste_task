@@ -149,24 +149,14 @@ print(trialcond,'trial conditions')
 ntrials=len(trialcond)
 pump=N.zeros(ntrials)
 #    pump zero is neutral, pump 1 is juice, pump 2 is milkshake
-#######practice############
-#pump[trialcond==1]=1
-#pump[trialcond==2]=2
-#stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
-###########################
-############prediction error################
-#pump[trailcond==0]=1 #tampico pump
-#pump[trialcond==1]=2 #milkshake pump
-#pump[trialcond==2]=2 #milkshake pump
-#stim_images=['tampico.jpg', 'Milkshake.jpg', 'Milkshake.jpg']
 
 if info['color']=='red':
     pump[trialcond==1]=1 #tampico pump
     pump[trialcond==2]=2 #milkshake pump
     stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
 else:
-    stim_images=['tampico.jpg', 'Milkshake.jpg', 'Milkshake.jpg']
-    pump[trailcond==0]=1 #tampico pump
+    stim_images=['tampico.jpg', 'Milkshake.jpg', 'tampico.jpg']
+    pump[trialcond==0]=1 #tampico pump
     pump[trialcond==1]=2 #milkshake pump
     pump[trialcond==2]=2 #milkshake pump
 
@@ -193,11 +183,11 @@ def run_block():
         event.clearEvents()
 
     clock=core.Clock()
-    #for cycle in [0,1]:
     t = clock.getTime()
     ratings_and_onsets.append(['fixation',t])
-    show_stim(fixation_text, 2)  # 10 sec blank screen with fixation cross
+    show_stim(fixation_text, 8)  # 8 sec blank screen with fixation cross
     t = clock.getTime()
+    clock.reset()
     ratings_and_onsets.append(['start',t])
     for trial in range(ntrials):
         trialdata={}
@@ -217,13 +207,16 @@ def run_block():
             
         while clock.getTime()<(trialdata['onset']+cue_time):#show the image
             pass
+        
         print 'injecting via pump at address %d'%pump[trial]
         logging.log(logging.DATA,"injecting via pump at address %d"%pump[trial])
         t = clock.getTime()
         ratings_and_onsets.append(["injecting via pump at address %d"%pump[trial], t])
         ser.write('%drun\r'%pump[trial])
+
         while clock.getTime()<(trialdata['onset']+cue_time+delivery_time):
             pass
+        
         message=visual.TextStim(win, text='')
         message.draw()
         win.flip()
@@ -254,6 +247,7 @@ def run_block():
 
         while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
             pass
+        
         t = clock.getTime()
         ratings_and_onsets.append(['end time', t])
             
