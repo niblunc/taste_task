@@ -1,8 +1,10 @@
 # taste task. 09/07/2016
 # red=practice; blue=prediction error
-# run01 and run02 are practice (need to be paired with red)
-# run03 and run04 are prediction error (need to be paired with blue)
-
+# run01 and run02 are practice (need to be paired with red) length 8:13
+# run03 and run04 are prediction error (need to be paired with blue) length 4:25
+#the pkl file contains all study data as a back up including what files were used, useful for sanity checks
+#the csv file is easier to read
+#the log file also has onsets, but it has the time from when the .py file was initalized more accurate should be used for analysis
 from psychopy import visual, core, data, gui, event, data, logging
 import csv
 import time
@@ -181,6 +183,7 @@ def run_block():
         scan_trigger_text.draw()
         win.flip()
         if 'o' in event.waitKeys():
+            logging.log(logging.DATA, "start key press")
             break
         event.clearEvents()
 
@@ -191,6 +194,7 @@ def run_block():
     t = clock.getTime()
     clock.reset()
     ratings_and_onsets.append(['start',t])
+    #logging.log(logging.DATA, "start")
     for trial in range(ntrials):
         if check_for_quit(subdata,win):
             exptutils.shut_down_cleanly(subdata,win)
@@ -224,6 +228,7 @@ def run_block():
             pass
         
         message=visual.TextStim(win, text='')
+        #ratings_and_onsets.append(["wait", t])
         message.draw()
         win.flip()
             
@@ -242,6 +247,7 @@ def run_block():
             pass
 
         message=visual.TextStim(win, text='swallow')
+        #ratings_and_onsets.append(["swallow", t])
         message.draw()
         win.flip()
 
@@ -256,9 +262,10 @@ def run_block():
         
         t = clock.getTime()
         ratings_and_onsets.append(['end time', t])
-            
+        logging.log(logging.DATA,"finished")
         subdata['trialdata'][trial]=trialdata
     win.close()
+
 
 run_block()
 
