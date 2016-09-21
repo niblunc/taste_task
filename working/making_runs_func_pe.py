@@ -7,11 +7,11 @@ import datetime
 def make_onsets(run):
     datestamp=datetime.datetime.now().strftime("%Y-%m-%d-%H_%M_%S")
     print('check check')
-    jitter=N.zeros(45).astype('float')
+    jitter=N.zeros(24).astype('float')
 #trial conditions, need to change here for training or prediction error
-    jitter[0:27]=2.0 #60% 
-    jitter[27:40]=3.0 #30%
-    jitter[40:45]=6.0 #10%
+    jitter[0:15]=2.0 #60% 
+    jitter[15:22]=3.0 #30%
+    jitter[22:24]=6.0 #10%
 
     N.random.shuffle(jitter)
     njitter=len(jitter)
@@ -22,15 +22,20 @@ def make_onsets(run):
 
     tlength=jitter.tolist()
 
-    trialcond=N.zeros(45).astype('int')
-    trialcond[0:15]=0      # water cue, water delivery
-    trialcond[15:30]=1    # :) cue, :) delivery
-    trialcond[30:45]=2    # :( cue, :( delivery
+    trialcond=N.zeros(24).astype('int')
+    trialcond[0:7]=0     # :) cue, :) delivery
+    trialcond[7:14]=1    # :( cue, :( delivery
+    trialcond[14:24]=2   # :) cue, :( delivery
 
     N.random.shuffle(trialcond)
     conds=trialcond.tolist()
-#    ntrials=len(trialcond)#set 45 trials
-#    pump=N.zeros(ntrials)#0 array, length 45
+#    ntrials=len(trialcond)#set 24 trials
+#    pump=N.zeros(ntrials)#0 array, length 24
+#    pump zero is neutral, pump 1 is juice, pump 2 is milkshake
+#    pump[trailcond==0]=1 #tampico pump
+#    pump[trialcond==1]=2 #milkshake pump
+#    pump[trialcond==2]=2 #milkshake pump
+#    stim_images=['tampico.jpg', 'Milkshake.jpg', 'Milkshake.jpg']
 
     preonsets=[0]
     print(preonsets)
@@ -38,29 +43,23 @@ def make_onsets(run):
         x=preonsets[-1]+tlength[i]
         preonsets.append(x)
 #write file with the onset
-    f=open('/Users/nibl/Documents/taste_task/onset_files/onsets_'+run+'_'+datestamp, 'w')
+    f=open('/Users/nibl/Documents/taste_task/onset_files/onsets_'+run, 'w')
     print f
     for item in preonsets:
         print>>f, item
     f.close()
 #write file with the jitter    
-    g=open('/Users/nibl/Documents/taste_task/onset_files/jitter_'+run+'_'+datestamp, 'w')
+    g=open('/Users/nibl/Documents/taste_task/onset_files/jitter_'+run, 'w')
     print g
     for item in jitter2:
         print>>g, item
     g.close()
 #write file with conditions
-    h=open('/Users/nibl/Documents/taste_task/onset_files/conds_'+run+'_'+datestamp, 'w')
+    h=open('/Users/nibl/Documents/taste_task/onset_files/conds_'+run, 'w')
     print h
     for item in conds:
         print>>h, item
     h.close()
-
-
-#not 100% sure i need this   
-# pump zero is neutral, pump 1 is juice
-#    pump[trialcond==1]=1
-#    pump[trialcond==2]=2
     
 def main ():
 #input subject id to be run; this will generate an error message if no subject id is given

@@ -1,5 +1,10 @@
 # taste task. 09/07/2016
-
+# red=practice; blue=prediction error
+# run01 and run02 are practice (need to be paired with red) length 8:13
+# run03 and run04 are prediction error (need to be paired with blue) length 4:25
+#the pkl file contains all study data as a back up including what files were used, useful for sanity checks
+#the csv file is easier to read
+#the log file also has onsets, but it has the time from when the .py file was initalized more accurate should be used for analysis
 from psychopy import visual, core, data, gui, event, data, logging
 import csv
 import time
@@ -7,19 +12,24 @@ import serial
 import numpy as N
 import sys,os,pickle
 import datetime
+import exptutils
+from exptutils import *
 
 monSize = [800, 600]
 info = {}
 info['fullscr'] = False
 info['port'] = '/dev/tty.USA19H142P1.1'
 info['participant'] = 'test'
+info['run']=''
+info['color']=''
+
 dlg = gui.DlgFromDict(info)
 if not dlg.OK:
     core.quit()
 #######################################
 subdata={}
 
-subdata['subcode']='test'
+#subdata['subcode']='test'
 subdata['completed']=0
 subdata['cwd']=os.getcwd()
 
@@ -37,10 +47,17 @@ subdata['is_this_SS_trial']={}
 subdata['SS']={}
 subdata['broke_on_trial']={}
 subdata['simulated_response']=False
-##########################
-dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(subdata['subcode'],subdata['datestamp'])
+
+subdata['onset']='/Users/nibl/Documents/taste_task/onset_files/onsets_'+info['run']
+subdata['jitter']='/Users/nibl/Documents/taste_task/onset_files/jitter_'+info['run']
+subdata['conds']='/Users/nibl/Documents/taste_task/onset_files/conds_'+info['run']
+subdata['quit_key']='q'
+
+#######################################
+dataFileName='/Users/nibl/Documents/Output/%s_%s_subdata.log'%(info['participant'],subdata['datestamp'])
 logging.console.setLevel(logging.INFO)
 logfile=logging.LogFile(dataFileName,level=logging.DATA)
+ratings_and_onsets = []
 #######################################
 # Serial connection and commands setup
 ser = serial.Serial(
@@ -82,24 +99,27 @@ def show_stim(stim, seconds):
     for frame in range(60 * seconds):
         stim.draw()
         win.flip()
+        
+def check_for_quit(subdata,win):
+    k=event.getKeys()
+    print 'checking for quit key %s'%subdata['quit_key']
+    print 'found:',k
+    if k.count(subdata['quit_key']) >0:# if subdata['quit_key'] is pressed...
+        print 'quit key pressed'
+        return True
+    else:
+        return False
 
 # MONITOR
 win = visual.Window(monSize, fullscr=info['fullscr'],
                     monitor='testMonitor', units='deg')
 visual_stim=visual.ImageStim(win, image=N.zeros((300,300)), size=(0.75,0.75),units='height')
 # STIMS
-instruction1_text = visual.TextStim(win, pos=(0, 0), text="You will see pictures of a chocolate milkshake that will be followed by tastes of milkshake. At certain points, you will be asked for a rating from 0 to 4. \n\nUse the button box to rate your craving for chocolate milkshake after seeing the picture. \n\nPress a button to continue.")
-instruction2_text = visual.TextStim(win, pos=(0, 0), text="When you are instructed to administer the dose of Crave Crush or placebo, move slowly and wait until the last five seconds to put it in your mouth. \n\nPress a button to continue.")
-instruction3_text = visual.TextStim(win, pos=(0, 0), text="Remember to follow the instructions carefully. \n\nPress a button to continue.")
 fixation_text = visual.TextStim(win, text='+', pos=(0, 0), height=2)
 
-pumping_ready_text = visual.TextStim(win, text='Ready to pump. Press \'c\' to initiate.', pos=(0, 0))
 scan_trigger_text = visual.TextStim(win, text='Waiting for scan trigger...', pos=(0, 0))
-swallow_text = visual.TextStim(win, text='Swallow', pos=(0, 0))
-tampico_image = visual.ImageStim(win, image='tampico.jpg')
-water_image=visual.ImageStim(win, image='bottled_water.jpg')
-milk_image=visual.ImageStim(win, image='Milkshake.jpg')
-ratings_and_onsets = []
+
+
 
 #global settings
 diameter=26.59
@@ -108,59 +128,47 @@ delivery_time=2.0
 cue_time=2.0
 wait_time=2.0
 rinse_time=2.0
-#swallow_time=2.0
+
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 900
-###########Grace notes##################
-#need to make 2 sets of runs with randomized onsets of 45 events each with random jitters
-#15 tasty, 15 not tasty, 15 neutral
-#need to make 2 sets of runs with 24 events per block of mismatched and matched, with 14 matched
 
-#Trials
-#trialcond=N.zeros(6).astype('int')
-#trialcond[0:2]=0    # water cue, water delivery
-#trialcond[2:4]=1    # juice cue, juice delivery
-#trialcond[4:6]=2    # third flavor and delivery
-#made an array of 0s and 1s
-#stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
-#ntrials=len(trialcond)#set 24 trials
-#pump=N.zeros(ntrials)#0 array, length 24
-#trial_length=10
-#onsets=N.arange(0,ntrials*trial_length,step=trial_length)
-
-#N.random.shuffle(trialcond)#randomize conditions
-
-# pump zero is neutral, pump 1 is juice
-#this will need another pump built in
 #####################
 #load in onset files#
 
 onsets=[]
-f=open('/Users/nibl/Documents/taste_task/onset_files/onsets_run01_2016-09-07-16_30_37','r')
+f=open(subdata['onset'],'r')
 x = f.readlines()
-onsets=[]
 for i in x:
     onsets.append(i.strip())
 
 onsets=[float(i) for i in onsets]
-print(onsets)
+print(onsets, 'onsets')
 
 jitter=[]
-g=open('/Users/nibl/Documents/taste_task/onset_files/jitter_run01_2016-09-07-16_30_37','r')
+g=open(subdata['jitter'],'r')
 y = g.readlines()
 for i in y:
     jitter.append(i.strip())
     
 jitter=[float(i) for i in jitter]
-print(jitter)
+print(jitter, 'jitter')
 
-trialcond=N.loadtxt('/Users/nibl/Documents/taste_task/onset_files/conds_run01_2016-09-07-16_30_37', dtype='int')
-print(trialcond)
+trialcond=N.loadtxt(subdata['conds'], dtype='int')
+print(trialcond,'trial conditions')
 
 ntrials=len(trialcond)
 pump=N.zeros(ntrials)
-pump[trialcond==1]=1
-pump[trialcond==2]=2
-stim_images=['bottled_water.jpg','tampico.jpg', 'Milkshake.jpg']
+#    pump zero is neutral, pump 1 is tasty, pump 2 is not tasty
+
+if info['color']=='red':
+    pump[trialcond==1]=1 #tasty pump
+    pump[trialcond==2]=2 #not tasty pump
+    stim_images=['waterlogo.jpg','tasty.jpg', 'not_tasty.jpg']
+else:
+    stim_images=['tasty.jpg', 'not_tasty.jpg', 'tasty.jpg']
+    pump[trialcond==0]=1 #tasty pump
+    pump[trialcond==1]=2 #not tasty pump
+    pump[trialcond==2]=2 #not tasty pump
+
 subdata['trialdata']={}
 
             
@@ -170,83 +178,107 @@ subdata['trialdata']={}
 
 def run_block():
 
-    # Instructions (press any key to continue)
-    show_instruction(instruction1_text)
-    show_instruction(instruction2_text)
-    show_instruction(instruction3_text)
-
     # Await scan trigger
     while True:
         scan_trigger_text.draw()
         win.flip()
-        if 'c' in event.waitKeys():
+        if 'o' in event.waitKeys():
+            logging.log(logging.DATA, "start key press")
             break
         event.clearEvents()
 
     clock=core.Clock()
-    for cycle in [0,1]:
-        t = clock.getTime()
-        ratings_and_onsets.append(['fixation',t])
-        show_stim(fixation_text, 2)  # 10 sec blank screen with fixation cross
-        t = clock.getTime()
-        for trial in range(ntrials):
-                    
-            trialdata={}
-            trialdata['onset']=onsets[trial]
-            visual_stim.setImage(stim_images[trialcond[trial]])
-            print trial
-            print 'condition %d'%trialcond[trial]
-            print 'showing image: %s'%stim_images[trialcond[trial]]
-            visual_stim.draw()
-            logging.log(logging.DATA, "image=%s"%stim_images[trialcond[trial]])
-            
-            while clock.getTime()<trialdata['onset']:
-                pass
-            win.flip()
-            
-            while clock.getTime()<(trialdata['onset']+cue_time):#show the image
-                pass
-            print 'injecting via pump at address %d'%pump[trial]
-            logging.log(logging.DATA,"injecting via pump at address %d"%pump[trial])
-            ser.write('%drun\r'%pump[trial])
-            while clock.getTime()<(trialdata['onset']+cue_time+delivery_time):
-                pass
-            message=visual.TextStim(win, text='')
-            message.draw()
-            win.flip()
-            
-            trialdata['dis']=[ser.write('0DIS\r'),ser.write('1DIS\r')]
-            print(trialdata['dis'])
-
-            while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time):
-                pass
-            
-            print 'injecting rinse via pump at address %d'%0
-            ser.write('%dRUN\r'%0)
+    t = clock.getTime()
+    ratings_and_onsets.append(['fixation',t])
+    show_stim(fixation_text, 8)  # 8 sec blank screen with fixation cross
+    t = clock.getTime()
+    clock.reset()
+    ratings_and_onsets.append(['start',t])
+    #logging.log(logging.DATA, "start")
+    for trial in range(ntrials):
+        if check_for_quit(subdata,win):
+            exptutils.shut_down_cleanly(subdata,win)
+            sys.exit()
         
-            while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
-                pass
-
-            message=visual.TextStim(win, text='swallow')
-            message.draw()
-            win.flip()
-
-            while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
-                pass
-            message=visual.TextStim(win, text='')
-            message.draw()
-            win.flip()
-
-            while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
-                pass
+        trialdata={}
+        trialdata['onset']=onsets[trial]
+        visual_stim.setImage(stim_images[trialcond[trial]])
+        print trial
+        print 'condition %d'%trialcond[trial]
+        print 'showing image: %s'%stim_images[trialcond[trial]]
+        t = clock.getTime()
+        ratings_and_onsets.append(["image=%s"%stim_images[trialcond[trial]],t])
+        visual_stim.draw()
+        logging.log(logging.DATA, "image=%s"%stim_images[trialcond[trial]])
             
-            subdata['trialdata'][trial]=trialdata
-        win.close()
+        while clock.getTime()<trialdata['onset']:
+            pass
+        win.flip()
+            
+        while clock.getTime()<(trialdata['onset']+cue_time):#show the image
+            pass
+        
+        print 'injecting via pump at address %d'%pump[trial]
+        logging.log(logging.DATA,"injecting via pump at address %d"%pump[trial])
+        t = clock.getTime()
+        ratings_and_onsets.append(["injecting via pump at address %d"%pump[trial], t])
+        ser.write('%drun\r'%pump[trial])
+
+        while clock.getTime()<(trialdata['onset']+cue_time+delivery_time):
+            pass
+        
+        message=visual.TextStim(win, text='')
+        #ratings_and_onsets.append(["wait", t])
+        message.draw()
+        win.flip()
+            
+        trialdata['dis']=[ser.write('0DIS\r'),ser.write('1DIS\r')]
+        print(trialdata['dis'])
+
+        while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time):
+            pass
+            
+        print 'injecting rinse via pump at address %d'%0
+        t = clock.getTime()
+        ratings_and_onsets.append(['injecting rinse via pump at address %d'%0, t])
+        ser.write('%dRUN\r'%0)
+        
+        while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
+            pass
+
+        message=visual.TextStim(win, text='swallow')
+        #ratings_and_onsets.append(["swallow", t])
+        message.draw()
+        win.flip()
+
+        while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
+            pass
+        message=visual.TextStim(win, text='')
+        message.draw()
+        win.flip()
+
+        while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
+            pass
+        
+        t = clock.getTime()
+        ratings_and_onsets.append(['end time', t])
+        logging.log(logging.DATA,"finished")
+        subdata['trialdata'][trial]=trialdata
+    win.close()
+
 
 run_block()
 
+subdata.update(info)
 f=open('/Users/nibl/Documents/Output/liquid_subdata_%s.pkl'%datestamp,'wb')
 pickle.dump(subdata,f)
 f.close()
+
+myfile = open('/Users/nibl/Documents/Output/liquid_subdata_%s.csv'%datestamp.format(**info), 'wb')
+wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+wr.writerow(['event','data'])
+for row in ratings_and_onsets:
+    wr.writerow(row)
+
 
 core.quit()
