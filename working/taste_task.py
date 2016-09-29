@@ -1,7 +1,7 @@
 # taste task. 09/07/2016
 # red=practice; blue=prediction error
 # run01 and run02 are practice (need to be paired with red) length 8:13
-# run03 and run04 are prediction error (need to be paired with blue) length 4:25
+# run03 and run04 are prediction error (need to be paired with blue) length 6:00
 #the pkl file contains all study data as a back up including what files were used, useful for sanity checks
 #the csv file is easier to read
 #the log file also has onsets, but it has the time from when the .py file was initalized more accurate should be used for analysis
@@ -122,10 +122,11 @@ scan_trigger_text = visual.TextStim(win, text='Waiting for scan trigger...', pos
 
 
 #global settings
+#if these are changed you need to change the onset length in the create onset files
 diameter=26.59
 mls_to_deliver=0.5
-delivery_time=2.0
-cue_time=2.0
+delivery_time=3.0
+cue_time=3.0
 wait_time=2.0
 rinse_time=2.0
 
