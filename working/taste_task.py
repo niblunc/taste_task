@@ -73,7 +73,7 @@ if not ser.isOpen():
 time.sleep(1)
 
 pump_setup = ['0VOL ML\r', '1VOL ML\r', '2VOL ML\r']
-pump_phases=['0PHN01\r','1PHN01\r', '2PHN01\r','0CLDINF\r','1CLDINF\r','2CLDINF\r','0DIRINF\r','1DIRINF\r','2DIRINF\r','0RAT900MH\r','1RAT900MH\r','2RAT900MH\r','0VOL0.5\r','1VOL0.5\r', '2VOL0.5\r','0DIA26.95MH\r','1DIA26.95MH\r', '2DIA26.95MH\r']
+pump_phases=['0PHN01\r','1PHN01\r', '2PHN01\r','0CLDINF\r','1CLDINF\r','2CLDINF\r','0DIRINF\r','1DIRINF\r','2DIRINF\r','0RAT600MH\r','1RAT600MH\r','2RAT600MH\r','0VOL0.5\r','1VOL0.5\r', '2VOL0.5\r','0DIA26.95MH\r','1DIA26.95MH\r', '2DIA26.95MH\r']
 
 for c in pump_setup:
     ser.write(c)
@@ -123,6 +123,7 @@ scan_trigger_text = visual.TextStim(win, text='Waiting for scan trigger...', pos
 
 #global settings
 #if these are changed you need to change the onset length in the create onset files
+#also need to change the rate above because it is hardcoded
 diameter=26.59
 mls_to_deliver=0.5
 delivery_time=3.0
@@ -130,7 +131,7 @@ cue_time=3.0
 wait_time=2.0
 rinse_time=2.0
 
-rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 900
+rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 600
 
 #####################
 #load in onset files#
