@@ -217,7 +217,12 @@ def run_block():
             
         while clock.getTime()<(trialdata['onset']+cue_time):#show the image
             pass
-        
+
+        message=visual.TextStim(win, text='')
+        #ratings_and_onsets.append(["wait", t])
+        message.draw()
+        win.flip()
+
         print 'injecting via pump at address %d'%pump[trial]
         logging.log(logging.DATA,"injecting via pump at address %d"%pump[trial])
         t = clock.getTime()
