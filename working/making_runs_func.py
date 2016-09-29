@@ -9,9 +9,9 @@ def make_onsets(run):
     print('check check')
     jitter=N.zeros(45).astype('float')
 #trial conditions, need to change here for training or prediction error
-    jitter[0:27]=2.0 #60% 
-    jitter[27:40]=3.0 #30%
-    jitter[40:45]=6.0 #10%
+    jitter[0:27]=4.0 #60% 
+    jitter[27:40]=5.0 #30%
+    jitter[40:45]=8.0 #10%
 
     N.random.shuffle(jitter)
     njitter=len(jitter)

@@ -124,8 +124,8 @@ scan_trigger_text = visual.TextStim(win, text='Waiting for scan trigger...', pos
 #global settings
 diameter=26.59
 mls_to_deliver=0.5
-delivery_time=2.0
-cue_time=2.0
+delivery_time=3.0
+cue_time=3.0
 wait_time=2.0
 rinse_time=2.0
 
@@ -251,7 +251,7 @@ def run_block():
         while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
             pass
 
-        message=visual.TextStim(win, text='swallow')
+        message=visual.TextStim(win, text='')
         #ratings_and_onsets.append(["swallow", t])
         message.draw()
         win.flip()
