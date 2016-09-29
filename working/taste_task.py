@@ -73,7 +73,7 @@ if not ser.isOpen():
 time.sleep(1)
 
 pump_setup = ['0VOL ML\r', '1VOL ML\r', '2VOL ML\r']
-pump_phases=['0PHN01\r','1PHN01\r', '2PHN01\r','0CLDINF\r','1CLDINF\r','2CLDINF\r','0DIRINF\r','1DIRINF\r','2DIRINF\r','0RAT600MH\r','1RAT600MH\r','2RAT600MH\r','0VOL0.5\r','1VOL0.5\r', '2VOL0.5\r','0DIA26.95MH\r','1DIA26.95MH\r', '2DIA26.95MH\r']
+pump_phases=['0PHN01\r','1PHN01\r', '2PHN01\r','0CLDINF\r','1CLDINF\r','2CLDINF\r','0DIRINF\r','1DIRINF\r','2DIRINF\r','0RAT600MH\r','1RAT600MH\r','2RAT600MH\r', '0VOL0.5\r','1VOL0.5\r', '2VOL0.5\r','0DIA26.95MH\r','1DIA26.95MH\r', '2DIA26.95MH\r']
 
 for c in pump_setup:
     ser.write(c)
@@ -129,7 +129,7 @@ mls_to_deliver=0.5
 delivery_time=3.0
 cue_time=3.0
 wait_time=2.0
-rinse_time=2.0
+rinse_time=3.0
 
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 600
 

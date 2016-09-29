@@ -9,16 +9,16 @@ def make_onsets(run):
     print('check check')
     jitter=N.zeros(24).astype('float')
 #trial conditions, need to change here for training or prediction error
-    jitter[0:15]=4.0 #60% 
-    jitter[15:22]=5.0 #30%
-    jitter[22:24]=8.0 #10%
+    jitter[0:15]=5.0 #60% 
+    jitter[15:22]=6.0 #30%
+    jitter[22:24]=9.0 #10%
 
     N.random.shuffle(jitter)
     njitter=len(jitter)
     jitter2=jitter.tolist()
 #this will make the random trial_lengths
     for x in N.nditer(jitter, op_flags=['readwrite']):
-        x[...] = 10 + x
+        x[...] = 11 + x
 
     tlength=jitter.tolist()
 
