@@ -11,7 +11,7 @@ def make_onsets(run):
 #trial conditions, need to change here for training or prediction error
     jitter[0:15]=4.0 #60% 
     jitter[15:22]=5.0 #30%
-    jitter[22:24]=9.0 #10%
+    jitter[22:24]=11.0 #10%
 
     N.random.shuffle(jitter)
     njitter=len(jitter)
