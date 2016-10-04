@@ -23,9 +23,9 @@ def make_onsets(run):
     tlength=jitter.tolist()
 
     trialcond=N.zeros(24).astype('int')
-    trialcond[0:7]=0     # :) cue, :) delivery
-    trialcond[7:14]=1    # :( cue, :( delivery
-    trialcond[14:24]=2   # :) cue, :( delivery
+    trialcond[0:7]=0     # :) cue, :) delivery 30%
+    trialcond[7:14]=1    # :( cue, :( delivery 30%
+    trialcond[14:24]=2   # :) cue, :( delivery 40%
 
     N.random.shuffle(trialcond)
     conds=trialcond.tolist()
