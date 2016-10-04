@@ -7,25 +7,25 @@ import datetime
 def make_onsets(run):
     datestamp=datetime.datetime.now().strftime("%Y-%m-%d-%H_%M_%S")
     print('check check')
-    jitter=N.zeros(45).astype('float')
+    jitter=N.zeros(43).astype('float')
 #trial conditions, need to change here for training or prediction error
-    jitter[0:27]=4.0 #60% 
-    jitter[27:40]=5.0 #30%
-    jitter[40:45]=11.0 #10%
+    jitter[0:25]=4.0 #60% 
+    jitter[25:38]=5.0 #30%
+    jitter[38:43]=11.0 #10%
 
     N.random.shuffle(jitter)
     njitter=len(jitter)
     jitter2=jitter.tolist()
 #this will make the random trial_lengths
     for x in N.nditer(jitter, op_flags=['readwrite']):
-        x[...] = 10 + x
+        x[...] = 8.5 + x
 
     tlength=jitter.tolist()
 
-    trialcond=N.zeros(45).astype('int')
-    trialcond[0:15]=0      # water cue, water delivery
-    trialcond[15:30]=1    # :) cue, :) delivery
-    trialcond[30:45]=2    # :( cue, :( delivery
+    trialcond=N.zeros(43).astype('int')
+    trialcond[0:13]=0      # water cue, water delivery
+    trialcond[13:28]=1    # :) cue, :) delivery
+    trialcond[28:43]=2    # :( cue, :( delivery
 
     N.random.shuffle(trialcond)
     conds=trialcond.tolist()

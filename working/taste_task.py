@@ -127,8 +127,8 @@ scan_trigger_text = visual.TextStim(win, text='Waiting for scan trigger...', pos
 diameter=26.59
 mls_to_deliver=0.5
 delivery_time=3.0
-cue_time=2.0
-wait_time=2.0
+cue_time=1.0
+wait_time=1.5
 rinse_time=3.0
 
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 600
