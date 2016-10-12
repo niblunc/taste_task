@@ -1,6 +1,19 @@
 #small script to prime pumps
 import time
 import serial
+from psychopy import visual, core, data, gui, event, data, logging
+
+
+monSize = [800, 600]
+info = {}
+
+info['port'] = '/dev/tty.USA19H141P1.1'
+info['volume']='40'
+info['time_sec']='10'
+
+dlg = gui.DlgFromDict(info)
+if not dlg.OK:
+    core.quit()
 
 ser = serial.Serial(
                     port='/dev/tty.USA19H141P1.1',
@@ -12,24 +25,30 @@ ser = serial.Serial(
 if not ser.isOpen():
     ser.open()
 
-pump_setup = ['0VOL ML\r', '1VOL ML\r', '2VOL ML\r']
-pump_phases=['0PHN01\r','1PHN01\r', '2PHN01\r','0CLDINF\r','1CLDINF\r','2CLDINF\r','0DIRINF\r','1DIRINF\r','2DIRINF\r','0RAT1800MH\r','1RAT1800MH\r','2RAT1800MH\r', '0VOL5.0\r','1VOL5.0\r', '2VOL5.0\r','0DIA26.95MH\r','1DIA26.95MH\r', '2DIA26.95MH\r']
 
-#rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 300
+time_sec = float(info['time_sec'])
+print time
+volume = float(info['volume'])
+print volume
+rate = volume*(3600.0/time_sec)  # mls/hour 300
+print rate
+
+pump_setup = ['0VOL ML\r', '1VOL ML\r', '2VOL ML\r']
+pump_phases=['0PHN01\r','1PHN01\r', '2PHN01\r','0CLDINF\r','1CLDINF\r','2CLDINF\r','0DIRINF\r','1DIRINF\r','2DIRINF\r','0RAT%sMH\r'%rate,'1RAT%sMH\r'%rate,'2RAT%sMH\r'%rate,'0VOL%s\r'%volume,'1VOL%s\r'%volume, '2VOL%s\r'%volume,'0DIA26.95MH\r','1DIA26.95MH\r', '2DIA26.95MH\r']
 
 
 for c in pump_setup:
-    print(c)
     ser.write(c)
     time.sleep(.25)
 
 for c in pump_phases:
+    #print(c)
     ser.write(c)
     time.sleep(.25)
    
 for x in range(len(pump_setup)):
     y='%dRUN\r'%x
-    print(y)
+    #print(y)
     ser.write(y)
     time.sleep(.25)
     
