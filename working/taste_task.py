@@ -2,6 +2,7 @@
 # red=practice; blue=prediction error
 # run01 and run02 are practice (need to be paired with red) length 11:30
 # run03 and run04 are prediction error (need to be paired with blue) length 6:10
+#nontask 19:52 sec
 #TR 2 sec
 #the pkl file contains all study data as a back up including what files were used, useful for sanity checks
 #the csv file is easier to read
@@ -19,7 +20,7 @@ from exptutils import *
 monSize = [800, 600]
 info = {}
 info['fullscr'] = False
-info['port'] = '/dev/tty.USA19H141P1.1'
+info['port'] = '/dev/tty.USA19H142P1.1'
 info['participant'] = 'test'
 info['run']=''
 info['color']=''
@@ -205,13 +206,13 @@ def run_block():
         
         trialdata={}
         trialdata['onset']=onsets[trial]
-        visual_stim.setImage(stim_images[trialcond[trial]])
+        visual_stim.setImage(stim_images[trialcond[trial]])#set which image appears
         print trial
         print 'condition %d'%trialcond[trial]
         print 'showing image: %s'%stim_images[trialcond[trial]]
         t = clock.getTime()
         ratings_and_onsets.append(["image=%s"%stim_images[trialcond[trial]],t])
-        visual_stim.draw()
+        visual_stim.draw()#making image of the logo appear
         logging.log(logging.DATA, "image=%s"%stim_images[trialcond[trial]])
             
         while clock.getTime()<trialdata['onset']:
@@ -221,8 +222,7 @@ def run_block():
         while clock.getTime()<(trialdata['onset']+cue_time):#show the image
             pass
 
-        message=visual.TextStim(win, text='')
-        #ratings_and_onsets.append(["wait", t])
+        message=visual.TextStim(win, text='')#blank screen while the taste is delivered
         message.draw()
         win.flip()
 
@@ -235,17 +235,22 @@ def run_block():
         while clock.getTime()<(trialdata['onset']+cue_time+delivery_time):
             pass
         
-        message=visual.TextStim(win, text='')
-        #ratings_and_onsets.append(["wait", t])
+        message=visual.TextStim(win, text='wait', pos=(0, 0), height=2)#this lasts throught the wait
         message.draw()
         win.flip()
-            
+        t = clock.getTime()
+        ratings_and_onsets.append(["wait", t])
+        
         trialdata['dis']=[ser.write('0DIS\r'),ser.write('1DIS\r')]
         print(trialdata['dis'])
 
         while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time):
             pass
-            
+        
+        message=visual.TextStim(win, text='rinse', pos=(0, 0), height=2)#this lasts throught the rinse 
+        message.draw()
+        win.flip()
+                
         print 'injecting rinse via pump at address %d'%0
         t = clock.getTime()
         ratings_and_onsets.append(['injecting rinse via pump at address %d'%0, t])
@@ -254,16 +259,18 @@ def run_block():
         while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
             pass
 
-        message=visual.TextStim(win, text='+')
-        #ratings_and_onsets.append(["swallow", t])
+        
+        message=visual.TextStim(win, text='jitter', pos=(0, 0), height=2)#lasts through the jitter 
         message.draw()
         win.flip()
+        t = clock.getTime()
+        ratings_and_onsets.append(["jitter", t])
 
-        while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
-            pass
-        message=visual.TextStim(win, text='')
-        message.draw()
-        win.flip()
+#        while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
+#            pass
+#        message=visual.TextStim(win, text='')
+#        message.draw()
+#        win.flip()
 
         while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
             pass
