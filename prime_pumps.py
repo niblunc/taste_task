@@ -42,13 +42,11 @@ for c in pump_setup:
     time.sleep(.25)
 
 for c in pump_phases:
-    #print(c)
     ser.write(c)
     time.sleep(.25)
    
 for x in range(len(pump_setup)):
     y='%dRUN\r'%x
-    #print(y)
     ser.write(y)
     time.sleep(.25)
     
