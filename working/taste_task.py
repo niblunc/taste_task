@@ -130,7 +130,7 @@ diameter=26.59
 mls_to_deliver=0.5
 delivery_time=3.0
 cue_time=1.0
-wait_time=3.0
+wait_time=4.0
 rinse_time=3.0
 
 rate = mls_to_deliver*(3600.0/delivery_time)  # mls/hour 300
@@ -235,7 +235,7 @@ def run_block():
         while clock.getTime()<(trialdata['onset']+cue_time+delivery_time):
             pass
         
-        message=visual.TextStim(win, text='wait', pos=(0, 0), height=2)#this lasts throught the wait
+        message=visual.TextStim(win, text='+', pos=(0, 0), height=2)#this lasts throught the wait
         message.draw()
         win.flip()
         t = clock.getTime()
@@ -247,7 +247,7 @@ def run_block():
         while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time):
             pass
         
-        message=visual.TextStim(win, text='rinse', pos=(0, 0), height=2)#this lasts throught the rinse 
+        message=visual.TextStim(win, text='', pos=(0, 0), height=2)#this lasts throught the rinse 
         message.draw()
         win.flip()
                 
@@ -259,18 +259,11 @@ def run_block():
         while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
             pass
 
-        
-        message=visual.TextStim(win, text='jitter', pos=(0, 0), height=2)#lasts through the jitter 
+        message=visual.TextStim(win, text='+', pos=(0, 0), height=2)#lasts through the jitter 
         message.draw()
         win.flip()
         t = clock.getTime()
         ratings_and_onsets.append(["jitter", t])
-
-#        while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
-#            pass
-#        message=visual.TextStim(win, text='')
-#        message.draw()
-#        win.flip()
 
         while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time+jitter[trial]):
             pass
