@@ -1,7 +1,8 @@
 # taste task. 10/06/2016
 # red=practice; blue=prediction error
-# run01 and run02 are practice (need to be paired with red) length 10:02
-# run03 and run04 are prediction error (need to be paired with blue) length 5:36
+# run01 and run02 are practice (need to be paired with red) length 11:30
+# run03 and run04 are prediction error (need to be paired with blue) length 6:10
+#TR 2 sec
 #the pkl file contains all study data as a back up including what files were used, useful for sanity checks
 #the csv file is easier to read
 #the log file also has onsets, but it has the time from when the .py file was initalized more accurate should be used for analysis
@@ -253,7 +254,7 @@ def run_block():
         while clock.getTime()<(trialdata['onset']+cue_time+delivery_time+wait_time+rinse_time):
             pass
 
-        message=visual.TextStim(win, text='')
+        message=visual.TextStim(win, text='+')
         #ratings_and_onsets.append(["swallow", t])
         message.draw()
         win.flip()

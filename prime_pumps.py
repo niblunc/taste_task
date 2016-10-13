@@ -9,14 +9,14 @@ info = {}
 
 info['port'] = '/dev/tty.USA19H141P1.1'
 info['volume']='40'
-info['time_sec']='10'
+info['time_sec']='5'
 
 dlg = gui.DlgFromDict(info)
 if not dlg.OK:
     core.quit()
 
 ser = serial.Serial(
-                    port='/dev/tty.USA19H141P1.1',
+                    port='/dev/tty.USA19H142P1.1',
                     baudrate=19200,
                     parity=serial.PARITY_NONE,
                     stopbits=serial.STOPBITS_ONE,
