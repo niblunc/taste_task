@@ -1,7 +1,7 @@
-# taste task. 10/06/2016
+# taste task. 10/17/2016
 # red=practice; blue=prediction error
-# run01 and run02 are practice (need to be paired with red) length 11:30
-# run03 and run04 are prediction error (need to be paired with blue) length 6:10
+# run01 and run02 are practice (need to be paired with red) length 11:40
+# run03 and run04 are prediction error (need to be paired with blue) length 6:29
 #nontask 19:52 sec
 #TR 2 sec
 #the pkl file contains all study data as a back up including what files were used, useful for sanity checks
